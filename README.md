@@ -1,0 +1,4 @@
+flexi-core-system
+=================
+
+The core "Flexi System" rules
