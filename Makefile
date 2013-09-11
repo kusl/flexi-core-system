@@ -37,3 +37,8 @@ run_production: ini_production
 
 shell:
 	env/bin/pshell $(INI_DEV)
+
+start_webapp_daemon:
+	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/development.ini"
+stop_webapp_daemon:
+	start-stop-daemon --stop  --pidfile webapp.pid && rm webapp.pid
