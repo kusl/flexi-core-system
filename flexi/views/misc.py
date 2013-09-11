@@ -7,10 +7,16 @@ log = logging.getLogger(__name__)
 #-------------------------------------------------------------------------------
 # Misc
 #-------------------------------------------------------------------------------
-@view_config(route_name='home')
-def home(request):
+
+@view_config(route_name='root')
+def root(request):
+    request.matchdict['path'] = 'index'
+    return mako_renderer(request)
+
+@view_config(route_name='mako_renderer')
+def mako_renderer(request):
     return render_to_response(
-        'flexi:templates/html/{0}.mako'.format('home'),
+        'flexi:templates/html/{0}.mako'.format(request.matchdict.get('path','index')),
         request.matchdict,
         request=request,
     )

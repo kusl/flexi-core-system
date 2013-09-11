@@ -9,3 +9,8 @@ import random
 
 from ..lib.misc import get_fileext, substring_in
 
+def a(path):
+    return path
+
+def static(path):
+    return '/static/'+path
