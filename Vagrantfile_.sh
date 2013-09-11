@@ -33,9 +33,11 @@ sudo -u vagrant sh << EOF
 set -e
 
 # Vagrant does not update the HOME env when switching to normal 'vagrant' user
-HOME="/home/vagrant"
-
+HOME=$HOME
 cd $HOME
+#GIT_PROJECT_NAME="flexi-core-system"
+
+
 if [ -f "$GIT_PROJECT_NAME" ]
 then
 	echo "codebase already checked out"
@@ -46,14 +48,7 @@ fi
 # Setup Website Python Project
 cd $HOME/$GIT_PROJECT_NAME
 make setup
-#make test
 
-#echo 'Setup nginx and PostgreSQL'
-#cd $HOME/$GIT_PROJECT_NAME/server
-#sudo make setup
-
-#echo 'Symlink templates and static with host /vagrant share'
-#ln -s /vagrant $HOME/$GIT_PROJECT_NAME/thing
 
 echo 'Installation complete'
 touch $INSTALLED_FILE
