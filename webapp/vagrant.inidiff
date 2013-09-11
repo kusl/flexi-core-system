@@ -1,0 +1,2 @@
+static.assets = /vagrant/content/static
+mako.directories = /vagrant/content/templates

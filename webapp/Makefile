@@ -1,5 +1,6 @@
 INI_DEV  = development.ini
 INI_PROD = production.ini
+INI_VAGRANT = vagrant.ini
 
 help:
 	# Usage: make <target>, where target is
@@ -38,7 +39,10 @@ run_production: ini_production
 shell:
 	env/bin/pshell $(INI_DEV)
 
-start_webapp_daemon:
-	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/development.ini"
+ini_vagrant:
+	env/bin/python3 flexi/scripts/make_ini.py vagrant
+
+start_webapp_daemon: ini_vagrant
+	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/$(INI_VAGRANT)"
 stop_webapp_daemon:
 	start-stop-daemon --stop  --pidfile webapp.pid && rm webapp.pid
