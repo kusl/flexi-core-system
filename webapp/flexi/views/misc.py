@@ -16,7 +16,7 @@ def root(request):
 @view_config(route_name='mako_renderer')
 def mako_renderer(request):
     return render_to_response(
-        'flexi:templates/html/{0}.mako'.format(request.matchdict.get('path','index')),
+        '{0}.mako'.format(request.matchdict.get('path','index')), #flexi:templates/html/
         request.matchdict,
         request=request,
     )

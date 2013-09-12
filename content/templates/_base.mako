@@ -8,14 +8,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- CSS Styles -->
-        <link href="${h.static('css/site.css')}" rel="stylesheet">
-        <link href="${h.static('css/ui-lightness/jquery-ui-1.10.2.custom.css')}" rel="stylesheet">
-        <link href="${h.static('css/bootstrap.css')}" rel="stylesheet" media="screen">
+        <link href="${h.asset('css/site.css')}" rel="stylesheet">
+        <link href="${h.asset('css/ui-lightness/jquery-ui-1.10.2.custom.css')}" rel="stylesheet">
+        <link href="${h.asset('css/bootstrap.css')}" rel="stylesheet" media="screen">
 		
         <!-- Javascript -->
-        <script src="${h.static('js/jquery-1.9.1.js')}"></script>
-        <script src="${h.static('js/jquery-ui-1.10.2.custom.js')}"></script>
-        <script src="${h.static('js/bootstrap.min.js')}"></script>
+        <script src="${h.asset('js/jquery-1.9.1.js')}"></script>
+        <script src="${h.asset('js/jquery-ui-1.10.2.custom.js')}"></script>
+        <script src="${h.asset('js/bootstrap.min.js')}"></script>
 
     </head>
     

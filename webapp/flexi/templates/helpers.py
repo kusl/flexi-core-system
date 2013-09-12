@@ -12,5 +12,8 @@ from ..lib.misc import get_fileext, substring_in
 def a(path):
     return path
 
+def asset(path):
+    return '/assets/'+path
+
 def static(path):
     return '/static/'+path

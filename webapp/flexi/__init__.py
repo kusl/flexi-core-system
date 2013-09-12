@@ -35,7 +35,8 @@ def main(global_config, **settings):
     # Routes -------------------------------------------------------------------
     
     # Static Routes
-    config.add_static_view(name='static', path='flexi:{0}'.format(settings["static.assets"])) #cache_max_age=3600 # settings["static.assets"]    
+    config.add_static_view(name='assets', path=settings["static.assets"]) #cache_max_age=3600
+    config.add_static_view(name='static', path=settings["static.content"])
     
     config.add_route('root', '/') # To be replaced with traversal eventually
     config.add_route('mako_renderer', '/{path:.*}') # To be replaced with traversal eventually
