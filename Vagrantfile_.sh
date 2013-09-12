@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -e
 
 # Variables --------------------------------------------------------------------
@@ -11,20 +10,20 @@ GIT_PROJECT_NAME="flexi-core-system"
 INSTALLED_FILE="$HOME/.installed"
 # Check if installation required
 
-if [ -f "$INSTALLED_FILE" ]
+if [ -x "$INSTALLED_FILE" ]
 then
 	echo "Install previously completed"
 else
-	echo "Installing packages"
 
 # Root Setup -------------------------------------------------------------------
 
-#if dpkg -s git ; then
-#    echo prerequesits already installed
-#else
-apt-get update
-apt-get install -y git make
-#fi
+if dpkg -s git ; then
+    echo "Packages already installed"
+else
+    echo "Installing packages"
+    apt-get update
+    apt-get install -y git make
+fi
 
 
 # User Setup -------------------------------------------------------------------
@@ -35,18 +34,16 @@ set -e
 # Vagrant does not update the HOME env when switching to normal 'vagrant' user
 HOME=$HOME
 cd $HOME
-#GIT_PROJECT_NAME="flexi-core-system"
 
-
-if [ -f "$GIT_PROJECT_NAME" ]
+if [ -x "$GIT_PROJECT_NAME" ]
 then
-	echo "codebase already checked out"
+	echo "Codebase already checked out"
 else
 	git clone $GIT_REPO
 fi
 
 # Setup Website Python Project
-cd $HOME/$GIT_PROJECT_NAME
+cd $HOME/$GIT_PROJECT_NAME/webapp
 make setup
 
 
@@ -61,7 +58,7 @@ fi
 # VM Startup -------------------------------------------------------------------
 sudo -u vagrant sh << EOF
 set +e
-cd $HOME/$GIT_PROJECT_NAME
+cd $HOME/$GIT_PROJECT_NAME/webapp
 echo 'Updating repo'
 git pull
 echo 'Start server daemon'
