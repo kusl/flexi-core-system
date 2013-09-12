@@ -17,13 +17,14 @@ else
 
 # Root Setup -------------------------------------------------------------------
 
-if dpkg -s git ; then
-    echo "Packages already installed"
-else
+# TODO: FIX THIS
+#if dpkg -s git ; then
+#    echo "Packages already installed"
+#else
     echo "Installing packages"
     apt-get update
     apt-get install -y git make
-fi
+#fi
 
 
 # User Setup -------------------------------------------------------------------
