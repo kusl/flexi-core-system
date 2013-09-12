@@ -138,24 +138,59 @@
     
     <h2>Damage Roll</h2>
     
-    <p>If the attack is successful then the attacker gets to roll damage. The type of dice, and the number of them you roll, is determined by the weapon used. The type of attack, light, medium or heavy, multiplies the damage value rolled, the multiplier is also determined by the weapon used.  If this value is higher than the victims damage threshold and armour resistance combined then the victim will take a wound. For Example:-</p>
-    <p><i>Bob is shooting Jeff and suceeds at his attack.  His gun is a hunting rifle and does 2d8 damage.  He rolls them and gets a total of nine by adding them together.  He performed a heavy attack which has a multipler of seven for hunting rifles.  Nine times seven is equal to 63 which is higher than his damage threshold and armour resistance of fifty one.  Jeff will have to roll on the critical tables to discover what wound he takes.</i></p>
+    <p>If the attack is successful then the attacker gets to roll damage. The type of dice, and the number of them you roll, is determined
+    by the weapon used. The type of attack, light, medium or heavy, multiplies the damage value rolled, the multiplier is also determined
+    by the weapon used.  If this value is higher than the victims damage threshold and armour resistance combined then the victim will take
+    a wound. For Example:-</p>
+    <p><i>Bob is shooting Jeff and suceeds at his attack.  His gun is a hunting rifle and does 2d8 damage.  He rolls them and gets a total
+    of nine by adding them together.  He performed a heavy attack which has a multipler of seven for hunting rifles.  Nine times seven is
+    equal to 63 which is higher than his damage threshold and armour resistance of fifty one.  Jeff will have to roll on the critical tables
+    to discover what wound he takes.</i></p>
     <h2>Armour Resistance and Damage Threshold</h2>
     
-    <p>The damage thresholds are calculated from the characters attributes and simply represent the characters ability to shrug off damage.  Body is used against physical attacks, mind against mental attacks, and for supernatural games soul is used in special circumstances.  When a victim is wearing no armour the damage threshold is the number the attacker has to beat in order to actually damage the victim after a successful hit.  If the character is wearing armour then they get a modifier, called the Armour Resistance, which they add onto the Damage Threshold to get a total damage threshold.  The modifier depends on the type of armour and is only good against attacks of specific damages. For example:-</p>
-    <p><i>Tate is wearing some light combat armour.  He's been hit by a sword and his Body is twenty.  The damage done was thirty five.  If he was wearing no armour then that would have hurt him.  Luckily he is and light combat armour has an armour resistance against kinetic slashing damage of twenty.  Twenty and twenty makes forty which is over the damage rolled so he does not get hurt. </i></p>
-    <p>Generally heavier armours have higher resistances but then some special armours are better at resisting certain types of damage.  Fireman's suits are particularly good at resisting heat, hazmat suits are very good against chemical and a bomb suit would be very good against explosive.  The type of damage done will be indicated in the weapon description so a victim knows what armour resistance to use.</p>
+    <p>The damage thresholds are calculated from the characters attributes and simply represent the characters ability to shrug off damage.
+    Body is used against physical attacks, mind against mental attacks, and for supernatural games soul is used in special circumstances.
+    When a victim is wearing no armour the damage threshold is the number the attacker has to beat in order to actually damage the victim
+    after a successful hit.  If the character is wearing armour then they get a modifier, called the Armour Resistance, which they add onto
+    the Damage Threshold to get a total damage threshold.  The modifier depends on the type of armour and is only good against attacks of
+    specific damages. For example:-</p>
+    
+    <p><i>Tate is wearing some light combat armour.  He's been hit by a sword and his Body is twenty.  The damage done was thirty five.
+    If he was wearing no armour then that would have hurt him.  Luckily he is and light combat armour has an armour resistance against kinetic
+    slashing damage of twenty.  Twenty and twenty makes forty which is over the damage rolled so he does not get hurt. </i></p>
+    
+    <p>Generally heavier armours have higher resistances but then some special armours are better at resisting certain types of damage.
+    Fireman's suits are particularly good at resisting heat, hazmat suits are very good against chemical and a bomb suit would be very
+    good against explosive.  The type of damage done will be indicated in the weapon description so a victim knows what armour resistance
+    to use.</p>
+    
     <p>The damage roll has to be higher than the total damage threshold otherwise no damage is done.</p>
+    
+    <h4>Crit Bonus</h4>
+    
+    <p>If damage is done then persons BODY is temporarily reduced by a number of points equal to the Crit bonus of the weapon.  If this drops
+    body below zero then criticals will start being taken.</p>
     
     <h2>Shock</h2>
     
-    <p>Whenever a character receives critical damage there is a possibility that they may fall unconsciousness from the shock of being wounded. For each critical wound, that the character receives, he rolls either STAM or CONC for a test to remain conscious. For he first wound received the test target number is Average (12). This then increases in difficulty, by one step, for each additional critical wound so the second becomes Hard (18), the third becomes difficult (24) and so on.</p>
+    <p>Whenever a character receives critical damage there is a possibility that they may fall unconsciousness from the shock of being wounded.
+    For each critical wound, that the character receives, he rolls either STAM or CONC for a test to remain conscious. For he first wound
+    received the test target number is Average (12). This then increases in difficulty, by one step, for each additional critical wound so the
+    second becomes Hard (18), the third becomes difficult (24) and so on.</p>
+    
     <h2>Critical Charts</h2>
     
-    <p>When a character takes damage they roll 2d6 to determine the location of the wound.  Look up the value of the roll on the hit location table.  For example:-</p>
+    <p>When a character takes damage they roll 2d6 to determine the location of the wound.  Look up the value of the roll on the hit location
+    table.  For example:-</p>
+    
     <p><i>Tarrant is taking a wound.  He rolls two six sided dice and gets a total of five.  On the hit location table this is a hit to the body.</i></p>
+    
     <p>They then roll another d6 to determine the specific location within that general body location.</p>
-    <p>They refer to the critical chart for the appropriate damage type. Once they've found the appropriate row for the location then they roll a d6 and modify the roll by the critical value of the weapon and additional damage.  Every twenty four points of damage over the victims total damage threshold subtracts 1 from the critical value.</p>
+    
+    <p>They refer to the critical chart for the appropriate damage type. Once they've found the appropriate row for the location then they roll a d6
+    and modify the roll by the critical value of the weapon and additional damage.  Every twenty four points of damage over the victims total damage
+    threshold subtracts 1 from the critical value.</p>
+    
     <p>You should now have a description of the wound you have taken.</p>
     
     <h2>Death</h2>
