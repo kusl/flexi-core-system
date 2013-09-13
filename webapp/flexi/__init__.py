@@ -36,12 +36,12 @@ def main(global_config, **settings):
     for key in settings.keys():
         settings[key] = convert_str_with_type(settings[key])
     
-    for key in ['content.path.static', 'content.path.addon', 'mako.directories']:
+    for key in ['content.path.static', 'content.path.addons', 'mako.directories']:
         settings[key] = abspath_from_asset_spec(settings['content.path'] + settings[key])
     
     # Addon Content Scan -------------------------------------------------------
     
-    settings['addons'] = addon_content_scan(settings["content.path.addon"])
+    settings['addons'] = addon_content_scan(settings["content.path.addons"], settings['content.path.addons.identifyer'])
     addons = settings['addons'].values()
     
     # Routes -------------------------------------------------------------------
