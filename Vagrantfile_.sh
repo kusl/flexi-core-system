@@ -10,7 +10,7 @@ GIT_PROJECT_NAME="flexi-core-system"
 INSTALLED_FILE="$HOME/.installed"
 # Check if installation required
 
-if [ -x "$INSTALLED_FILE" ]
+if [ -e "$INSTALLED_FILE" ]
 then
 	echo "Install previously completed"
 else
@@ -36,7 +36,7 @@ set -e
 HOME=$HOME
 cd $HOME
 
-if [ -x "$GIT_PROJECT_NAME" ]
+if [ -e "$GIT_PROJECT_NAME" ]
 then
 	echo "Codebase already checked out"
 else
