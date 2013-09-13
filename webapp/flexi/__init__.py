@@ -36,12 +36,12 @@ def main(global_config, **settings):
     for key in settings.keys():
         settings[key] = convert_str_with_type(settings[key])
     
-    for key in ['content.static', 'content.addon.path', 'mako.directories']:
+    for key in ['content.path.static', 'content.path.addon', 'mako.directories']:
         settings[key] = abspath_from_asset_spec(settings['content.path'] + settings[key])
     
     # Addon Content Scan -------------------------------------------------------
     
-    addons = addon_content_scan(settings["content.addon.path"]).values()
+    addons = addon_content_scan(settings["content.path.addon"]).values()
     
     # Routes -------------------------------------------------------------------
     
@@ -49,7 +49,7 @@ def main(global_config, **settings):
     config.add_static_view(name='assets', path=settings["static.assets"]) #cache_max_age=3600
     for addon in filter(operator.itemgetter('static_mount'), addons):
         config.add_static_view(name='static/{0}'.format(addon['static_mount']), path=os.path.join(addon['folder'],'static'))
-    config.add_static_view(name='static', path=settings["content.static"])
+    config.add_static_view(name='static', path=settings["content.path.static"])
     
     # Template Routes
     config.add_route('root', '/') # To be replaced with traversal eventually

@@ -1,3 +1,2 @@
 [app:main]
-static.content = /vagrant/content/static
-mako.directories = /vagrant/content/templates
+content.path = /vagrant/content/
