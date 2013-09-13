@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="${a('index')}">Destruction Engine</a>
+          <a class="brand" href="${a('/index')}">Destruction Engine</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="dropdown">
@@ -20,10 +20,11 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="${a('/settings/shatcov/scindex')}">Shattered Covenant</a></li>
-                  <li><a href="${a('/settings/dominion/bcindex')}">Dominion</a></li>
                   <li><a href="${a('/settings/space/spcindex')}">Space</a></li>
                   <li><a href="${a('/settings/oneoff/ooindex')}">One Off Wonders</a></li>
+                    % for addon in request.registry.settings['addons'].values():
+                    <li><a href="${a(addon['link'])}">${addon['name']}</a></li>
+                    % endfor
                 </ul>
                <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects<b class="caret"></b></a>

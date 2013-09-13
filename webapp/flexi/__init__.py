@@ -41,7 +41,8 @@ def main(global_config, **settings):
     
     # Addon Content Scan -------------------------------------------------------
     
-    addons = addon_content_scan(settings["content.path.addon"]).values()
+    settings['addons'] = addon_content_scan(settings["content.path.addon"])
+    addons = settings['addons'].values()
     
     # Routes -------------------------------------------------------------------
     
