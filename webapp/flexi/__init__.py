@@ -54,6 +54,7 @@ def main(global_config, **settings):
     
     # Template Routes
     config.add_route('root', '/') # To be replaced with traversal eventually
+    config.add_route('cache_manifest', 'cache.manifest')
     config.add_route('mako_renderer', '/{path:.*}') # To be replaced with traversal eventually
     
     settings['mako.directories'] = [settings['mako.directories']]
