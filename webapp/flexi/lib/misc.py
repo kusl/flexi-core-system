@@ -2,8 +2,15 @@ import re
 import random
 import datetime
 import dateutil
+import os
+import json
+import zlib
 
 from pyramid.settings import asbool
+
+import logging
+log = logging.getLogger(__name__)
+
 
 # TODO - @property to get/set now?
 _now_override = None
@@ -26,6 +33,38 @@ def json_object_handler(obj):
     if isinstance(obj, datetime.timedelta):
         return obj.total_seconds()
     raise TypeError
+
+def read_json(filename):
+    with open(filename, 'r') as source:
+        #try:
+        if hasattr(source,'read'):
+            data = source.read()
+        if isinstance(data, bytes):
+            data = data.decode('utf-8')
+        return json.loads(data)
+        #except Exception as e:
+        #    log.warn('Failed to process %s' % source)
+
+def file_scan(path, file_regex, ignore_regex=r'\.git'):
+    if isinstance(file_regex, str):
+        file_regex = re.compile(file_regex)
+    if isinstance(ignore_regex, str):
+        ignore_regex = re.compile(ignore_regex)
+
+    log.debug('Scanning files in {0}'.format(path))
+    file_list = []
+    for root, dirs, files in os.walk(path):
+        if ignore_regex.search(root):
+            continue
+        file_list += [(root, f, os.path.join(root, f), os.path.join(root.replace(path, ''),f)) for f in files if file_regex.match(f)]
+    return file_list
+
+
+def hash_files(files):
+    """
+    adler32 is a good-enough checksum that's fast to compute.
+    """
+    return "%X" % abs(hash(frozenset(zlib.adler32(open(_file).read()) for _file in files)))
 
 
 def get_fileext(filename):

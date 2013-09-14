@@ -1,10 +1,6 @@
 <%def name="body()">
 <!DOCTYPE html>
-<html\
-% if request.registry.settings.get('template.offline.enabled'):
- manifest="/cache.manifest"\
-% endif
->
+<html>
     <head>
         <%def name="title()">Default Title</%def>
         <title>${title()}</title>
