@@ -1,4 +1,5 @@
 from pyramid.view import view_config
+from pyramid.response import Response
 from pyramid.renderers import render_to_response
 
 import logging
@@ -20,3 +21,7 @@ def mako_renderer(request):
         request.matchdict,
         request=request,
     )
+
+@view_config(route_name='favicon')
+def favicon(request):
+    return Response('')

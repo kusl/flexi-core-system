@@ -8,6 +8,6 @@ def addon_content_scan(path, file_regex):
     for root, filename, joined_path, relative_joined_path in file_scan(path, file_regex):
         addon = read_json(joined_path)
         log.info('Addon - {0}'.format(addon['name']))
-        addon['folder'] = root
+        addon['path'] = root
         addons[addon['name']] = addon
     return addons

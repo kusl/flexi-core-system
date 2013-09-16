@@ -1,4 +1,4 @@
-<%inherit file="_base.mako"/>
+<%inherit file="/_base.mako"/>
 
 <%def name="title()">Index</%def>
 
@@ -20,5 +20,5 @@
         <P>More news soon.</P>
     </div>
     
-    <footer> ©  2013 Destruction Engine Publishing, The Flexi System and the Flexi System logo are ® of Destruction Engine Publishing.  All rights reserved.</footer>
+    <footer> Â©  2013 Destruction Engine Publishing, The Flexi System and the Flexi System logo are Â® of Destruction Engine Publishing.  All rights reserved.</footer>
 </%def>

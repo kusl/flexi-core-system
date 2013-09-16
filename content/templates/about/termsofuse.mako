@@ -1,4 +1,4 @@
-<%inherit file="../_base.mako"/>
+<%inherit file="/_base.mako"/>
 
 <%def name="title()">Index</%def>
 

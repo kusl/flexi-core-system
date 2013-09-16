@@ -46,6 +46,9 @@ def read_json(filename):
         #    log.warn('Failed to process %s' % source)
 
 def file_scan(path, file_regex, ignore_regex=r'\.git'):
+    """
+    return (folder, file, folder+file, folder-path+file)
+    """
     if isinstance(file_regex, str):
         file_regex = re.compile(file_regex)
     if isinstance(ignore_regex, str):
@@ -64,7 +67,7 @@ def hash_files(files):
     """
     adler32 is a good-enough checksum that's fast to compute.
     """
-    return "%X" % abs(hash(frozenset(zlib.adler32(open(_file).read()) for _file in files)))
+    return "%X" % abs(hash(frozenset(zlib.adler32(open(_file,'rb').read()) for _file in files)))
 
 
 def get_fileext(filename):
