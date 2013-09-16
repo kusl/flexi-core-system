@@ -42,6 +42,7 @@ def main(global_config, **settings):
     for key in settings.keys():
         settings[key] = convert_str_with_type(settings[key])
     
+    settings['static.assets.absolute'] = abspath_from_asset_spec(settings['static.assets'])
     for key in ['content.path.static', 'content.path.addons', 'content.path.templates']:
         settings[key] = abspath_from_asset_spec(settings['content.path'] + settings[key])
     
