@@ -20,9 +20,8 @@ def cache_manifest(request):
             #file_list += file_scan(addon['path_static']   , static_regex  )
             file_list += file_scan(addon['path_templates'], template_regex)
     
-    # TODO - use named tuple - this index stuff is readable
-    _hash = hash_files(map(lambda f: f[2], file_list))
-    file_list = map(lambda x: x[3].replace('.mako',''), filter(lambda x: not x[1].startswith('_'), file_list))
+    _hash = hash_files(map(lambda f: f.absolute, file_list))
+    file_list = map(lambda f: f.relative.replace('.mako',''), filter(lambda f: not f.file.startswith('_'), file_list))
     cache = dict(
         revision = _hash,
         cache = file_list,

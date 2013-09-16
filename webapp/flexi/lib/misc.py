@@ -5,6 +5,7 @@ import dateutil
 import os
 import json
 import zlib
+from collections import namedtuple
 
 from pyramid.settings import asbool
 
@@ -45,6 +46,7 @@ def read_json(filename):
         #except Exception as e:
         #    log.warn('Failed to process %s' % source)
 
+FileScan = namedtuple('FileScan',['folder', 'file', 'absolute','relative'])
 def file_scan(path, file_regex, ignore_regex=r'\.git'):
     """
     return (folder, file, folder+file, folder-path+file)
@@ -59,7 +61,7 @@ def file_scan(path, file_regex, ignore_regex=r'\.git'):
     for root, dirs, files in os.walk(path):
         if ignore_regex.search(root):
             continue
-        file_list += [(root, f, os.path.join(root, f), os.path.join(root.replace(path, ''),f)) for f in files if file_regex.match(f)]
+        file_list += [FileScan(root, f, os.path.join(root, f), os.path.join(root.replace(path, ''),f)) for f in files if file_regex.match(f)]
     return file_list
 
 
