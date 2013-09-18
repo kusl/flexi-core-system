@@ -11,6 +11,7 @@ log = logging.getLogger(__name__)
 regex_file_filter_static   = re.compile(r'.*\.(js|css|jpg|png|ico)')
 regex_file_filter_template = re.compile(r'.*\.mako')
 
+
 class Mount(object):
     paths = {}
     

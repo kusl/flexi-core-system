@@ -17,4 +17,4 @@ def cache_manifest(request):
         revision = _hash,
         cache = file_list,
     )
-    return render_to_response('cache.manifest.mako', dict(cache=cache), request=request)
+    return render_to_response('_cache.manifest.mako', dict(cache=cache), request=request)
