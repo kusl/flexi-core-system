@@ -23,7 +23,7 @@
                   <li><a href="${a('/settings/space/spcindex')}">Space</a></li>
                   <li><a href="${a('/settings/oneoff/ooindex')}">One Off Wonders</a></li>
                     % for addon in request.registry.settings['addons'].values():
-                    <li><a href="${a(addon['link'])}">${addon['name']}</a></li>
+                    <li><a href="${a(addon.link)}">${addon.name}</a></li>
                     % endfor
                 </ul>
                <li class="dropdown">
