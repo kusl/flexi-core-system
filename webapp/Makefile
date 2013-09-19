@@ -1,6 +1,12 @@
+PROJECT=flexi
+
 INI_DEV  = development.ini
 INI_PROD = production.ini
 INI_VAGRANT = vagrant.ini
+
+VER_JQUERY = 1.9.1
+VER_JQUERYUI = 
+VER_BOOTSTRAP = 
 
 help:
 	# Usage: make <target>, where target is
@@ -27,6 +33,15 @@ env:
 	virtualenv --no-site-packages -p python3 env
 	env/bin/easy_install pyramid
 
+ext:
+	mkdir ext
+ext/jquery-${VER_JQUERY}.js: ext
+	touch ext/jquery-${VER_JQUERY}.js
+	#cd ext ; curl http://stuff.com/jquery-${VER_JQUERY}.js -O
+	cd ${PROJECT}/assets/js ; ln -s ../../../ext/jquery-${VER_JQUERY}.js jquery.js
+ext_: ext/jquery-${VER_JQUERY}.js
+	echo "ext_all"
+
 setup: env
 	env/bin/python setup.py develop
 
@@ -40,7 +55,7 @@ shell:
 	env/bin/pshell $(INI_DEV)
 
 ini_vagrant:
-	env/bin/python3 flexi/scripts/make_ini.py vagrant
+	env/bin/python3 $PROJECT/scripts/make_ini.py vagrant
 
 start_webapp_daemon: ini_vagrant
 	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/$(INI_VAGRANT)"
