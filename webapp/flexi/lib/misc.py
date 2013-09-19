@@ -61,7 +61,8 @@ def file_scan(path, file_regex, ignore_regex=r'\.git'):
     for root, dirs, files in os.walk(path):
         if ignore_regex.search(root):
             continue
-        file_list += [FileScan(root, f, os.path.join(root, f), os.path.join(root.replace(path, ''),f)) for f in files if file_regex.match(f)]
+        file_list += [FileScan(root, f, os.path.join(root, f), os.path.join(root.replace(path, ''),f).strip('/'))
+                      for f in files if file_regex.match(f)]
     return file_list
 
 

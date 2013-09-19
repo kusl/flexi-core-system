@@ -43,35 +43,35 @@ def main(global_config, **settings):
         settings[key] = convert_str_with_type(settings[key])
     
     # Core Content Mount Tracker ----------------------------------------------
-    settings['content.path.absolute'] = abspath_from_asset_spec(settings['content.path'])
     
     mount_sys = Mount(path=abspath_from_asset_spec('flexi:.'))
     mount_sys.add_path('assets'   , file_filter=regex_file_filter_static)
     mount_sys.add_path('templates', file_filter=regex_file_filter_template)
-    
-    mount_content = Mount(path=settings['content.path.absolute'])
-    mount_content.add_path('static'   , file_filter=regex_file_filter_static  )
-    mount_content.add_path('templates', file_filter=regex_file_filter_template)
-    
+    mount_sys.mounted = mount_sys._transform_template_list() + mount_sys._transform_static_list(name='assets', path_join=['assets'])
+
     # Addon Content Scan & Trackers -------------------------------------------
     
+    settings['content.path.absolute']        = abspath_from_asset_spec(settings['content.path']       )
+    settings['content.path.addons.absolute'] = abspath_from_asset_spec(settings['content.path.addons'])
+    
+    addon_core = Addon(path=settings['content.path.absolute'], data=dict(name='Core', static_mount=''))
     settings['addons'] = Addon.scan(
-        path=os.path.join(settings['content.path.absolute'], settings['content.path.addons']),
+        path=settings['content.path.addons.absolute'],
         data_file_regex=settings['content.path.addons.identifyer']
     )
-    addons = settings['addons'].values()
+    addons = list(settings['addons'].values()) + [addon_core]  # Core is added last because if it first in the mount order it wont surface the addon content
+    
+    settings['mounts'] = [mount_sys] + addons
     
     # Routes ------------------------------------------------------------------
     
     # Static Routes
     config.add_static_view(name='assets', path=mount_sys.get_path('assets')) #cache_max_age=3600
-    for addon in filter(operator.attrgetter('static_mount'), addons):
+    for addon in addons:
         config.add_static_view(name='static/{0}'.format(addon.static_mount), path=addon.get_path('static'))
-    config.add_static_view(name='static', path=mount_content.get_path('static'))
     
     settings['mako.directories'] = [
         mount_sys.get_path('templates'),
-        mount_content.get_path('templates'),
     ]
     for addon in addons:
         settings['mako.directories'].append(addon.get_path('templates'))

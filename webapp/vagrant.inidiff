@@ -1,2 +1,3 @@
 [app:main]
 content.path = /vagrant/content/
+content.path.addons = /vagrant/content/addons
