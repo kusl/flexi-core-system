@@ -65,6 +65,8 @@ def main(global_config, **settings):
     
     settings['mounts'] = [mount_sys] + addons
     
+    # Server Researt on change -----------------------------------------------
+    
     # Restart the server on content file change
     # If any of the mounted content files change, then we want the cache.manifest hash to change
     add_file_callback(lambda:  map(operator.attrgetter('absolute'), reduce(operator.add, (mount.get_file_list() for mount in settings['mounts']))))

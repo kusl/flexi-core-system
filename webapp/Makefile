@@ -61,6 +61,9 @@ run_production: ini_production
 shell:
 	env/bin/pshell $(INI_DEV)
 
+test:
+	env/bin/py.test $(PROJECT) -q --pdb -s
+
 ini_vagrant:
 	env/bin/python3 $(PROJECT)/scripts/make_ini.py vagrant
 
