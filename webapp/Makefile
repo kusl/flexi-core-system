@@ -1,12 +1,17 @@
 PROJECT=flexi
 
+PATH_EXT=ext
+PATH_ASSETS=${PROJECT}/assets/ext
+PATH_ASSETS_EXT=../../../$(PATH_EXT)
+
+EXT_JQUERY=1.9.1
+EXT_JQUERYUI=
+EXT_BOOTSTRAP=
+
 INI_DEV  = development.ini
 INI_PROD = production.ini
 INI_VAGRANT = vagrant.ini
 
-VER_JQUERY = 1.9.1
-VER_JQUERYUI = 
-VER_BOOTSTRAP = 
 
 help:
 	# Usage: make <target>, where target is
@@ -33,16 +38,18 @@ env:
 	virtualenv --no-site-packages -p python3 env
 	env/bin/easy_install pyramid
 
-ext:
-	mkdir ext
-ext/jquery-${VER_JQUERY}.js: ext
-	touch ext/jquery-${VER_JQUERY}.js
-	#cd ext ; curl http://stuff.com/jquery-${VER_JQUERY}.js -O
-	cd ${PROJECT}/assets/js ; ln -s ../../../ext/jquery-${VER_JQUERY}.js jquery.js
-ext_: ext/jquery-${VER_JQUERY}.js
-	echo "ext_all"
+$(PATH_ASSETS)/:
+	mkdir $(PATH_ASSETS)
+$(PATH_EXT)/: $(PATH_ASSETS)
+	mkdir $(PATH_EXT)
+$(PATH_EXT)/jquery-$(EXT_JQUERY).min.js: $(PATH_EXT)
+	touch $(PATH_EXT)/jquery-$(EXT_JQUERY).min.js
+	#cd $(PATH_EXT) ; curl http://stuff.com/jquery-$(EXT_JQUERY).js -O
+	cd $(PATH_ASSETS) ; rm jquery.min.js ; ln -s $(PATH_ASSETS_EXT)/jquery-$(EXT_JQUERY).min.js jquery.min.js
+externals: $(PATH_EXT)/jquery-$(EXT_JQUERY).min.js
+	echo "External dependecys"
 
-setup: env
+setup: env externals
 	env/bin/python setup.py develop
 
 run:
@@ -61,3 +68,11 @@ start_webapp_daemon: ini_vagrant
 	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/$(INI_VAGRANT)"
 stop_webapp_daemon:
 	start-stop-daemon --stop  --pidfile webapp.pid && rm webapp.pid
+
+clean:
+	rm -rf webapp.pid
+	rm -rf env
+	rm -rf $(PATH_EXT)
+	rm -rf $(PATH_ASSETS)
+	rm -rf *.egg-info
+	rm -rf vagrant.ini
