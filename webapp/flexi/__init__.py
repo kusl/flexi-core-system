@@ -1,16 +1,18 @@
+# Core imports
+import os
+import re
+import operator
+from functools import reduce
+
 # Pyramid imports
 from pyramid.config import Configurator
 from pyramid.request import Request
 from pyramid.asset import abspath_from_asset_spec
+from pyramid.scripts.pserve import add_file_callback
 import pyramid.events
 
 # Beaker Sessions
 import pyramid_beaker
-
-# Other imports
-import os
-import re
-import operator
 
 # Package Imports
 #from .traversal import GlobalRootFactory
@@ -65,7 +67,7 @@ def main(global_config, **settings):
     
     # Restart the server on content file change
     # If any of the mounted content files change, then we want the cache.manifest hash to change
-    #pserve.add_file_callback(lambda:  map(operators.attrgetter('absolute') ,reduce(operators.add, (mount.get_file_list() for mount in settings['mounts']))))
+    add_file_callback(lambda:  map(operator.attrgetter('absolute'), reduce(operator.add, (mount.get_file_list() for mount in settings['mounts']))))
     
     # Routes ------------------------------------------------------------------
     
