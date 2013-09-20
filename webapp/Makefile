@@ -62,7 +62,7 @@ shell:
 	env/bin/pshell $(INI_DEV)
 
 ini_vagrant:
-	env/bin/python3 $PROJECT/scripts/make_ini.py vagrant
+	env/bin/python3 $(PROJECT)/scripts/make_ini.py vagrant
 
 start_webapp_daemon: ini_vagrant
 	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/$(INI_VAGRANT)"
