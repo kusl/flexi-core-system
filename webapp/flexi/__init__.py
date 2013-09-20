@@ -63,6 +63,10 @@ def main(global_config, **settings):
     
     settings['mounts'] = [mount_sys] + addons
     
+    # Restart the server on content file change
+    # If any of the mounted content files change, then we want the cache.manifest hash to change
+    #pserve.add_file_callback(lambda:  map(operators.attrgetter('absolute') ,reduce(operators.add, (mount.get_file_list() for mount in settings['mounts']))))
+    
     # Routes ------------------------------------------------------------------
     
     # Static Routes
