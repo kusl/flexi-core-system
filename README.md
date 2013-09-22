@@ -11,10 +11,10 @@ The "Flexi System" if a flexible pen and paper roleplaying game system that is p
 Development Server Setup
 ------------------------
 
- * Checkout the project `http://github.com/flexi-system/flexi-core-system`
- * `vagrant up`
- * Web broswer `http://localhost:6543/`
- * When finished `vagrant halt`
+  * Checkout the project `http://github.com/flexi-system/flexi-core-system`
+  * `vagrant up`
+  * Web broswer `http://localhost:6543/`
+  * When finished `vagrant halt`
  
 Development Milestones
 ----------------------
@@ -32,14 +32,13 @@ Migrate away from developing directly on server
   5. Live server working from git repo
 
 ## Milestone 2 - Mobile
-  * Responsive structure
-  * Premium content markup and toggler
   * Basic offline cache
-  * Markup unificaiton
+  * Bootstrap 3
+    * Responsive design
+    * Tidy markup
+  * Premium content markup and toggler
 
 ## Milestone 3 - Tools upgrade
-  * Sass/Compass
-  * jQuery UI
   * nginx
   * Cache (for volume traffic)
   * Git update propergation
@@ -47,11 +46,12 @@ Migrate away from developing directly on server
 *SITE GOES LIVE*
 
 ## Milestone 4 - User engagement
+  * Visual Treatment
   * Social login
   * Site commenting
-  * Useage tracking
 
 ## Milestone 5 - Digital tools
+  * Useage tracking
   * Character gen?
   * Dice resolver?
   * Character sheet?
