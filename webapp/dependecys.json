@@ -1,0 +1,21 @@
+{
+    "jquery": {
+        "source": "http://code.jquery.com/jquery-VERSION.min.js",
+        "version": "1.10.3",
+        "target": "js/jquery.min.js"
+    },
+    
+    "bootstrap": {
+        "source": "https://raw.github.com/twbs/bootstrap/vVERSION/dist/",
+        "version": "3.0",
+        "target": [
+            "js/bootstrap.min.js",
+            "css/bootstrap-theme.min.css",
+            "css/bootstrap.min.css",
+            "fonts/glyphicons-halflings-regular.woff",
+            "fonts/glyphicons-halflings-regular.ttf",
+            "fonts/glyphicons-halflings-regular.eot",
+            "fonts/glyphicons-halflings-regular.svg"
+        ]
+    }
+}

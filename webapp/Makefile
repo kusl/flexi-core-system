@@ -38,42 +38,13 @@ env:
 	virtualenv --no-site-packages -p python3 env
 	env/bin/easy_install pyramid
 
-$(PATH_ASSETS)/:
-	mkdir $(PATH_ASSETS)
-$(PATH_EXT)/: $(PATH_ASSETS)
-	mkdir $(PATH_EXT)
-$(PATH_EXT)/jquery-$(EXT_JQUERY).min.js: $(PATH_EXT)
-	#touch $(PATH_EXT)/jquery-$(EXT_JQUERY).min.js
-	cd $(PATH_EXT) && \
-		curl http://code.jquery.com/jquery-$(EXT_JQUERY).min.js -O
-	cd $(PATH_ASSETS) ; \
-		rm jquery.min.js ; \
-		ln -s $(PATH_ASSETS_EXT)/jquery-$(EXT_JQUERY).min.js jquery.min.js
-$(PATH_EXT)/jquery-ui-$(EXT_JQUERYUI).min.js: $(PATH_EXT)
-	cd $(PATH_EXT) && \
-		curl http://code.jquery.com/ui/$(EXT_JQUERYUI)/jquery-ui.min.js -o jquery-ui-$(EXT_JQUERYUI).min.js && \
-		curl http://code.jquery.com/ui/$(EXT_JQUERYUI)/themes/smoothness/jquery-ui.min.css -O
-	cd $(PATH_ASSETS) ; \
-		rm jquery-ui.min.js ; \
-		rm jquery-ui.min.css ; \
-		ln -s $(PATH_ASSETS_EXT)/jquery-ui-$(EXT_JQUERYUI).min.js jquery-ui.min.js ; \
-		ln -s $(PATH_ASSETS_EXT)/jquery-ui.min.css jquery-ui.min.css
-$(PATH_EXT)/bootstrap-$(EXT_BOOTSTRAP).min.js: $(PATH_EXT)
-	cd $(PATH_EXT) && \
-		curl https://raw.github.com/twbs/bootstrap/v$(EXT_BOOTSTRAP)/dist/js/bootstrap.min.js -o bootstrap-$(EXT_BOOTSTRAP).min.js && \
-		curl https://raw.github.com/twbs/bootstrap/v$(EXT_BOOTSTRAP)/dist/css/bootstrap.min.css -O
-	cd $(PATH_ASSETS) ; \
-		rm bootstrap.min.js ; \
-		rm bootstrap.min.css ; \
-		ln -s $(PATH_ASSETS_EXT)/bootstrap-$(EXT_BOOTSTRAP).min.js bootstrap.min.js ; \
-		ln -s $(PATH_ASSETS_EXT)/bootstrap.min.css bootstrap.min.css
-externals: $(PATH_EXT)/jquery-$(EXT_JQUERY).min.js $(PATH_EXT)/jquery-ui-$(EXT_JQUERYUI).min.js $(PATH_EXT)/bootstrap-$(EXT_BOOTSTRAP).min.js
-	echo "External dependecys"
+externals:
+	env/bin/python $(PROJECT)/scripts/dependency_downloader.py
 
-setup: env externals
+setup: env
 	env/bin/python setup.py develop
 
-run:
+run: externals
 	env/bin/pserve --reload $(INI_DEV)
 
 run_production: ini_production
