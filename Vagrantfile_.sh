@@ -45,7 +45,7 @@ fi
 
 # Setup Website Python Project
 cd $HOME/$GIT_PROJECT_NAME/webapp
-make setup
+make install
 
 
 echo 'Installation complete'

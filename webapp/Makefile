@@ -44,6 +44,8 @@ externals:
 setup: env
 	env/bin/python setup.py develop
 
+install: env setup externals test
+
 run: externals
 	env/bin/pserve --reload $(INI_DEV)
 
