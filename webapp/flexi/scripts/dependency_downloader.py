@@ -27,7 +27,7 @@ def get_file(source, destination, overwrite=False):
     # rm file if exisits
     #urllib.urlretrieve ("http://www.example.com/songs/mp3.mp3", "mp3.mp3")
     #urllib.urlretrieve (source, destination)
-    print("{0} -> {1}".format(source, destination))
+    log.debug("{0} -> {1}".format(source, destination))
 
 
 #-------------------------------------------------------------------------------
@@ -40,12 +40,13 @@ def fetch_dependencys(dependecys, tracker, destination_path):
         # Get Versioned dependecys
         target_version = info.get('version')
         if target_version:
-            if tracker.setdefault(name, {}).setdefault('version', target_version) != target_version:
+            if tracker.setdefault(name, {}).get('version') != target_version:
                 log.info('Updating {0}'.format(name))
+                tracker[name]['version'] = target_version
             else:
                 log.info('Already up to date {0}'.format(name))
                 continue
-            
+        
         source = info['source'].replace('VERSION', target_version)
         target = info['target']
         if isinstance(target, list):
@@ -96,6 +97,8 @@ def get_args():
 
 def main():
     args = get_args()
+    
+    logging.basicConfig(level=logging.INFO)
     
     open_dependencys(
         dependency_filename = args.dependencys,
