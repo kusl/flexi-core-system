@@ -1,14 +1,30 @@
-## THIS IS AN INCLUDE!!!!!!
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+<div class="container">
 
- <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="${a('/index')}">Destruction Engine</a>
+	<div class="navbar-header">
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+
+		<!-- Brand Title -->
+		<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
+	</div>
+
+	<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+		<ul class="nav navbar-nav">
+			<li>
+				<a href="getting-started">Getting started</a>
+			</li>
+		</ul>
+	</nav>
+
+</div>
+</header>
+
+<%doc>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="dropdown">
@@ -49,3 +65,4 @@
         </div>
       </div>
     </div>
+</%doc>

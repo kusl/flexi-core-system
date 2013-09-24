@@ -14,13 +14,20 @@ def root(request):
     request.matchdict['path'] = 'index'
     return mako_renderer(request)
 
+
 @view_config(route_name='mako_renderer')
 def mako_renderer(request):
+    template_variables = dict(
+        asset_url='/assets/',  # Could be replaced with request.registery.settings.mounts?
+        static_url='/static/',
+    )
+    template_variables.update(request.matchdict)
     return render_to_response(
-        '{0}.mako'.format(request.matchdict.get('path','index')), #flexi:templates/html/
-        request.matchdict,
+        '{0}.mako'.format(request.matchdict.get('path','index')),
+        template_variables,
         request=request,
     )
+
 
 @view_config(route_name='favicon')
 def favicon(request):
