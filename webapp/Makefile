@@ -1,12 +1,6 @@
 PROJECT=flexi
 
-PATH_EXT=ext
 PATH_ASSETS=${PROJECT}/assets/ext
-PATH_ASSETS_EXT=../../../$(PATH_EXT)
-
-EXT_JQUERY=1.10.2
-EXT_JQUERYUI=1.10.3
-EXT_BOOTSTRAP=3.0.0-rc.2
 
 INI_DEV  = development.ini
 INI_PROD = production.ini
@@ -39,7 +33,7 @@ env:
 	env/bin/easy_install pyramid
 
 externals:
-	env/bin/python $(PROJECT)/scripts/dependency_downloader.py
+	env/bin/python $(PROJECT)/scripts/dependency_downloader.py --destination $(PATH_ASSETS)
 
 setup: env
 	env/bin/python setup.py develop
@@ -69,7 +63,7 @@ stop_webapp_daemon:
 clean:
 	rm -rf webapp.pid
 	rm -rf env
-	rm -rf $(PATH_EXT)
 	rm -rf $(PATH_ASSETS)
 	rm -rf *.egg-info
 	rm -rf vagrant.ini
+	rm -rf dependencys_installed.json

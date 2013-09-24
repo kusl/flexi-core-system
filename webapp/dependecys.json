@@ -1,13 +1,13 @@
 {
     "jquery": {
         "source": "http://code.jquery.com/jquery-VERSION.min.js",
-        "version": "1.10.3",
+        "version": "1.10.2",
         "target": "js/jquery.min.js"
     },
     
     "bootstrap": {
-        "source": "https://raw.github.com/twbs/bootstrap/vVERSION/dist/",
-        "version": "3.0",
+        "source": "http://raw.github.com/twbs/bootstrap/vVERSION/dist/",
+        "version": "3.0.0",
         "target": [
             "js/bootstrap.min.js",
             "css/bootstrap-theme.min.css",

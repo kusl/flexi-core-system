@@ -2,6 +2,5 @@
 *.egg-info
 /env/
 /data/
-/ext/
 vagrant.ini
 dependencys_installed.json

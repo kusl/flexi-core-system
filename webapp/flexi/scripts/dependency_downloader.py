@@ -3,7 +3,7 @@ External dependencys do not be commited to the repo
 """
 import os
 import json
-import urllib
+import urllib.request
 
 import logging
 log = logging.getLogger(__name__)
@@ -15,20 +15,31 @@ log = logging.getLogger(__name__)
 
 VERSION = "0.0"
 DEFAULT_DEPENDENCYS = 'dependecys.json'
-DEFAULT_DESTINATION = 'assets/ext'
+DEFAULT_DESTINATION = 'ext'
 DEFAULT_TRACKER = 'dependencys_installed.json'
 
 VERSION_IDENTIFYER = 'VERSION'
 
 #-----
 
-def get_file(source, destination, overwrite=False):
-    # mkdirs to path
-    # rm file if exisits
-    #urllib.urlretrieve ("http://www.example.com/songs/mp3.mp3", "mp3.mp3")
-    #urllib.urlretrieve (source, destination)
-    log.debug("{0} -> {1}".format(source, destination))
+class DownloadException(Exception):
+    pass
 
+def get_file(source, destination, overwrite=False):
+    # rm file if exisits - not needed
+    log.debug("{0} -> {1}".format(source, destination))
+    if not overwrite and os.path.exists(destination):
+        log.debug('{0} already exisits'.format(destination))
+        return
+    try:
+       os.makedirs(os.path.dirname(destination))
+    except:
+        pass
+    try:
+        urllib.request.urlretrieve(source, destination)
+    except ValueError:  # Read a url that does not produce a stream
+        log.info('Unable to download {0}'.format(source))
+        raise DownloadException()
 
 #-------------------------------------------------------------------------------
 # Download dependencys
@@ -36,27 +47,31 @@ def get_file(source, destination, overwrite=False):
 
 def fetch_dependencys(dependecys, tracker, destination_path):
     for name, info in dependecys.items():
-        
-        # Get Versioned dependecys
-        target_version = info.get('version')
-        if target_version:
-            if tracker.setdefault(name, {}).get('version') != target_version:
-                log.info('Updating {0}'.format(name))
-                tracker[name]['version'] = target_version
+        try:
+            # Get Versioned dependecys
+            target_version = info.get('version')
+            if target_version:
+                if tracker.setdefault(name, {}).get('version') != target_version:
+                    log.info('Updating {0}'.format(name))
+                    tracker[name]['version'] = target_version
+                else:
+                    log.info('Already up to date {0}'.format(name))
+                    continue
+            
+            source = info['source'].replace('VERSION', target_version)
+            target = info['target']
+            if isinstance(target, list):
+                for t in target:
+                    destination = t.replace(VERSION_IDENTIFYER, target_version)
+                    get_file(source+t, os.path.join(destination_path, destination), overwrite=target_version)
             else:
-                log.info('Already up to date {0}'.format(name))
-                continue
+                get_file(source, os.path.join(destination_path, target.replace(VERSION_IDENTIFYER, target_version)), overwrite=target_version)
+            
+            tracker[name]['version'] = target_version
         
-        source = info['source'].replace('VERSION', target_version)
-        target = info['target']
-        if isinstance(target, list):
-            for t in target:
-                destination = t.replace(VERSION_IDENTIFYER, target_version)
-                get_file(source+t, os.path.join(destination_path, destination), overwrite=target_version)
-        else:
-            get_file(source, os.path.join(destination_path, target.replace(VERSION_IDENTIFYER, target_version)), overwrite=target_version)
-        
-        tracker[name]['version'] = target_version
+        except DownloadException:
+            # Continue to download others, but do not update the tracker version for the errored dependency
+            continue
 
 
 def open_dependencys(dependency_filename, tracker_filename, destination_path):
