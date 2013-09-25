@@ -30,13 +30,13 @@
 
 <%def name="head()">
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
 		
 		<!-- External CSS -->
 		<link href="${ asset_url }ext/css/bootstrap.min.css"       rel="stylesheet">
-		<link href="${ asset_url }ext/css/bootstrap-theme.min.css" rel="stylesheet">
+		##<link href="${ asset_url }ext/css/bootstrap-theme.min.css" rel="stylesheet">
 		<link href="${ asset_url }ext/css/pygments-manni.css"      rel="stylesheet">
 		
 		<!-- Site CSS -->
