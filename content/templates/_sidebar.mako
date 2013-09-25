@@ -2,16 +2,23 @@
 
 <%def name="body()">
 
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span3">
-                ${next.sidebar()}
-            </div>
-
-            <div class="span9">
-                ${next.body()}
-            </div>
-        </div>
-    </div>
+	<div class="container bs-docs-container">
+		<div class="row">
+			
+			<!-- Sidebar -->
+			<div class="col-md-3">
+				<div class="bs-sidebar hidden-print" role="complementary">
+					<ul class="nav bs-sidenav">
+						${next.sidebar()}
+					</ul>
+				</div>
+			</div>
+			
+			<!-- Content -->
+			<div class="col-md-9" role="main">
+				${next.body()}
+			</div>
+		</div>
+	</div>
 
 </%def>
