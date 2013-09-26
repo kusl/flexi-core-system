@@ -4,7 +4,7 @@
 
 <%def name="body()">
     <div class="container">
-        <p><A HREF="${a('/core/rules/csindex')}"><IMG SRC="${h.static('img/chts.jpg')}"></A></p>
+        <p><A HREF="${a('/core/rules/csindex')}"><IMG SRC="${static_url}img/chts.jpg"></A></p>
         
         <p>Welcome to Destruction Engine Publishing home of the Flexi System and the Shattered Covenant setting.</p>
         

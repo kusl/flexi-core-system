@@ -4,7 +4,7 @@
 
 <%def name="body()">
     <div class="container">
-        <p><A HREF="${a('/core/rules/csindex')}"><IMG SRC="${h.static('img/chts.jpg')}"></A></p>
+        <p><A HREF="${a('/core/rules/csindex')}"><IMG SRC="${static_url}img/chts.jpg"></A></p>
         
         <p>Welcome to destruction engine, publishers of the Flexi System and it's associated materials.</p>
         

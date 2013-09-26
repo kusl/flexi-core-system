@@ -1,3 +1,10 @@
+/* Bootstrap Overrides */
+body {
+	padding-top: 50px;
+	position: relative;
+}
+
+/* Flexi Styles */
 
 table.damage-table {
 	border: 1px solid black; font-family: Arial, Helvetica, sans-serif;

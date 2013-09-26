@@ -85,6 +85,7 @@ def main(global_config, **settings):
         settings['mako.directories'].append(addon.get_path('templates'))
     
     # Template Routes
+    config.add_route('status', 'status') # To be replaced with traversal eventually
     config.add_route('root', '/') # To be replaced with traversal eventually
     config.add_route('cache_manifest', 'cache.manifest')
     config.add_route('favicon', 'favicon.ico') # Surpress repeated requests

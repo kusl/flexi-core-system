@@ -1,4 +1,7 @@
+<%def name="init()"></%def>
+
 <%def name="body()">
+${self.init()}\
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,11 @@
 		${nav()}
 		
 		<!-- Content -->
-		${next.body()}
+		<div class="container bs-docs-container">
+			<div class="row">
+				${next.body()}
+			</div>
+		</div>
 		
 		<!-- Footer -->
 		${footer()}
@@ -36,12 +43,11 @@
 		
 		<!-- External CSS -->
 		<link href="${ asset_url }ext/css/bootstrap.min.css"       rel="stylesheet">
-		##<link href="${ asset_url }ext/css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="${ asset_url }ext/css/bootstrap-theme.min.css" rel="stylesheet">
 		<link href="${ asset_url }ext/css/pygments-manni.css"      rel="stylesheet">
 		
 		<!-- Site CSS -->
-		## For now lets stick with the vanila bootstrap - we can design once the markup is tidyed
-		##<link href="${ asset_url }css/site.css" rel="stylesheet">
+		<link href="${ asset_url }css/site.css" rel="stylesheet">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>

@@ -2,22 +2,19 @@
 
 <%def name="sidebar()">
 
-  <script>
-  $(function() {
-    $( "#accordion" ).accordion({
-      active: false,
-      collapsible: true,
-      heightStyle: "content"
-    });
-  });
-  </script>
 
-  <div id="accordion">
-  <h3>Introduction</h3>
-    <div>
-      <ul>
-        <li><a href="${a('/core/rules/csindex')}">Introduction</a></li></div>
-      </ul>
+
+<li>
+  <a href="#glyphicons">Glyphicons</a>
+  <ul class="nav">
+    <li><a href="#glyphicons-glyphs">Available glyphs</a></li>
+    <li><a href="#glyphicons-how-to-use">How to use</a></li>
+    <li><a href="#glyphicons-examples">Examples</a></li>
+  </ul>
+</li>
+
+
+
   <h3>Character</h3>
     <div>
         <ul>

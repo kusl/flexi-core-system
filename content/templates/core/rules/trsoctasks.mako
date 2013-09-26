@@ -83,7 +83,7 @@
     of that type, is added to the appropriate characters roll.  If a modifier is positive the die is added to
     the initiators roll and negative modifers are added to the defenders roll.</P>
     
-    <P><img src="${h.static('img/Socialtestmods.png')}"></P>
+    <P><img src="${static_url}img/Socialtestmods.png"></P>
 
     <p>In our opinion it is unlikely that many situations will make use of more than one or two modifiers.  Regardless, of how
     many modifiers are applicable, the total modifier cannot be higher than three dice.  Additionally those dice are not affected by,
