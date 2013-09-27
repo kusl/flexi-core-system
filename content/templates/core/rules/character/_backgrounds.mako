@@ -1,19 +1,7 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Backgrounds</%def>
 
-<%def name="body()">
-
-<script>
-  $(function() {
-    $( "#tabs1, #tabs2" ).tabs({
-        collapsible: true, 
-        active: false,
-    });
-  });
-  </script>
-
-   <h1>Backgrounds</h1>
+${h2('Backgrounds')}
       
       <p>The Flexi system does not have a set skill list. Instead players buy
         character backgrounds which represent roles that a character has had
@@ -32,7 +20,7 @@
         <p>A detailed description of the mechanics for backgrounds is presented in the Task
         resolution section of the rules.  For now players must understand two factors that define backgrounds, their rank and their type.</p>
         
-        <h2>Rank</h2>
+        ${h3('Rank')}
         
         <p>Rank is a representation of the applicability of a background and determines the cost at
         character generation to buy it and the cost of experience to upgrade it. Some backgrounds can be used
@@ -52,7 +40,7 @@
         
         <p>There are three types of background which determine when the background can be used.</p>
         
-        <h4>Vocations</h4>
+        ${h3('Vocations')}
         
         <p>Vocational backgrounds represent the skills, experiances and training that the characters
         have recieved during portions of their life. Any occupation, trade or profession could be considered a
@@ -184,7 +172,7 @@
         </div>
     </div>
         
-        <h4>Disciplines</h4>
+        ${h3('Disciplines')}
         
         <p>Regular backgrounds are occupational, they represent the skills and everyday experience that one
         picks up in that background. They are not rolled for attacks or defence, even if they are military in
@@ -227,7 +215,7 @@
             </div>
         </div></P>
             
-        <H4>Langauges</H4>
+        ${h3('Langauges')}
         
         <p>All characters are assumed to be able to speak their native language fluently. Additional
         languages are considered to be the same as a rank one background both in terms of point cost and
@@ -236,5 +224,6 @@
         target number.  High complexity concepts such as, "Brutalist architecture has it's foundations in post war modernism," will have
         a higher target number. GM's can forego the test if they believe the level of a characters
         background is high enough to simply pass the test automatically.</p>
-        
-</%def>
+
+
+

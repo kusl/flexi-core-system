@@ -1,19 +1,6 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Tropes</%def>
-
-<%def name="body()">
-
-    <script>
-      $(function() {
-        $( "#tabs" ).tabs({
-            collapsible: true, 
-            active: false,
-        });
-      });
-      </script>
-    
-    <h1>Allies</h1>
+${h2('Allies')}
     
     <p>Allies are roleplaying traits which act in a similar way to tropes, in that they affect the flow of the narrative.
     Unlike tropes each contact has it's own pool associated with it.  At character generation a player can buy any number of
@@ -35,7 +22,7 @@
     value of three but, because this is a group, we subtract two from that, giving his cult ally a pool of one.  In a way Thaddeus is
     luckier, his average is only one anyway and can't get any lower, so it starts at one regardless.</em></P>
     
-    <h3>Cost</h3>
+    ${h3('Cost')}
     
     <P>Allies are not all equal, in fact some are more equal than others.  Having the Police Chief as a contact
     is a lot more powerful than having a detective, and a detective as a contact is more powerful than a street cop.  To
@@ -115,7 +102,7 @@
         </div>
     </div>
     
-    <h3>Favour Costs</h3>
+    ${h3('Favour Costs')}
     
     <P>When a player wants to use a contact, to do them a favour, they spend a number of pool points that depends on
     the size of the favour being asked.  This does not refresh over time, so a character can tap out the contact, they
@@ -139,5 +126,3 @@
     </ul>
     
     <p> </p>
-
-</%def>

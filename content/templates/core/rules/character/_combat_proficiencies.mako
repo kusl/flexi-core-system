@@ -1,9 +1,6 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Combat Proficiencies</%def>
-
-<%def name="body()">
-   <h1>Combat Proficiencies</h1>
+${h2('Combat Proficiencies')}
 
     <P>The combat proficiciencies were implemented to speed up the process of combat.  They represent a characters basic fighting ability and
     exist as offensive-defensive pairs.A successful attack is one which achieves a rolled value which is higher than the opponent?s defensive
@@ -60,5 +57,3 @@
         Comprehension and Resolve, rounded down to the nearest whole number.</P>
 
         <P>ESD = COMP + RESO / 2</P>
- 
-</%def>

@@ -1,10 +1,6 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Tropes</%def>
-
-<%def name="body()">
-    
-    <h3>Tropes</h3>
+${h2('Tropes')}
     
     <P>Tropes are effects, like abilities, which change the course of the game when they are activated.
     Unlike abilities tropes are specifically tied to the Intuition stat.  They partially represent the
@@ -239,4 +235,3 @@
          <td>Should the player fail the roll then the character can be described as super dead.</td>
       </tr>
    </table>
-</%def>

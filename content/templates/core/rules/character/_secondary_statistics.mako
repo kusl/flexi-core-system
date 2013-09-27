@@ -1,24 +1,11 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Secondary Stats</%def>
-
-<%def name="body()">
-
-    <script>
-      $(function() {
-        $( "#tabs" ).tabs({
-            collapsible: true, 
-            active: false,
-        });
-      });
-      </script>
-
-    <h3>Secondary Statistics</h3>
+${h2('Secondary Statistics')}
       
         <p>Whilst the Attributes and Combat Proficiencies provide the main mechanics for task and combat resolution, they cannot represent all
         of a characters traits. These secondary stats all aid the game mechanics but are determined individually. </p>
       
-    <h4>Combat Speeds </h4>
+    ${h3('Combat Speeds')}
       
         <p>For ease of use combat is broken down into a number of time periods. A
         sequence is effectively a round of combat, where all participants get at
@@ -54,7 +41,7 @@
         
         <p>APT = REFX / 2</p>
     
-    <h3>Damage Multipliers</h3>
+    ${h3('Damage Multipliers')}
     
     <p>The damage multipliers convert a characters strength into a series of multiples which are used for melee weapon
     damage.  When a character successfully attacks a victim using a melee weapon he rolls the damage for the weapon.  Then
@@ -84,7 +71,7 @@
     
     <p>If a character has mega-strength then they should consult the appropriate tables on the mega-attributes page.</p>
     
-    <h3>Fame and Infamy</h3>
+    ${h3('Fame and Infamy')}
     
     <p>These represent the fame and notoriety of the character.  The actions of a character will cause these two
     characteristics to change but, as a general rule, the higher they are the more well known the character is.
@@ -95,7 +82,7 @@
     by most and the more Fame you have the wider your fame spreads. The game masters section of the rules contains more
     information on how to use these two characteristics in your game.</p>
     
-    <h3>Carrying Capacity </h3>
+    ${h3('Carrying Capacity')}
       
         <p>A characters carrying capacity is equal to his strength multiplied by
         fifty. All items have a bulk value that represents not just the weight
@@ -109,7 +96,7 @@
         treble the amount the character cannot move at all without facing
         serious injury.</p>
       
-    <h3>Movement</h3>
+    ${h3('Movement')}
       
         <p>A characters movement is the number of meters that a player can move in
         one combat sequence or a three second period of time. It is determined by
@@ -127,4 +114,3 @@
             <li>Vertical Jump is equal to movement divided by six.</li>
             <li>Horizontal Jump is equal to movement multiplied by one and a third.</li>
         </ul></P>
-</%def>

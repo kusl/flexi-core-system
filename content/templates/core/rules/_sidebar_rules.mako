@@ -18,17 +18,6 @@
   <h3>Character</h3>
     <div>
         <ul>
-          <li><a href="${a('/core/rules/csintro')}">Character Introduction</a></li>
-          <li><a href="${a('/core/rules/csattributes')}">Attributes</a></li>
-          <li><a href="${a('/core/rules/csboosts')}">Boosters</a></li>
-          <li><a href="${a('/core/rules/cscomprofs')}">Combat Proficiencies</a></li>
-          <li><a href="${a('/core/rules/csconditions')}">Damage Limits</a></li>
-          <li><a href="${a('/core/rules/cssecondaries')}">Secondary Stats</a></li>
-          <li><a href="${a('/core/rules/csbackgrounds')}">Backgrounds</a></li>
-          <li><a href="${a('/core/rules/cstraits')}">Traits</a></li>
-          <li><a href="${a('/core/rules/cstropes')}">Tropes</a></li>
-          <li><a href="${a('/core/rules/csabilities')}">Abilities</a></li>
-          <li><a href="${a('/core/rules/csallies')}">Allies</a></li>
         </ul>
     </div>
   <h3>Tasks</h3>
