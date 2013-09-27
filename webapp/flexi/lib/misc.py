@@ -5,6 +5,7 @@ import dateutil
 import os
 import json
 import zlib
+import hashlib
 from collections import namedtuple
 
 from pyramid.settings import asbool
@@ -65,6 +66,12 @@ def file_scan(path, file_regex, ignore_regex=r'\.git'):
                       for f in files if file_regex.match(f)]
     return file_list
 
+
+def hash_data(data):
+    hash = hashlib.sha1()
+    hash.update(str(data).encode())
+    return hash.hexdigest()
+    
 
 def hash_files(files):
     """

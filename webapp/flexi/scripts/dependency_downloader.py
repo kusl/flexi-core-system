@@ -5,6 +5,8 @@ import os
 import json
 import urllib.request
 
+from flexi.lib.misc import hash_data
+
 import logging
 log = logging.getLogger(__name__)
 
@@ -50,8 +52,10 @@ def fetch_dependencys(dependecys, tracker, destination_path):
         try:
             # Get Versioned dependecys
             target_version = info.get('version')
+            filenames_hash = hash_data(info.get('target'))
             if target_version:
-                if tracker.setdefault(name, {}).get('version') != target_version:
+                if tracker.setdefault(name, {}).get('version') != target_version and \
+                   tracker[name].get('filenames_hash')         != filenames_hash:
                     log.info('Updating {0}'.format(name))
                     tracker[name]['version'] = target_version
                 else:
@@ -68,6 +72,7 @@ def fetch_dependencys(dependecys, tracker, destination_path):
                 get_file(source, os.path.join(destination_path, target.replace(VERSION_IDENTIFYER, target_version)), overwrite=target_version)
             
             tracker[name]['version'] = target_version
+            tracker[name]['filenames_hash'] = filenames_hash
         
         except DownloadException:
             # Continue to download others, but do not update the tracker version for the errored dependency
