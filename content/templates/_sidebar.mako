@@ -1,5 +1,7 @@
 <%inherit file="_base.mako"/>
 
+## Sidebar Tracking -----------------------------------------------------------
+
 <%def name="init()"><%
 	self.sidebar_content = h.OrderedDefaultdict(list)
 %>${parent.init()}</%def>
@@ -31,6 +33,9 @@
 <%def name="include(template_filename)">
 <%include file="${template_filename}" args="h2=self.h2, h3=self.h3"/>
 </%def>
+
+
+## Body -----------------------------------------------------------------------
 
 <%def name="body()">
 <% body_capture = capture(next.body) %>
