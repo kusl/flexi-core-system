@@ -49,11 +49,14 @@ run_production: ini_production
 shell:
 	env/bin/pshell $(INI_DEV)
 
-test:
+test: ini_test
 	env/bin/py.test $(PROJECT) -q --pdb -s
 
 ini_vagrant:
 	env/bin/python3 $(PROJECT)/scripts/make_ini.py vagrant
+ini_test:
+	env/bin/python3 $(PROJECT)/scripts/make_ini.py test
+
 
 start_webapp_daemon: ini_vagrant
 	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/$(INI_VAGRANT)"

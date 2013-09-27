@@ -19,6 +19,7 @@ def root(request):
 
 @view_config(route_name='mako_renderer')
 def mako_renderer(request):
+    log.debug(request.matchdict.get('path'))
     template_variables = dict(
         asset_url='/assets/',  # Could be replaced with request.registery.settings.mounts?
         static_url='/static/',

@@ -3,4 +3,5 @@
 /env/
 /data/
 vagrant.ini
+test.ini
 dependencys_installed.json

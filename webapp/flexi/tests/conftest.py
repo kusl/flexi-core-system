@@ -1,6 +1,6 @@
 import pytest
 
-INI = 'development.ini'
+INI = 'test.ini'
 
 # Fixtures ---------------------------------------------------------------------
 

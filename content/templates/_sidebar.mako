@@ -28,11 +28,14 @@
 % endfor
 </%def>
 
+<%def name="include(template_filename)">
+<%include file="${template_filename}" args="h2=self.h2, h3=self.h3"/>
+</%def>
 
 <%def name="body()">
 <% body_capture = capture(next.body) %>
 
-% if self.sidebar_content:
+% if self.sidebar_content or hasattr(next, 'sidebar'):
 	<!-- Sidebar -->
 	<div class="col-md-3">
 		<div class="bs-sidebar hidden-print" role="complementary">
