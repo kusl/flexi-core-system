@@ -8,13 +8,13 @@
 
 <%def name="h2(title)">
 	##<section>
-	<a href="#back-top-ancor" class="back-top-link">^</a>
+	##<a href="#back-top-ancor" class="back-top-link">^</a>
 	<h2 id="${h.encode_id(title)}">${title}</h2>
 	<% self.sidebar_content[title] %>
 </%def>
 
 <%def name="h3(title)">
-	<a href="#back-top-ancor" class="back-top-link">^</a>
+	##<a href="#back-top-ancor" class="back-top-link">^</a>
 	<h3 id="${h.encode_id(self.sidebar_content.last(),title)}">${title}</h3>
 	<% self.sidebar_content[self.sidebar_content.last()].append(title) %>
 </%def>
@@ -54,12 +54,10 @@
 	
 	<!-- Content -->
 	<div class="col-md-9" role="main">
-		<a id="back-top-ancor"></a>
 		${body_capture | n}
 	</div>
 % else:
 	<div class="col-md-12" role="main">
-		<a id="back-top-ancor"></a>
 		${body_capture | n}
 	</div>
 % endif

@@ -20,6 +20,7 @@ ${self.init()}\
 		<!-- Content -->
 		<div class="container bs-docs-container">
 			<div class="row">
+				<a id="top-ancor"></a>
 				${next.body()}
 			</div>
 		</div>
