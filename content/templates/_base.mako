@@ -12,7 +12,7 @@ ${self.init()}\
 		${head()}
 	</head>
 
-	<body>
+	<body data-spy="scroll" data-target=".bs-sidebar" data-offset="60">
 		<a class="sr-only" href="#content">Skip navigation</a>
 		<!-- Navigation -->
 		${nav()}
@@ -47,7 +47,7 @@ ${self.init()}\
 		<link href="${ asset_url }ext/css/pygments-manni.css"      rel="stylesheet">
 		
 		<!-- Site CSS -->
-		<link href="${ asset_url }css/site.css" rel="stylesheet">
+		<link href="${ asset_url }css/flexi.css" rel="stylesheet">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -69,4 +69,5 @@ ${self.init()}\
 		<!-- Javascript -->
 		<script src="${ asset_url }ext/js/jquery.min.js"></script>
 		<script src="${ asset_url }ext/js/bootstrap.min.js"></script>
+		<script src="${ asset_url }js/flexi.js"></script>
 </%def>

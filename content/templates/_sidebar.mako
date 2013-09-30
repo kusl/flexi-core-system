@@ -43,7 +43,7 @@
 % if self.sidebar_content or hasattr(next, 'sidebar'):
 	<!-- Sidebar -->
 	<div class="col-md-3">
-		<div class="bs-sidebar hidden-print" role="complementary">
+		<div class="bs-sidebar hidden-print affix-top" role="complementary" data-spy="affix" data-offset-top="0">
 			<ul class="nav bs-sidenav">
 				${self.sidebar()}
 			</ul>
