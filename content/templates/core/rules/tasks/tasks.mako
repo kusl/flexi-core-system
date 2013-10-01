@@ -1,0 +1,9 @@
+          <li><a href="${a('/core/rules/trintro')}">Tasks Introduction</a></li>
+          <li><a href="${a('/core/rules/trtaskres')}">Performing Tasks</a></li>
+          <li><a href="${a('/core/rules/trtaskcons')}">Changing Tasks</a></li>
+          <li><a href="${a('/core/rules/trmodifiers')}">Task Modifers</a></li>
+          <li><a href="${a('/core/rules/trscrtasks')}">Scrutiny</a></li>
+          <li><a href="${a('/core/rules/trsoctasks')}">Socialising</a></li>
+          <li><a href="${a('/core/rules/trrestasks')}">Research</a></li>
+          <li><a href="${a('/core/rules/trplatasks')}">Planning</a></li>
+          <li><a href="${a('/core/rules/trstetasks')}">Stealth</a></li>
