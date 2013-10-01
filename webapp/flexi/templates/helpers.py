@@ -24,4 +24,8 @@ def folder_path(template):
     """
     Reflect to find the template path hirerachy
     """
-    return template.module.__name__.split('_')[:-2]
+    folders = []
+    for path in template.module.__name__.split('_')[:-1]: # Strip off the mako
+        if path not in folders:
+            folders.append(path)  # Clumbsy way of de-duping the list
+    return folders
