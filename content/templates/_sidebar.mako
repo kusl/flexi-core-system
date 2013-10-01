@@ -42,6 +42,17 @@
 <%def name="body()">
 <% body_capture = capture(next.body) %>
 
+<ol class="breadcrumb">
+	<% folder_path = h.folder_path(self) %>
+	% for folder in [f.capitalize() for f in folder_path]:
+		% if not loop.last:
+		<li><a href="/${"/".join(folder_path[:loop.index+1])}">${folder}</a></li>
+		% else:
+		<li class="active">${folder}</li>
+		% endif
+	% endfor
+</ol>
+
 % if self.sidebar_content or hasattr(next, 'sidebar'):
 	<!-- Sidebar -->
 	<div class="col-md-3">

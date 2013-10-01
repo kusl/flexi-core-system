@@ -19,3 +19,9 @@ def encode_id(*items):
     """
     # TODO urlencode
     return "-".join(re.sub(r'[^0-9a-zA-Z]','_', item.lower()) for item in items)
+
+def folder_path(template):
+    """
+    Reflect to find the template path hirerachy
+    """
+    return template.module.__name__.split('_')[:-2]
