@@ -33,7 +33,9 @@
 </%def>
 
 <%def name="include(template_filename)">
+<section>
 <%include file="${template_filename}" args="h2=self.h2, h3=self.h3"/>
+</section>
 </%def>
 
 <%def name="breadcrumbs()">
