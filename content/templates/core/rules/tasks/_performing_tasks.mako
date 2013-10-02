@@ -1,16 +1,13 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Task Resolution</%def>
 
-<%def name="body()">
-
-    <h3>Task Resolution</h3>
+${h2('Task Resolution')}
 
     <p>Whenever a player wants their character to attempt an idea they are asking the game master if they can perform the task.
     The Flexi System has a mechanic which determines, using a characters attributes and other characteristics, success or failure
     through a few steps.</p>
     
-    <h4>Target Numbers</h4>
+    ${h3('Target Numbers')}
 
     <p>The very first stage requires a decision from the GM upon the appropriate target number for the task.  When choosing
     a Target Number the GM must consider the difficulty of the task that the character is attempting.  An easy task will have
@@ -24,7 +21,7 @@
     makes it a hard task for the thief to stay ahead of, or outrun them.  On the table a hard task has a target number of
     eighteen, so that's what he has to get on his dice roll.</em></p>
     
-    <h4>Standard Target Numbers</h4>
+    ${h3('Standard Target Numbers')}
     
     <p>The following table shows the standard target numbers, for several levels of difficulty, as well as examples.  </p>
     
@@ -87,7 +84,7 @@
         </tr>
     </table>
 
-    <h4>Attribute Dice</h4>
+    ${h3('Attribute Dice')}
 
     <p>Next the GM has to decide the relevent attribute.  Whenever a task is carried out, that requires a roll, it is a test
     of one of the characters attributes.  If the task is of a physical nature, such as climbing or lifting, then a physical
@@ -102,7 +99,7 @@
     The estate isn't wooded though, it's a flat lawn between the house and the outer wall he's aiming for, so stamina is
     appropriate. Thaddeus is going to have to use a number of dice equal to his stamina for the dice roll.</em></p>
 
-    <h4>Background Dice</h4>
+    ${h3('Background Dice')}
 
     <p>If you're performing a task for which you have an appropriate background then you can increase your chance of success using
     the background dice.  You should already have a number of dice equal to your attribute, simply add a number of other dice
@@ -113,7 +110,7 @@
     from the law and thus he can use the backgrounds dice.  So now Thaddeus has eight dice to roll, four from the stamina
     attribute and four from the pickpocket background.</em></p>
 
-    <h4>Determining Success</h4>
+    ${h3('Determining Success')}
 
     <p>Once the dice have been rolled you can't use all of them.  You can only keep a number of dice equal to the attribute used in
     the test.  Unless you want to fail, choose the dice with the highest values. The chosen dice are then added together and to this
@@ -125,5 +122,3 @@
     experience is two, because he didn't buy it very high at character generation.  The target number was eighteen and he got a total of
     seventeen.  So he failed in his running attempt.  The GM describes how Thaddeus just reaches the outer wall but two dogs latch onto
     his ankles.  He is dragged, screaming, off the wall onto the grass where the dogs set upon him.</em></p>
-
-</%def>

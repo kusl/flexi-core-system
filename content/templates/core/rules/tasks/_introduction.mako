@@ -1,10 +1,7 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Task Introduction</%def>
 
-<%def name="body()">
-
-    <h3>Tasks Introduction</h3>
+${h2('Introduction')}
     
     <p>The tasks section of the rule primarily concerns the game mechanics for resolving
     tasks outside of combat and is broken down into the following sections.</p>
@@ -26,9 +23,8 @@
         tasks.</li>
     </ul>
     
-    <h4>What is task resolution?</h4>
+    ${h3('What is task resolution?')}
     
     <p>When a player wishes to accomplish some kind of task there are rules which are followed
     to ensure it remains fair.  This section of the site goes over the rules which are involved
     in this.</p>
-</%def>

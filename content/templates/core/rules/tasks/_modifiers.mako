@@ -1,28 +1,25 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Task Modifers</%def>
 
-<%def name="body()">
-
-    <h3>Task Modifiers</h3>
+${h2('Modifiers')}
       
     <P>No two tasks are ever exactly the same.  Factors such as lighting, tiredness, clothing can make a
     big difference between success or failure.  When setting the difficulty for a task you can use the
     following tables to help you determine an appropriate target number.  First we should discuss how
     modifers affect the different types of tests.</P>
     
-    <h4>Target Number Tests</h4>
+    ${h3('Target Number Tests')}
     
     <p>When a GM decides on the difficulty of a task, the appropriate attribute to roll and then sets
     a target number.  How modifiers affect these sorts of tasks is easy to explain.  Each level of
     modifer increases, or decreases, the difficulty by one level.</p>
 
-    <h4>Opposed Tests</h4>
+    ${h3('Opposed Tests')}
     
     <p>When the players target number is determined by the roll of another player the affect of modifiers
     on the roll is more difficult to describe.  So bear with me.</p>
     
-    <h4>CORD Task Modifiers</h4>
+    ${h3('CORD Task Modifiers')}
     
     <P><table class="full-table">
         <tr>
@@ -187,7 +184,7 @@
         </tr>
      </table></P>
 
-    <h4>INGU Task Modifiers</h4>
+    ${h3('INGU Task Modifiers')}
 
     <P><table class="full-table">
        <tr>
@@ -343,7 +340,7 @@
     </table></p>
     
     
-    <h3>Boosters and Opposed Tests (Combat Proficiencies)</h3>
+    ${h3('Boosters and Opposed Tests (Combat Proficiencies)')}
     
     <p>It is advised that the player reads the descriptions for combat proficiencies,
     <a href="${a('/core/rules/csproficiencies')}">(Character: Combat Proficiencies),</a> and the mechanics for combat,
@@ -364,4 +361,3 @@
     adds his background dice.  The Alien, on the other hand, has a CORD boost of five and an INTU boost of one.  It's PAR is
     already six so the additional levels will subtract from Thaddeus's MEL roll.  The six levels will reduce his MEL down to
     one because that is the minimum he can roll.  Things are not looking good for Thaddeus.</I></P>
-</%def>
