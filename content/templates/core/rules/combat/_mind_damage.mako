@@ -1,10 +1,7 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Mind Damage</%def>
 
-<%def name="body()">
-
-    <h3>Mind Damage</h3>
+${h2('Mind Damage')}
     
     <p>Attacks on the Mind, such as psychic attacks or spells, work in a similar way to those on the Body.
     Any attack that does Mind damage must first
@@ -15,7 +12,7 @@
     <p>Each successive, successful, attack will also reduce the characters Mind Damage Limit by one. Eventually, when a characters
     Mind Damage Limit has been reduced to zero, they will suffer from Hysteria.</p>
     
-    <h3>Hysteria</h3>
+    ${h3('Hysteria')}
     
     <p>The mind is resilient but can only take so much punishment.  When too much is taken the character will gain a hysteria,
     a temporary mental affliction. As soon as a characters mind damage limit reaches zero, and for every successful mind attack thereafter,
@@ -167,7 +164,7 @@
     
     <p>Going to need the different types here</p>
     
-    <h3>Mind Criticals</h3>
+    ${h3('Mind Criticals')}
     
     <p> Most of the time, mind damage simply requires time and rest for it to heal.  Yet there is always the chance that the damage
     done is more permenant.  Whenever a character recieves a hysteria they must also make a test to avoid a Post Traumatic Stress.
@@ -424,11 +421,9 @@
     </tr>
     </table></p>
     
-    <h3>Mental Healing</h3>
+    ${h3('Mental Healing')}
     
     <p>The Mind Damage Limit is replenished by one dot for every six hours of sleep the character gets.
     Hysterias only last a finite amount of time, once the period that they are active for finishes they stop.
     Post Traumatic Stress traits do not go away.  They are now a permenant feature of the character in the same way as a
     Body Critical. Instead the character will need to be treated to remove them.</p>
-
-</%def>

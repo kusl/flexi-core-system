@@ -1,10 +1,6 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Task Introduction</%def>
-
-<%def name="body()">
-
-    <h3>Combat Introduction</h3>
+${h2('Introduction')}
     
     <p>This section of the rules concerns combat, how it is carried out, and the effects of it.</p>
     
@@ -21,5 +17,3 @@
     <h4></h4>
     
     <p></p>
-    
-</%def>

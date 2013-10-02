@@ -1,10 +1,7 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Soul Damage</%def>
 
-<%def name="body()">
-
-    <h3>Soul Damage</h3>
+${h2('Soul Damage')}
     
     <p>Attacks against a characters SOUL are even rarer than MIND attacks.  Most SOUL attacks are usually the feeding, draining
     attacks of creatures like vampires, demons and other abberations. Even then these attacks only reduce a characters soul until
@@ -15,5 +12,3 @@
     
     <p>A SOUL critical can only occur once the SOUL has been reduced to zero.  This is the utter destruction of a humans soul and
     has immense repercussions on the chracter and the world around it.</p>
-
-</%def>

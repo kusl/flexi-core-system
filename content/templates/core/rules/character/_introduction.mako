@@ -1,8 +1,8 @@
 <%page args="h2, h3"/>
 
-${h2('Character')}
+##${h2('Character')}
 
-    ${h3('Character Introduction')}
+${h2('Character Introduction')}
 	
 	<p>The Character section of the rules primarily describes the statistics of characters.</p>
 	
