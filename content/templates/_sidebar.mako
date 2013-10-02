@@ -36,24 +36,27 @@
 <%include file="${template_filename}" args="h2=self.h2, h3=self.h3"/>
 </%def>
 
+<%def name="breadcrumbs()">
+	<% folder_path = h.folder_path(self) %>
+	% if folder_path:
+	<ol class="breadcrumb">
+		% for folder in [f.capitalize() for f in folder_path]:
+			% if not loop.last:
+			<li><a href="/${"/".join(folder_path[:loop.index+1])}">${folder}</a></li>
+			% else:
+			<li class="active">${folder}</li>
+			% endif
+		% endfor
+	</ol>
+	% endif
+</%def>
 
 ## Body -----------------------------------------------------------------------
 
 <%def name="body()">
 <% body_capture = capture(next.body) %>
 
-<% folder_path = h.folder_path(self) %>
-% if folder_path:
-<ol class="breadcrumb">
-	% for folder in [f.capitalize() for f in folder_path]:
-		% if not loop.last:
-		<li><a href="/${"/".join(folder_path[:loop.index+1])}">${folder}</a></li>
-		% else:
-		<li class="active">${folder}</li>
-		% endif
-	% endfor
-</ol>
-% endif
+##${breadcrumbs()}
 
 % if self.sidebar_content or hasattr(next, 'sidebar'):
 	<!-- Sidebar -->
