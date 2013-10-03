@@ -6,34 +6,41 @@ ${h2('System Introduction')}
 	##<p>Welcome to the introductory page for the Flexi System.  Before I answer a few questions you might have I would like to outline the
 	##different sections of the rules.</p>
 
-	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<span class=".glyphicon .glyphicon-user"></span>
+	<ul class="core-rules-sections">
+		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/character/character')}">
+			<span class="glyphicon glyphicon-user"></span>
 			The <b>Character</b> section describes the various statistics you will
 			find on the character sheet, how to generate them, and what they represent.
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
+		</a></li>
+		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/tasks/tasks')}">
+			<span class="glyphicon glyphicon-search"></span>
 			The <b>Tasks</b> section describes the game mechanics for resolving any
 			tasks that the character wants to perform outside of combat..
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
+		</a></li>
+		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/combat/combat')}">
+			<span class="glyphicon glyphicon-fire"></span>
 			The <b>Combat</b> section describes the various game mechanics that resolve
 			combat and also the consequences of it.
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			<span class=".glyphicon .glyphicon-globe"></span>
+		</a></li>
+		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/world/world')}">
+			<span class="glyphicon glyphicon-globe"></span>
 			The <b>World</b> section describes the various mechanics that involve the
 			interaction of characters with their environment.
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
+		</a></li>
+		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/tools/tools')}">
+			<span class="glyphicon glyphicon-wrench"></span>
 			The <b>Tools</b> section describes the various statisitcs for different
 			equipment, as well as the game mechanics for using them.
-		</div>
-		<div class="col-xs-12 col-sm-6 col-md-4">
-			The <b>Appendices</b> section consists of the term glossary, a brief outline
+		</a></li>
+		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/appendicies/appendices')}">
+			<span class="glyphicon glyphicon-book"></span> The <b>Appendices</b> section consists of the term glossary, a brief outline
 			of the usual character creation process and important lists.
-		</div>
-	</div>
+		</a></li>
+	</ul>
+
+<div class="clearfix"></div>
+	
+</div>
 
 ${h3('What is the Flexi System')}
 	<p>A set of mechanics to allow a group of players to create characters for a roleplaying story created, and ran, by a game master.
