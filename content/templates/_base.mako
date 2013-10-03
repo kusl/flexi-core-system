@@ -7,7 +7,7 @@ ${self.init()}\
 
 	<head>
 		<%def name="title()">Default Title</%def>
-		<title>${title()}</title>
+		<title>${self.title()}</title>
 		
 		${head()}
 	</head>
