@@ -1,7 +1,5 @@
-<%inherit file="/_sidebar.mako"/>
+<%inherit file="/_base.mako"/>
 
 <%def name="body()">
-
-${self.include("core/rules/csindex.mako")}
-
+<%include file="rules/csindex.mako"/>
 </%def>

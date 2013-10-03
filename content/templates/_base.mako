@@ -1,14 +1,14 @@
 <%def name="init()"></%def>
 
+<%def name="title()">Default Title</%def>
+
 <%def name="body()">
 ${self.init()}\
 <!DOCTYPE html>
 <html lang="en">
 
 	<head>
-		<%def name="title()">Default Title</%def>
 		<title>${self.title()}</title>
-		
 		${head()}
 	</head>
 
