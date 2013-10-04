@@ -62,6 +62,7 @@ set +e
 cd $HOME/$GIT_PROJECT_NAME/webapp
 echo 'Updating repo'
 git pull
+make externals
 echo 'Start server daemon'
 make start_webapp_daemon
 EOF
