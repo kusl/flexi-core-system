@@ -25,7 +25,7 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Core System <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="${a('/core/rules/csindex')}">Core Rules</a></li>
+					<li><a href="${a('/core/rules/rules')}">Core Rules</a></li>
 					<li><a href="${a('/core/resources/toindex')}">Resources</a></li>
 				</ul>
 			</li>

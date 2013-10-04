@@ -1,5 +1,10 @@
+<%inherit file="/_base.mako"/>
+
 <%def name="h2(title)"><h2>${title}</h2></%def>
 <%def name="h3(title)"><h3>${title}</h3></%def>
+
+
+<%def name="body()">
 
 	##<p>Welcome to the introductory page for the Flexi System.  Before I answer a few questions you might have I would like to outline the
 	##different sections of the rules.</p>
@@ -78,3 +83,5 @@ ${h3('What do I do if I don\'t like the rules?')}
 	to the way you like.  Changes in rules are usually called "House Rules".  Many gaming groups have their own and as long as they are agreed on
 	by everybody this is fine. However arbritary rule changes intended to annoy other players or to swing the game in your favour are, quite frankly,
 	low. Everybody will hate you and nobody will want to play with you.  Just keep that in mind before you start antagonising everyone you game with.</P>
+
+</%def>
