@@ -1,12 +1,8 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">COMP Booster research modifiers</%def>
-
-<%def name="body()">
-
-    <h3>COMP Booster research modifiers</h3>
+${h2('COMP Booster research modifiers')}
     
-<P><table class="full-table">
+<table class="full-table">
     <Caption>COMP Booster research modifiers</Caption>
    <tr>
       <th>COMP Booster</th>
@@ -296,5 +292,4 @@
       <td>-</td>
       <td>20 seconds</td>
    </tr>
-</table></p>
-</%def>
+</table>

@@ -1,8 +1,6 @@
 <%def name="h2(title)"><h2>${title}</h2></%def>
 <%def name="h3(title)"><h3>${title}</h3></%def>
 
-${h2('System Introduction')}
-	
 	##<p>Welcome to the introductory page for the Flexi System.  Before I answer a few questions you might have I would like to outline the
 	##different sections of the rules.</p>
 
@@ -32,15 +30,15 @@ ${h2('System Introduction')}
 			The <b>Tools</b> section describes the various statisitcs for different
 			equipment, as well as the game mechanics for using them.
 		</a></li>
-		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/appendicies/appendices')}">
+		<li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/rules/appendicies/appendicies')}">
 			<span class="glyphicon glyphicon-book"></span> The <b>Appendices</b> section consists of the term glossary, a brief outline
 			of the usual character creation process and important lists.
 		</a></li>
 	</ul>
 
 <div class="clearfix"></div>
-	
-</div>
+
+${h2('System Introduction')}
 
 ${h3('What is the Flexi System')}
 	<p>A set of mechanics to allow a group of players to create characters for a roleplaying story created, and ran, by a game master.

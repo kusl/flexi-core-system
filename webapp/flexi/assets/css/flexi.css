@@ -75,7 +75,7 @@ table.full-table {
 	display: block;
 	color: inherit;
 	text-decoration: none;
-	height: 6em;
+	/* height: 6em;*/
 	border: 0.2em solid #ddd;
 	border-radius: 1em;
 	margin: 0.5em;

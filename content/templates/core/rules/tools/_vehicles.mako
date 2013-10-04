@@ -1,14 +1,11 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Vehicles</%def>
 
-<%def name="body()">
-
-    <h3>Vehicles</h3>
+${h2('Vehicles')}
     
     <p>Any machine that transports passengers or cargo.</p>
     
-    <h4>Operating a Vehicle</h4>
+    ${h3('Operating a Vehicle')}
     
     <p>As long as a character has a background, which suggests training in operating the vehicle
     in question, there should not be any reason to make a task test.  Operating a vehicle in normal
@@ -19,7 +16,7 @@
     than others and so have a lower Control statistic.  This limits the number of dice the player can
     use when making their test.</p>
     
-    <h4>Vehicle Statistics</h4>
+    ${h3('Vehicle Statistics')}
     
     <p><b>Size</b> - The size rating of the vehicle.  Vehicles such as battleships or even starships
     can have ludicrous sizes.</p>
@@ -55,5 +52,3 @@
     <p><b>ADR</b> - The armour damage ranking of the vehicle.</p>
     
     <p><b>Cost</b> - The value of the vehicle in whichever setting it is taken from.</p>
-
-</%def>

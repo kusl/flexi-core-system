@@ -1,12 +1,8 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">REFX Booster</%def>
-
-<%def name="body()">
-
-    <h3>REFX Booster</h3>
+${h2('REFX Booster')}
     
-<P><table class="full-table">
+<table class="full-table">
     <Caption>Extra Turns and Actions from REFX Boosters</Caption>
    <tr>
       <th>REFX Booster</th>
@@ -168,5 +164,5 @@
       <td>9</td>
       <td>3</td>
    </tr>
-</table></p>
-</%def>
+</table>
+

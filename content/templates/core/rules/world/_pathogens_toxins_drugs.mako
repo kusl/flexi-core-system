@@ -1,14 +1,10 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Pathogens, Toxins and Drugs</%def>
 
-<%def name="body()">
-
-    <h3>Pathogens, Toxins and Drugs</h3>
+${h2('Pathogens, Toxins and Drugs')}
     
-    <p></p>
     
-    <h4>Pathogens</h4>
+    ${h3('Pathogens')}
     
     <p>Pathogens are infectious agents, or germs.  Viruses, bacteria and fungi are all examples
     of pathogens and are covered by these rules.</p>
@@ -360,13 +356,13 @@
        </tr>
     </table></p>
     
-    <h4>Toxins</h4>
+    ${h3('Toxins')}
     
     <p>Toxins are substances which have a negative effect on body chemistry and use exactly the
     same mechanics as Pathogens. The only difference is that their power is determined by different
     properties.</p>
 
-    <h4>Drugs</h4>
+    ${h3('Drugs')}
     
     <p>Whereas toxins have a completely negative effect on the human body, drugs usually produce
     a desirable change. In roleplaying games characters usually take drugs for reasons other
@@ -381,5 +377,3 @@
     the drug is noted in it's description and the length of time this lasts for is given in the effect
     duration.</p>
     
-
-</%def>

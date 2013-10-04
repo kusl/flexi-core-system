@@ -1,10 +1,6 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Strength Tables</%def>
-
-<%def name="body()">
-
-    <h3>Strength Tables</h3>
+${h2('Strength Tables')}
     
 <table class="full-table">
    <tr>
@@ -581,5 +577,3 @@
       <td></td>
    </tr>
 </table>
-
-</%def>

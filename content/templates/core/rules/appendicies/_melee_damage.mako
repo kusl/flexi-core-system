@@ -1,12 +1,8 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Melee Damage Multipliers</%def>
-
-<%def name="body()">
-
-    <h3>Melee Damage Multipliers</h3>
+${h2('Melee Damage Multipliers')}
     
-<P><table class="full-table">
+<table class="full-table">
     <Caption>One Handed Melee Damage Multipliers</Caption>
    <tr>
       <th>STRG+Booster</th>
@@ -1227,5 +1223,4 @@
       <td>4F</td>
       <td>6F</td>
    </tr>
-</table></p>
-</%def>
+</table>

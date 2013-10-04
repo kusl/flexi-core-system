@@ -1,12 +1,8 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Stamina Tables</%def>
-
-<%def name="body()">
-
-    <h3>Stamina Tables</h3>
+${h2('Stamina Tables')}
     
-<P><table class="full-table">
+<table class="full-table">
     <Caption>Stamina Task Target Numbers</Caption>
    <tr>
       <th>Base Target Numbers</th>
@@ -312,5 +308,4 @@
       <td>1 year</td>
       <td>5800 Years</td>
    </tr>
-</table></p>
-</%def>
+</table>

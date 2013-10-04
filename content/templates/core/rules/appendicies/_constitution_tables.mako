@@ -1,12 +1,8 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Constitution Tables</%def>
-
-<%def name="body()">
-
-    <h3>Constitution Tables</h3>
+${h2('Constitution Tables')}
     
-<P><table class="full-table">
+<table class="full-table">
     <Caption>Stamina Task Target Numbers</Caption>
    <tr>
       <th>Base Target Number</th>
@@ -274,5 +270,4 @@
       <td></td>
       <td></td>
    </tr>
-</table></p>
-</%def>
+</table>

@@ -1,16 +1,13 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Armour</%def>
 
-<%def name="body()">
-
-    <h3>Armour</h3>
+${h2('Armour')}
     
     <p>Rules concerning how armour affects damage are described on the <a href="${a('/core/rules/crtakdmg')}">
     (Combat: Taking Damage)</a> page. The information
     on this page describes the additional statistics which some armours have and what they affect.</p>
     
-    <h4>Armour Statistics</h4>
+    ${h3('Armour Statistics')}
     
     <p><b>Armour Resistances</b> - The different types of armour resistance have already been named on this page
     <a href="${a('/core/rules/csconditions')}">(Character: Taking Damage).</a></P>
@@ -30,5 +27,3 @@
     <p><b>Base Cost</b></p>
     
     <p><b>Upgrade Cost</b></p>
-
-</%def>

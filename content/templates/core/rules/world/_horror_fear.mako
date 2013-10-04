@@ -1,17 +1,14 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Horror and Fear</%def>
 
-<%def name="body()">
-
-    <h3>Horror and Fear</h3>
+${h2('Horror and Fear')}
     
     <p>Fear is a lot nastier than a mind attack.  While mind attacks can be defended against using ESD a character encountering a horror has no such defence.
     It is a straight test against the characters Resolve, and if they fail then hysteria and madness will follow. It is also different from an attack in that
     it does not stop.  Fear is a passive effect, it does not happen once and then finish, whilst looking at the source of the fear they will continue to feel
     its effects. Until either the source, or the character, is gone.</p>
     
-    <h3>Fear Rating</h3>
+    ${h3('Fear Rating')}
     
     <p>The fear rating of a creature or situation determines the target number for the characters RESO test.  The chart below shows the RESO target numbers
     for each fear rating.</p>
@@ -60,11 +57,9 @@
     
     <p>Regardless of which subtype chart the player refers to, the power of the attacks is always equal to the Fear Rating plus 1d6.</p>
     
-    <h3>Mind Armour</h3>
+    ${h3('Mind Armour')}
 
     <p>Mind Armour Resistance is good stuff, very rare, but good stuff.  It is especially good for fear.  Mind Armour Resistance can negate the effects
     of a Fear Rating equal to, or less than, its value.  So a Mind Armour Resistance of one will allow a character to ignore the effects of any situation
     with a Fear Rating of one.  No RESO test needs to be made and the character acts as normal, but if the Fear Rating was at two then it would require a
     RESO test.</p>
-    
-</%def>

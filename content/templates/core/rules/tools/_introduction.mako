@@ -1,10 +1,7 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Tools Introduction</%def>
 
-<%def name="body()">
-
-    <h3>Tools Introduction</h3>
+${h2('Introduction')}
     
     <p>The tools section of the site describes the statistics of, and any rules for, physical objects which can be used.  Tools.</p>
     
@@ -13,4 +10,3 @@
         <li><b>Armour</b> - The statistics of armours and what they mean.</li>
         <li><b>Vehicles</b> - The statisitcs of vehicles and what they mean.</li>
     </ul>
-</%def>

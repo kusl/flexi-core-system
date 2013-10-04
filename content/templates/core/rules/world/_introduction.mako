@@ -1,10 +1,7 @@
-<%inherit file="_sidebar_rules.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">World Introduction</%def>
 
-<%def name="body()">
-
-    <h3>World Introduction</h3>
+${h2('World Introduction')}
     
     <p>The world section concerns rules for character interaction with the environment.
     That's the immediate surroundings and world environment not the ecosystem environment.</p>
@@ -14,4 +11,3 @@
         <li><b>Horror and Fear</b> - The rules for encountering the horrifying, and the effects of fear.</li>
         <li><b>Pathogens, Toxins and Drugs</b> - The rules for infectious agents, toxic substances and addictive substances.</li>
     </ul>
-</%def>
