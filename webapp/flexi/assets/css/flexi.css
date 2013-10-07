@@ -92,10 +92,13 @@ table.full-table {
 
 .nav .glyphicon {
 	color: #aaa;
-	display: inline-block;
+	position: absolute;
+	left: -7px;
+	top: 16px;
+	/*display: inline-block;*/
 }
 .nav>li>a {
-	display: inline-block;
+	/*display: inline-block;*/
 }
 .navbar-inverse .navbar-nav>.active>a {
 	background-color: transparent;

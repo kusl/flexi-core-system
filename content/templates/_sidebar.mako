@@ -44,9 +44,9 @@
 	##<ol class="breadcrumb">
 		% for folder in [f.capitalize() for f in folder_path]:
 			% if not loop.last:
-			<li><span class="glyphicon glyphicon-chevron-right"></span><a href="/${"/".join(folder_path[:loop.index+1]+[folder_path[loop.index]])}">${folder}</a></li>
+			<li><a href="/${"/".join(folder_path[:loop.index+1]+[folder_path[loop.index]])}"><span class="glyphicon glyphicon-chevron-right"></span> ${folder}</a></li>
 			% else:
-			<li class="active"><span class="glyphicon glyphicon-chevron-right"></span><a href="#top-ancor">${folder}</a></li>
+			<li class="active"><a href="#top-ancor"><span class="glyphicon glyphicon-chevron-right"></span> ${folder}</a></li>
 			% endif
 		% endfor
 	##</ol>
