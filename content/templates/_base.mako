@@ -43,13 +43,10 @@ ${self.init()}\
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
+					<a href="#top-ancor" class="visible-xs fl-nav-goto-top">Top</a>
 					<!-- Brand Title -->
 					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
 				</div>
-				
-##	<a href="#top-ancor" class="fl-nav-goto-top">
-##		Top
-##	</a>
 				
 				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 					<ul class="nav navbar-nav">
