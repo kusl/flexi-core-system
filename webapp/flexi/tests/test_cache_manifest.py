@@ -42,7 +42,12 @@ def test_cache_manifest(app):
         # Extract all links/images from pages visited in cache manifest
         if 'html' in response.content_type:
             soup = BeautifulSoup(response.text)
-            for tag, attr in (('a','href'),('img','src')):
+            for tag, attr in (
+                ('a'     ,'href'),
+                ('img'   ,'src' ),
+                ('link'  ,'href'),
+                ('script','src' ),
+            ):
                 for link in (t.get(attr) for t in soup.findAll(tag)):
                     if link and not link.startswith('#') and not link.startswith('http:'):
                         # Correct relative links to page links

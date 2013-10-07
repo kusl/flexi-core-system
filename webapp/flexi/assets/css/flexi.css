@@ -88,6 +88,13 @@ table.full-table {
 	font-size: 200%;
 }
 
+/* Breadcrumbs */
+@media (min-width: 768px) {
+	.breadcrumb {
+		position: fixed;
+		z-index: 100;
+	}
+}
 
 /* Backtop */
 

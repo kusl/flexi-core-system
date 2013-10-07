@@ -45,7 +45,7 @@ ${self.init()}\
 		<!-- External CSS -->
 		<link href="${ asset_url }ext/css/bootstrap.min.css"       rel="stylesheet">
 		<link href="${ asset_url }ext/css/bootstrap-theme.min.css" rel="stylesheet">
-		<link href="${ asset_url }ext/css/pygments-manni.css"      rel="stylesheet">
+		##<link href="${ asset_url }ext/css/pygments-manni.css"      rel="stylesheet">
 		
 		<!-- Site CSS -->
 		<link href="${ asset_url }css/flexi.css" rel="stylesheet">
