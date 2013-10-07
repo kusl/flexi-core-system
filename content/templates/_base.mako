@@ -1,6 +1,6 @@
 <%def name="init()"></%def>
 
-<%def name="title()">Default Title</%def>
+<%def name="title()">Flexi System</%def>
 
 <%def name="body()">
 ${self.init()}\
@@ -15,7 +15,7 @@ ${self.init()}\
 	<body data-spy="scroll" data-target=".bs-sidebar" data-offset="60">
 		<a class="sr-only" href="#content">Skip navigation</a>
 		<!-- Navigation -->
-		${nav()}
+		${navbar()}
 		
 		<!-- Content -->
 		<div class="container bs-docs-container">
@@ -26,13 +26,41 @@ ${self.init()}\
 		</div>
 		
 		<!-- Footer -->
-		${footer()}
+		${self.footer()}
+		${scripts()}
 	</body>
 
 </html>
 </%def>
 
-<%def name="nav()">
+<%def name="navbar()">
+		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Brand Title -->
+					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
+				</div>
+				
+##	<a href="#top-ancor" class="fl-nav-goto-top">
+##		Top
+##	</a>
+				
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						${self.navbar_elements()}
+					</ul>
+				</nav>
+			</div>
+		</header>
+</%def>
+
+<%def name="navbar_elements()">
 	<%include file="_navbar.mako"/>
 </%def>
 
@@ -65,10 +93,12 @@ ${self.init()}\
 </%def>
 
 <%def name="footer()">
-		<%include file="_footer.mako"/>
-		
-		<!-- Javascript -->
-		<script src="${ asset_url }ext/js/jquery.min.js"></script>
-		<script src="${ asset_url }ext/js/bootstrap.min.js"></script>
-		<script src="${ asset_url }js/flexi.js"></script>
+	<%include file="_footer.mako"/>
+</%def>
+
+<%def name="scripts()">
+	<!-- Javascript -->
+	<script src="${ asset_url }ext/js/jquery.min.js"></script>
+	<script src="${ asset_url }ext/js/bootstrap.min.js"></script>
+	<script src="${ asset_url }js/flexi.js"></script>
 </%def>

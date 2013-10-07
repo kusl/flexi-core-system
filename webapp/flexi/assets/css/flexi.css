@@ -88,6 +88,19 @@ table.full-table {
 	font-size: 200%;
 }
 
+/* Nav */
+
+.nav .glyphicon {
+	color: #aaa;
+	display: inline-block;
+}
+.nav>li>a {
+	display: inline-block;
+}
+.navbar-inverse .navbar-nav>.active>a {
+	background-color: transparent;
+}
+
 /* Breadcrumbs */
 @media (min-width: 768px) {
 	.breadcrumb {

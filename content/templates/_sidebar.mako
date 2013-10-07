@@ -38,18 +38,18 @@
 </section>
 </%def>
 
-<%def name="breadcrumbs()">
+<%def name="navbar_elements()">
 	<% folder_path = h.folder_path(self) %>
 	% if folder_path:
-	<ol class="breadcrumb">
+	##<ol class="breadcrumb">
 		% for folder in [f.capitalize() for f in folder_path]:
 			% if not loop.last:
-			<li><a href="/${"/".join(folder_path[:loop.index+1]+[folder_path[loop.index]])}">${folder}</a></li>
+			<li><span class="glyphicon glyphicon-chevron-right"></span><a href="/${"/".join(folder_path[:loop.index+1]+[folder_path[loop.index]])}">${folder}</a></li>
 			% else:
-			<li class="active">${folder}</li>
+			<li class="active"><span class="glyphicon glyphicon-chevron-right"></span><a href="#top-ancor">${folder}</a></li>
 			% endif
 		% endfor
-	</ol>
+	##</ol>
 	% endif
 </%def>
 
@@ -58,7 +58,7 @@
 <%def name="body()">
 <% body_capture = capture(next.body) %>
 
-${breadcrumbs()}
+##${breadcrumbs()}
 
 % if self.sidebar_content or hasattr(next, 'sidebar'):
 	<!-- Sidebar -->
