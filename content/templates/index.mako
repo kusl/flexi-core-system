@@ -1,14 +1,20 @@
-<%inherit file="_base.mako"/>
+<%inherit file="_sidebar.mako"/>
 
 <%def name="title()">Index</%def>
 
 <%def name="body()">
+<section class="col-xs-12 col-md-3">
+    <ul class="section_selector">
+        <li class="col-sm-6 col-md-12"><a href="${a('/core/core')}"        ><span class="glyphicon glyphicon-play-circle"  ></span> Rules    </a></li>
+        <li class="col-sm-6 col-md-12"><a href="${a('/settings/settings')}"><span class="glyphicon glyphicon-picture"      ></span> Settings </a></li>
+        <li class="col-sm-6 col-md-12"><a href="${a('/about/about')}"      ><span class="glyphicon glyphicon-question-sign"></span> About    </a></li>
+    </ul>
+</section>
 
-        <div class="col-xs-6"><a HREF="${a('/core/core')}">Rules</a></div>
-        <div class="col-xs-6"><a HREF="${a('/settings/settings')}">Settings</a></div>
-        <div class="col-xs-6"><a HREF="${a('/about/about')}">About</a></div>
-        
-        <p>Welcome to Destruction Engine Publishing home of the Flexi System and the Shattered Covenant setting.</p>
+<div class="clearfix visible-sm"></div>
+
+<section class="col-xs-12 col-md-9">
+        ##<p>Welcome to Destruction Engine Publishing home of the Flexi System and the Shattered Covenant setting.</p>
         
         <h1>News</h1>
         <p><B>Twenty Sixth of June Two Thousand and Thirteen Anno Domini.</B></p>
@@ -41,5 +47,5 @@
             
         </div>
         
-    
+</section>
 </%def>

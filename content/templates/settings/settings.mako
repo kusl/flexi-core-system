@@ -1,4 +1,4 @@
-<%inherit file="/_base.mako"/>
+<%inherit file="/_sidebar.mako"/>
 
 <%def name="body()">
 <div class="select_settings">

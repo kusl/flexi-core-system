@@ -60,7 +60,8 @@
 
 ##${breadcrumbs()}
 
-% if self.sidebar_content or hasattr(next, 'sidebar'):
+## or hasattr(next, 'sidebar'):  next is not behaving like an inheritance chain item. Custom sidebars are disabled for now
+% if self.sidebar_content:
 	<!-- Sidebar -->
 	<div class="col-md-3">
 		<div class="bs-sidebar hidden-print affix-top" role="complementary" data-spy="affix" data-offset-top="0">

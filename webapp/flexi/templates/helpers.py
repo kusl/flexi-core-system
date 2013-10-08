@@ -28,4 +28,6 @@ def folder_path(template):
     for path in template.module.__name__.split('_')[:-1]: # Strip off the mako
         if path not in folders:
             folders.append(path)  # Clumbsy way of de-duping the list
+    if 'index' in folders:
+        folders.remove('index')  # Hack case for root page. Could do this better
     return folders

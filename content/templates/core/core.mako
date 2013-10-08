@@ -1,4 +1,4 @@
-<%inherit file="/_base.mako"/>
+<%inherit file="/_sidebar.mako"/>
 
 <%def name="h2(title)"><h2>${title}</h2></%def>
 <%def name="h3(title)"><h3>${title}</h3></%def>
