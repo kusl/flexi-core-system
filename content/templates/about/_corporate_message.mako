@@ -1,10 +1,7 @@
-<%inherit file="/_base.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Index</%def>
-
-<%def name="body()">
-    <div class="container">
-        <p><A HREF="${a('/core/rules/csindex')}"><IMG SRC="${static_url}img/chts.jpg"></A></p>
+${h2('Corporate Message')}
+    <p><A HREF="${a('/core/rules/csindex')}"><IMG SRC="${static_url}img/chts.jpg"></A></p>
         
         <p>Welcome to Destruction Engine Publishing home of the Flexi System and the Shattered Covenant setting.</p>
         
@@ -18,7 +15,6 @@
         finalising our playtesting incentives.</p>
         
         <P>More news soon.</P>
-    </div>
     
-    <footer> ©  2013 Destruction Engine Publishing, The Flexi System and the Flexi System logo are ® of Destruction Engine Publishing.  All rights reserved.</footer>
-</%def>
+    ©  2013 Destruction Engine Publishing, The Flexi System and the Flexi System logo are ® of Destruction Engine Publishing.  All rights reserved.
+

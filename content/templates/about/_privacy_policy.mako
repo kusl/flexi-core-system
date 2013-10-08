@@ -1,14 +1,8 @@
-<%inherit file="/_base.mako"/>
+<%page args="h2, h3"/>
 
-<%def name="title()">Privacy Policy</%def>
-
-<%def name="body()">
-
-    <div class="container">
+${h2('Privacy Policy')}
     
-    <h2>Privacy Policy</h2>
-    
-    <h3>What is this Privacy Policy for?</h3>
+    ${h3('What is this Privacy Policy for?')}
 
     <P>This privacy policy is for this website www.flexi.destruction-engine.com and served by Destruction Engine
     Publishing and governs the privacy of its users who choose to use it.</P>
@@ -17,13 +11,13 @@
     requirements of the users, the website and website owners. Furthermore the way this website processes, stores
     and protects user data and information will also be detailed within this policy.</P>
 
-    <h3>The Website</h3>
+    ${h3('The Website')}
 
     <P>This website and it's owners take a proactive approach to user privacy and ensure the necessary steps are
     taken to protect the privacy of its users throughout their visiting experience. This website comply's to all
     UK national laws and requirements for user privacy.</P>
 
-    <h3>Use of Cookies</h3>
+    ${h3('Use of Cookies')}
 
     <P>This website uses cookies to better the users experience while visiting the website. Where applicable this
     website uses a cookie control system allowing the user on their first visit to the website to allow or disallow
@@ -48,7 +42,7 @@
     sponsored links or adverts. Such cookies are used for conversion and referral tracking and typically expire after 30 days,
     though some may take longer. No personal information is stored, saved or collected.</P>
 
-    <h3>Contact & Communication</h3>
+    ${h3('Contact & Communication')}
 
     <P>Users contacting this website and/or it's owners do so at their own discretion and provide any such personal details
     requested at their own risk. Your personal information is kept private and stored securely until a time it is no longer
@@ -64,7 +58,7 @@
     that the email newsletter relates to. This is by no means an entire list of your user rights in regard to receiving
     email marketing material. Your details are not passed on to any third parties.</P>
 
-    <h3>Email Newsletter</h3>
+    ${h3('Email Newsletter')}
 
     <P>This website operates an email newsletter program, used to inform subscribers about products and services supplied
     by this website. Users can subscribe through an online automated process should they wish to do so but do so at their
@@ -90,7 +84,7 @@
     email campaign. If an automated un-subscription system is unavailable clear instructions on how to un-subscribe will by
     detailed instead.</P>
 
-    <h3>External Links</h3>
+    ${h3('External Links')}
 
     <P>Although this website only looks to include quality, safe and relevant external links users should always adopt a policy
     of caution before clicking any external web links mentioned throughout this website.</P>
@@ -99,7 +93,7 @@
     efforts. Users should therefore note they click on external links at their own risk and this website and it's owners cannot
     be held liable for any damages or implications caused by visiting any external links mentioned.</P>
 
-    <h3>Adverts and Sponsored Links</h3>
+    ${h3('Adverts and Sponsored Links')}
 
     <P>This website may contain sponsored links and adverts. These will typically be served through our advertising partners, to
     whom may have detailed privacy policies relating directly to the adverts they serve.</P>
@@ -109,7 +103,7 @@
     your computers hard drive. Users should therefore note they click on sponsored external links at their own risk and this website
     and it's owners cannot be held liable for any damages or implications caused by visiting any external links mentioned.</P>
 
-    <h3>Social Media Platforms</h3>
+    ${h3('Social Media Platforms')}
 
     <P>Communication, engagement and actions taken through external social media platforms that this website and it's owners
     participate on are custom to the terms and conditions as well as the privacy policies held with each social media platform
@@ -124,7 +118,7 @@
     in question. Users are advised before using such social sharing buttons that they do so at their own discretion and note that the
     social media platform may track and save your request to share a web page respectively through your social media platform account.</P>
 
-    <h3>Shortened Links in Social Media</h3>
+    ${h3('Shortened Links in Social Media')}
 
     <P>This website and it's owners through their social media platform accounts may share web links to relevant web pages. By default
     some social media platforms shorten lengthy url's [web addresses] (this is an example: http://bit.ly/zyVUBo).</P>
@@ -134,7 +128,7 @@
     are prone to spam and hacking and therefore this website and it's owners cannot be held liable for any damages or implications
     caused by visiting any shortened links.</P>
 
-    <h3>Resources & Further Information</h3>
+    ${h3('Resources & Further Information')}
 
     <ul>
         <LI>Data Protection Act 1998</LI>
@@ -149,7 +143,4 @@
 
     <P>Free Website Privacy Policy written by Jamie King Media - Website Design in Pembrokeshire ? 2013 - v.2.0
     April 2013| Edited & customised by: Destruction Engine Publishing</P>
-    
-    </div>
 
-</%def>
