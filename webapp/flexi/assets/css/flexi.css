@@ -66,26 +66,24 @@ table.full-table {
 
 /* Core Rules */
 
-.core-rules-sections {
+.section_selector {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+	font-size: 150%;
 }
-.core-rules-sections li a {
+.section_selector li a {
 	display: block;
 	color: inherit;
 	text-decoration: none;
 	/* height: 6em;*/
-	border: 0.2em solid #ddd;
-	border-radius: 1em;
-	margin: 0.5em;
-	padding: 0.5em;
+	border: 0.1em solid #ddd;
+	border-radius: 0.5em;
+	margin: 0.1em;
+	padding: 0.4em;
 }
-.core-rules-sections li a:hover {
+.section_selector li a:hover {
 	background-color: #eee;
-}
-.core-rules-sections .glyphicon {
-	font-size: 200%;
 }
 
 /* Nav */

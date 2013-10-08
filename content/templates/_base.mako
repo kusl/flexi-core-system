@@ -43,6 +43,7 @@ ${self.init()}\
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
+					<!-- Top Button -->
 					<a href="#top-ancor" class="visible-xs fl-nav-goto-top">Top</a>
 					<!-- Brand Title -->
 					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
