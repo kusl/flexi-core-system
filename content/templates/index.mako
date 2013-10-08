@@ -5,9 +5,9 @@
 <%def name="body()">
 <section class="col-xs-12 col-md-3">
     <ul class="section_selector">
-        <li class="col-sm-6 col-md-12"><a href="${a('/core/core')}"        ><span class="glyphicon glyphicon-play-circle"  ></span> Rules    </a></li>
-        <li class="col-sm-6 col-md-12"><a href="${a('/settings/settings')}"><span class="glyphicon glyphicon-picture"      ></span> Settings </a></li>
-        <li class="col-sm-6 col-md-12"><a href="${a('/about/about')}"      ><span class="glyphicon glyphicon-question-sign"></span> About    </a></li>
+        <li class="col-sm-6 col-md-12"><a href="${a('/core/core')}"        ><span class="glyphicon glyphicon-play-circle"  ></span> Core       </a></li>
+        <li class="col-sm-6 col-md-12"><a href="${a('/settings/settings')}"><span class="glyphicon glyphicon-picture"      ></span> Settings   </a></li>
+        <li class="col-sm-6 col-md-12"><a href="${a('/about/about')}"      ><span class="glyphicon glyphicon-question-sign"></span> About      </a></li>
     </ul>
 </section>
 
@@ -27,15 +27,15 @@
         
         <P>More news soon.</P>
         
-        <div class="row">
-            <div class="span5">
+        <div>
+            <div>
                 
                 <h3>Shattered Covenants</h3>
                 
                 <p>The Legion have taken Earth and free humanity has fled to the stars.</p>
             </div>
             
-            <div class="span4">
+            <div>
                 
                 <h3>Dominion</h3>
                 
