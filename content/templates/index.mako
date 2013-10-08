@@ -3,8 +3,10 @@
 <%def name="title()">Index</%def>
 
 <%def name="body()">
-    <div class="container">
-        <p><a HREF="${a('/core/rules/rules')}"><img src="${static_url}chts.jpg"></a></p>
+
+        <div class="col-xs-6"><a HREF="${a('/core/core')}">Rules</a></div>
+        <div class="col-xs-6"><a HREF="${a('/settings/settings')}">Settings</a></div>
+        <div class="col-xs-6"><a HREF="${a('/about/about')}">About</a></div>
         
         <p>Welcome to Destruction Engine Publishing home of the Flexi System and the Shattered Covenant setting.</p>
         
@@ -39,7 +41,5 @@
             
         </div>
         
-        
-    </div>
     
 </%def>

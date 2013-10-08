@@ -64,13 +64,12 @@ table.full-table {
         border-bottom:1px solid black;
 }
 
-/* Core Rules */
+/* Section Selectors */
 
 .section_selector {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	font-size: 150%;
 }
 .section_selector li a {
 	display: block;
@@ -79,12 +78,20 @@ table.full-table {
 	/* height: 6em;*/
 	border: 0.1em solid #ddd;
 	border-radius: 0.5em;
-	margin: 0.1em;
+	margin: 0.3em;
 	padding: 0.4em;
 }
 .section_selector li a:hover {
 	background-color: #eee;
 }
+
+.select_core .section_selector {
+	font-size: 150%;
+}
+.select_settings {
+	
+}
+
 
 /* Nav */
 
