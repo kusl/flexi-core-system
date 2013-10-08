@@ -92,15 +92,20 @@ table.full-table {
 
 .nav .glyphicon {
 	color: #aaa;
-	position: absolute;
+	/*position: absolute;
 	left: -7px;
-	top: 16px;
+	top: 16px;*/
 	/*display: inline-block;*/
 }
 .nav>li>a {
 	/*display: inline-block;*/
+	padding-right: 0px;
+	padding-left: 4px;
 }
-.navbar-inverse .navbar-nav>.active>a {
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:hover,
+.navbar-inverse .navbar-nav>.active>a:focus {
 	background-color: transparent;
 }
 
