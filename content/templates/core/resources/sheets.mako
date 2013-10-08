@@ -1,4 +1,4 @@
-<%inherit file="_sidebar_gm.mako"/>
+<%inherit file="/_sidebar.mako"/>
 
 <%def name="title()">Sheets and Tables</%def>
 

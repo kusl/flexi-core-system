@@ -62,7 +62,7 @@
         
         ${h3('Tools')}
         <ul class="section_selector">
-            <li class="col-xs-12 col-sm-6 col-md-4"><a href="">
+            <li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/resorces/sheets')}">
                 <span class="glyphicon glyphicon-list-alt"></span>
                 Sheets and Tables
             </a></li>
