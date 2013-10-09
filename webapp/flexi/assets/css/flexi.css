@@ -1,7 +1,13 @@
 /* Bootstrap Overrides */
 body {
 	padding-top: 50px;
-	position: relative;
+	/* position: relative; */
+}
+
+/* Utils */
+
+.hidden {
+	display: none;
 }
 
 /* Flexi Styles */
@@ -115,39 +121,33 @@ table.full-table {
 	background-color: transparent;
 }
 
-/* Breadcrumbs */
-@media (min-width: 768px) {
-	.breadcrumb {
-		position: fixed;
-		z-index: 100;
-	}
-}
 
 /* Backtop */
 
-.navbar-header:after{clear:none}
-
-/* This is just a hack, the layout is still broken */
-@media (min-width: 768px) {
-	.navbar-nav {
-		float: none;
-	}
-}
 
 #back-top-ancor {}
 
 .fl-nav-goto-top {
 	position: relative;
 	float: right;
-	padding: 9px 10px;
+	padding: 3px 12px;
+	padding-bottom: 4px;
 	margin-top: 8px;
 	margin-right: 15px;
-	margin-bottom:8px;
-	border: 1px solid transparent;
+	border: 1px solid #333;
 	border-radius: 4px;
 	font-family: inherit;
 	font-size: inherit;
 	line-height: inherit;
+	color: white;
+}
+.fl-nav-goto-top:hover,
+.fl-nav-goto-top:focus {
+	background-color: #333;
+	color: white;
+}
+.fl-nav-goto-top .glyphicon {
+	font-size:20px;
 }
 
 

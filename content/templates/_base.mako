@@ -44,7 +44,7 @@ ${self.init()}\
 						<span class="icon-bar"></span>
 					</button>
 					<!-- Top Button -->
-					<a href="#top-ancor" class="visible-xs fl-nav-goto-top">Top</a>
+					<a href="#top-ancor" class="visible-xs fl-nav-goto-top"><span class="glyphicon glyphicon-eject"></span><span class="hidden">Top</span></a>
 					<!-- Brand Title -->
 					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
 				</div>
@@ -70,7 +70,7 @@ ${self.init()}\
 		
 		<!-- External CSS -->
 		<link href="${ asset_url }ext/css/bootstrap.min.css"       rel="stylesheet">
-		<link href="${ asset_url }ext/css/bootstrap-theme.min.css" rel="stylesheet">
+		##<link href="${ asset_url }ext/css/bootstrap-theme.min.css" rel="stylesheet">
 		##<link href="${ asset_url }ext/css/pygments-manni.css"      rel="stylesheet">
 		
 		<!-- Site CSS -->
