@@ -3,7 +3,8 @@
 <%def name="title()">Index</%def>
 
 <%def name="body()">
-<section class="col-xs-12 col-md-3">
+
+<section class="col-xs-12 col-md-3 homepage_navigation">
     <ul class="section_selector">
         <li class="col-sm-6 col-md-12"><a href="${a('/core/core')}"        ><span class="glyphicon glyphicon-play-circle"  ></span> Core       </a></li>
         <li class="col-sm-6 col-md-12"><a href="${a('/settings/settings')}"><span class="glyphicon glyphicon-picture"      ></span> Settings   </a></li>
