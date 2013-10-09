@@ -62,11 +62,11 @@
         
         ${h3('Tools')}
         <ul class="section_selector">
-            <li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/resorces/sheets')}">
+            <li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/resources/sheets')}">
                 <span class="glyphicon glyphicon-list-alt"></span>
                 Sheets and Tables
             </a></li>
-            <li class="col-xs-12 col-sm-6 col-md-4"><a href="">
+            <li class="col-xs-12 col-sm-6 col-md-4"><a href="/core/resources/game_aids">
                 <span class="glyphicon glyphicon-plus-sign"></span>
                 Generic Game Aids
             </a></li>
@@ -80,11 +80,11 @@
         <div class="clearfix"></div>
         ${h3('Running a Session')}
         <ul class="section_selector">
-            <li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/resources/rnfame')}">
+            <li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/resources/fame')}">
                 <span class="glyphicon glyphicon-star-empty"></span>
                 Fame and Infamy
             </a></li>
-            <li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/resources/rnevents')}">
+            <li class="col-xs-12 col-sm-6 col-md-4"><a href="${a('/core/resources/random_events')}">
                 <span class="glyphicon glyphicon-random"></span>
                 Random Events
             </a></li>
