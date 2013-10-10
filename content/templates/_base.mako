@@ -5,7 +5,12 @@
 <%def name="body()">
 ${self.init()}\
 <!DOCTYPE html>
-<html lang="en">
+<html
+	lang="en"
+	% if request.registry.settings['template.offline.enabled'] and hasattr(self, 'manifest'):
+	manifest="${self.manifest()}"
+	% endif
+>
 
 	<head>
 		<title>${self.title()}</title>
