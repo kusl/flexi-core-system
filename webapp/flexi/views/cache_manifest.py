@@ -7,11 +7,16 @@ from functools import reduce
 from pyramid.view import view_config
 from pyramid.renderers import render_to_response
 
+import logging
+log = logging.getLogger(__name__)
+
+
 random_revision = random_string()
 
 
 @view_config(route_name='cache_manifest')
 def cache_manifest(request):
+    log.debug('cache.manifest')
     mounts = request.registry.settings['mounts']
     request.response.cache_expires(request.registry.settings.get('template.offline.cache_expires'))
     if request.registry.settings['template.offline.enabled']:
