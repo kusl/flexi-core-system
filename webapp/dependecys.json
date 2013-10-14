@@ -2,7 +2,10 @@
     "jquery": {
         "source": "http://code.jquery.com/jquery-VERSION.min.js",
         "version": "1.10.2",
-        "target": "js/jquery.min.js"
+        "target": [
+            "js/jquery.min.js",
+            "js/jquery.min.map"
+        ]
     },
     
     "bootstrap": {

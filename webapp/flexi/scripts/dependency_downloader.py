@@ -39,7 +39,7 @@ def get_file(source, destination, overwrite=False):
         pass
     try:
         urllib.request.urlretrieve(source, destination)
-    except ValueError:  # Read a url that does not produce a stream
+    except (ValueError, IOError):
         log.info('Unable to download {0}'.format(source))
         raise DownloadException()
 
@@ -54,7 +54,7 @@ def fetch_dependencys(dependecys, tracker, destination_path):
             target_version = info.get('version')
             filenames_hash = hash_data(info.get('target'))
             if target_version:
-                if tracker.setdefault(name, {}).get('version') != target_version and \
+                if tracker.setdefault(name, {}).get('version') != target_version or \
                    tracker[name].get('filenames_hash')         != filenames_hash:
                     log.info('Updating {0}'.format(name))
                     tracker[name]['version'] = target_version
