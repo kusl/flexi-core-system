@@ -8,7 +8,7 @@ ${h2('Conditions')}
     eventually takes damage the form the damage takes will be very clear.  Luckily there are two mechanics that a character must go
     through before damage is taken.</P>
     
-    <H2>Limits</H2>
+    ${h3('Limits')}
     
     <P>Limits are a representation of the amount of damage a character, NPC or encounter can take before they begin suffering critical damage.
     It is a numerical value that is depleted every time a successful attack gets past armour and deals damage.  Every successful attack reduces
@@ -38,7 +38,7 @@ ${h2('Conditions')}
     
     <P>SOUL = INTU + EMPH / 2</P>
     
-    <h2>Strain Limits</h2>
+    ${h3('Strain Limits')}
     
     <p>The three damage limits are shadowed by the three Strain Limits of Fatigue, Stress and Despair. These limits are values equal to
     their corresponding damage limits.  Fatigue is equal to Body, Stress is equal to Mind and Despair is equal to Soul.</p>
@@ -47,7 +47,7 @@ ${h2('Conditions')}
     Fatigue is reduced when a character is performing an exhausting task.  Once it's used up Body will start being reduced. Stress performs
     the function for Mind and Despair does the same for Soul.</p>
     
-    <h2>Armour Resistances</h2>
+    ${h3('Armour Resistances')}
     
     <P>Before a character begins reducing his limits the attacks damage must surpass an armour resistance.  The armour resistances are not
     generated at character generation but come from the armour that the character has bought, either at character generation or during the
