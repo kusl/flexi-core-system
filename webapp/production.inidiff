@@ -1,0 +1,2 @@
+[app:main]
+template.offline.cache_time_thing = 12:00:00 -> timedelta

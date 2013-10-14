@@ -13,6 +13,7 @@ random_revision = random_string()
 @view_config(route_name='cache_manifest')
 def cache_manifest(request):
     mounts = request.registry.settings['mounts']
+    #request.response.cache_time_thing = request.registry.settings['template.offline.cache_time_thing']
     if request.registry.settings['template.offline.enabled']:
         files = reduce(operator.add, map(operator.attrgetter('mounted'), mounts))
         files.remove('offline')
