@@ -12,6 +12,8 @@ $(document).ready(function() {
         scrollTo($hash, -50);  // HACK: Hard coded offset from top. Solution could be to Use jQuery to aquire this directly from a css property
         return false;
     });
+	
+	$(window).on('resize', on_resize);
 });
 
 function scrollTo ($el, offset) {
@@ -20,6 +22,11 @@ function scrollTo ($el, offset) {
     }, 500);
 };
 
+function on_resize() {
+	$('[data-spy="scroll"]').each(function () {
+		var $spy = $(this).scrollspy('refresh')
+	});
+}
 
 // Cache Progress -------------------------------------------------------------
 
