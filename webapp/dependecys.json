@@ -4,7 +4,7 @@
         "version": "1.10.2",
         "target": [
             "js/jquery.min.js",
-            "js/jquery.min.map"
+            "js/jquery-VERSION.min.map"
         ]
     },
     
