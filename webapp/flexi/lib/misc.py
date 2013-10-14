@@ -277,8 +277,11 @@ def convert_str(value, return_type):
     ['a', 'b', 'c']
     >>> convert_str('[true, yes, no, false]', 'bool')
     [True, True, False, False]
+    >>> convert_srt('', 'None')
     
     """
+    if return_type=='None':
+        return None
     if not value or not isinstance(value, str) or not return_type:
         return value
     if value.startswith('[') and value.endswith(']'):

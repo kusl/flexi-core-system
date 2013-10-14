@@ -1,2 +1,3 @@
 [app:main]
-template.offline.cache_time_thing = 12:00:00 -> timedelta
+template.offline.enabled = True -> bool
+template.offline.cache_expires = 12:00:00 -> timedelta
