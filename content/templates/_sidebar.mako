@@ -53,9 +53,11 @@
 	% endif
 </%def>
 
+
 ## Body -----------------------------------------------------------------------
 
 <%def name="body()">
+
 <% body_capture = capture(next.body) %>
 
 ##${breadcrumbs()}
@@ -63,8 +65,13 @@
 ## or hasattr(next, 'sidebar'):  next is not behaving like an inheritance chain item. Custom sidebars are disabled for now
 % if self.sidebar_content:
 	<!-- Sidebar -->
+	<%
+		data_offset_top = 0
+		if hasattr(self, 'jumbotron'):
+			data_offset_top = 200
+	%>
 	<div class="col-md-3">
-		<div class="bs-sidebar hidden-print affix-top" role="complementary" data-spy="affix" data-offset-top="0">
+		<div class="bs-sidebar hidden-print affix-top" role="complementary" data-spy="affix" data-offset-top="${data_offset_top}">
 			<ul class="nav bs-sidenav">
 				${self.sidebar()}
 			</ul>

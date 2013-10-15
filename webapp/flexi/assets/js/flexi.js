@@ -9,7 +9,7 @@ $(document).ready(function() {
         href  = $(this).prop('href'),
         $hash = $(href.substr(href.indexOf('#')));
         console.log($hash);
-        scrollTo($hash, -50);  // HACK: Hard coded offset from top. Solution could be to Use jQuery to aquire this directly from a css property
+        scrollTo($hash, -70);  // HACK: Hard coded offset from top. Solution could be to Use jQuery to aquire this directly from a css property
         return false;
     });
 	

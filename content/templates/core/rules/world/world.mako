@@ -1,7 +1,9 @@
 <%inherit file="/_sidebar.mako"/>
 <%def name="title()">World</%def>
-<%def name="body()">
+<%def name="jumbotron()">
 <h1>${self.title()}</h1>
+</%def>
+<%def name="body()">
 <%
     headings = [
         'introduction',

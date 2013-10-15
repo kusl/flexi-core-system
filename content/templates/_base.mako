@@ -17,10 +17,19 @@ ${self.init()}\
 		${head()}
 	</head>
 
-	<body data-spy="scroll" data-target=".bs-sidebar" data-offset="60">
+	<body data-spy="scroll" data-target=".bs-sidebar" data-offset="120">
 		<a class="sr-only" href="#content">Skip navigation</a>
 		<!-- Navigation -->
 		${navbar()}
+		
+		% if hasattr(self, 'jumbotron'):
+		<!-- Jumbotron -->
+		<div class="jumbotron">
+			<div class="container">
+				${self.jumbotron()}
+			</div>
+		</div>
+		% endif
 		
 		<!-- Content -->
 		<div class="container bs-docs-container">
