@@ -130,7 +130,7 @@ table.full-table {
 
 #back-top-ancor {}
 
-#offline-status {
+#navbar-status {
 	position: absolute;
 	font-size: 75%;
 	color: white;
@@ -155,6 +155,11 @@ table.full-table {
 	background-color: #333;
 	color: white;
 }
+
+/* Extra Content */
+               .extra {display: none; }
+.extra_visible .extra {display: block; background-color: #eeeedd;}
+#navbar-status .extra {                background-color: transparent;}
 
 
 /*

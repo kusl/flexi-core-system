@@ -1,3 +1,16 @@
+// Constants
+
+KEYCODE = {
+	BACKSPACE: 8,
+	ENTER    :13,
+	ESCAPE   :27,
+	LEFT     :37,
+	RIGHT    :39,
+	SPACE    :32,
+	S        :83,
+};
+
+CLASS_CONTENT_EXTRA = 'extra_visible';
 
 // Ancor Links 'scrollTo' -----------------------------------------------------
 
@@ -13,7 +26,17 @@ $(document).ready(function() {
         return false;
     });
 	
-	$(window).on('resize', on_resize);
+	$(window).on('resize', refresh_scrollspy);
+	
+	$(document).on('keydown', function(e) {
+		switch (e.which) {
+			case KEYCODE.S        : toggle_extra_content(); break;
+		}
+		if (e.which in KEYCODE) {
+			e.preventDefault();
+		}
+	});
+
 });
 
 function scrollTo ($el, offset) {
@@ -22,10 +45,18 @@ function scrollTo ($el, offset) {
     }, 500);
 };
 
-function on_resize() {
+function refresh_scrollspy() {
 	$('[data-spy="scroll"]').each(function () {
 		var $spy = $(this).scrollspy('refresh')
 	});
+}
+
+function toggle_extra_content() {
+	var content_extra = $('body').hasClass(CLASS_CONTENT_EXTRA);
+	//console.log("content_extra="+content_extra);
+	if (content_extra) {$('body').removeClass(CLASS_CONTENT_EXTRA);}
+	else               {$('body').addClass   (CLASS_CONTENT_EXTRA);}
+	refresh_scrollspy()
 }
 
 // Cache Progress -------------------------------------------------------------
@@ -80,8 +111,8 @@ progressbar = {
 		}
 	},
 	set_offline_status: function(status) {
-		if (status) {$('#offline-status').removeClass('hidden');}
-		else        {$('#offline-status').addClass   ('hidden');}
+		if (status) {$('#status-offline').removeClass('hidden');}
+		else        {$('#status-offline').addClass   ('hidden');}
 	}
 };
 progressbar.init();
