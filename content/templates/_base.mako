@@ -53,6 +53,10 @@ ${self.init()}\
 <%def name="navbar()">
 		<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
 			<div class="container">
+				<!-- Top Button -->
+				<a href="#top-ancor" class="visible-xs visible-sm fl-nav-goto-top"><span class="glyphicon glyphicon-eject"></span><span class="hidden">Top</span></a>
+				
+				<!-- Title + Home -->
 				<div class="navbar-header">
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
 						<span class="sr-only">Toggle navigation</span>
@@ -60,8 +64,6 @@ ${self.init()}\
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<!-- Top Button -->
-					<a href="#top-ancor" class="visible-xs fl-nav-goto-top"><span class="glyphicon glyphicon-eject"></span><span class="hidden">Top</span></a>
 					<!-- Brand Title -->
 					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
 				</div>
@@ -71,6 +73,7 @@ ${self.init()}\
 						${self.navbar_elements()}
 					</ul>
 				</nav>
+				
 			</div>
 		</header>
 </%def>
