@@ -23,34 +23,34 @@ Development Milestones
 
 Migrate away from developing directly on server
 
-  1. Setup flexi git repo
-  2. Folder restructure for repos
-  3. Linux server setup
+  1. Setup flexi git repo (done)
+  2. Folder restructure for repos (done)
+  3. Linux server setup (done)
     * makefile setup
     * pyramid serving
-  4. Local vagrant server (to facilitate windows development)
+  4. Local vagrant server (to facilitate windows development) (done)
   5. Live server working from git repo
 
-## Milestone 2 - Mobile
-  * Basic offline cache
-  * Bootstrap 3
+### Milestone 2 - Mobile
+  * Basic offline cache (done)
+  * Bootstrap 3  (done)
     * Responsive design
     * Tidy markup
   * Premium content markup and toggler
 
-## Milestone 3 - Tools upgrade
+### Milestone 3 - Tools upgrade
   * nginx
   * Cache (for volume traffic)
   * Git update propergation
 
 *SITE GOES LIVE*
 
-## Milestone 4 - User engagement
+### Milestone 4 - User engagement
   * Visual Treatment
   * Social login
   * Site commenting
 
-## Milestone 5 - Digital tools
+### Milestone 5 - Digital tools
   * Useage tracking
   * Character gen?
   * Dice resolver?
