@@ -82,7 +82,7 @@ ${self.init()}\
 		##<link href="${ asset_url }ext/css/pygments-manni.css"      rel="stylesheet">
 		
 		<!-- Site CSS -->
-		<link href="${ asset_url }css/flexi.css" rel="stylesheet">
+		<link href="${ static_url }css/flexi.css" rel="stylesheet">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
