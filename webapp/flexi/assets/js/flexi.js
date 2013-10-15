@@ -50,11 +50,13 @@ progressbar = {
 			// Done
 			//console.log('updateready',e);
 			progressbar.set_status('success', 100);
+			progressbar.set_offline_status(true);
 		};
 		window.applicationCache.onnoupdate = function(e) {
 			// Done, Nothing to update
 			//console.log('noupdate', e);
 			progressbar.set_status('success', 100);
+			progressbar.set_offline_status(true);
 		};
 		window.applicationCache.oncached = function(e){
 			//console.log('oncached', e);
@@ -76,6 +78,10 @@ progressbar = {
 			$progress_bar.css('width',progress_string);
 			$('.progress-bar sr-only').html(progress_string+" Complete");
 		}
+	},
+	set_offline_status: function(status) {
+		if (status) {$('#offline-status').removeClass('hidden');}
+		else        {$('#offline-status').addClass   ('hidden');}
 	}
 };
 progressbar.init();

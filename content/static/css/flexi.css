@@ -130,6 +130,14 @@ table.full-table {
 
 #back-top-ancor {}
 
+#offline-status {
+	position: absolute;
+	font-size: 75%;
+	color: white;
+	top: 3em;
+	left: 0;
+}
+
 .fl-nav-goto-top {
 	position: relative;
 	float: right;

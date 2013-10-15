@@ -66,6 +66,8 @@ ${self.init()}\
 					</button>
 					<!-- Brand Title -->
 					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
+					<!-- Status Identifyers -->
+					<div id="offline-status" class="hidden">(Offline mode)</div>
 				</div>
 				
 				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
