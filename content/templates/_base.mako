@@ -122,6 +122,7 @@ ${self.init()}\
 <%def name="scripts()">
 	<!-- Javascript -->
 	<script src="${ asset_url }ext/js/jquery.min.js"></script>
+	<script src="${ asset_url }ext/js/jquery.cookie.js"></script>
 	<script src="${ asset_url }ext/js/bootstrap.min.js"></script>
 	<script src="${ asset_url }js/flexi.js"></script>
 </%def>

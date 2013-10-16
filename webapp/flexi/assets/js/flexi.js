@@ -11,6 +11,17 @@ KEYCODE = {
 };
 
 CLASS_CONTENT_EXTRA = 'extra_visible';
+COOKIE_OPTIONS = 'options';
+
+// Settings -------------------------------------------------------------------
+
+$.cookie.json = true;
+
+// Options (Persisted by cookie)
+var options = $.cookie(COOKIE_OPTIONS) || {
+	'extra_content': false
+};
+
 
 // Ancor Links 'scrollTo' -----------------------------------------------------
 
@@ -26,6 +37,9 @@ $(document).ready(function() {
         return false;
     });
 	
+	set_extra_content(options['extra_content']);
+	
+	// Init events
 	$(window).on('resize', refresh_scrollspy);
 	
 	$(document).on('keydown', function(e) {
@@ -51,13 +65,27 @@ function refresh_scrollspy() {
 	});
 }
 
+// Extra Content
+
 function toggle_extra_content() {
-	var content_extra = $('body').hasClass(CLASS_CONTENT_EXTRA);
-	console.log("content_extra="+content_extra);
-	if (content_extra) {$('body').removeClass(CLASS_CONTENT_EXTRA);}
-	else               {$('body').addClass   (CLASS_CONTENT_EXTRA);}
-	refresh_scrollspy()
+	var extra_content_enabled = $('body').hasClass(CLASS_CONTENT_EXTRA);
+	set_extra_content(!extra_content_enabled);
 }
+function set_extra_content(extra_content) {
+	console.log("content_extra="+extra_content);
+	if (extra_content) {$('body').addClass   (CLASS_CONTENT_EXTRA);}
+	else               {$('body').removeClass(CLASS_CONTENT_EXTRA);}
+	refresh_scrollspy();
+	options['extra_content'] = extra_content;
+	update_options();
+}
+
+function update_options() {
+	// Would be better to hook into __set__ like python to trigger a cookie set
+	$.cookie(COOKIE_OPTIONS, options, {path: '/'})
+}
+
+
 
 // Cache Progress -------------------------------------------------------------
 
