@@ -34,6 +34,7 @@ def main(global_config, **settings):
     
     # Pyramid Global Settings
     config = Configurator(settings=settings) #, root_factory=GlobalRootFactory
+    config.include('pyramid_mako')
     
     # Beaker Session Manager
     session_factory = pyramid_beaker.session_factory_from_settings(settings)
