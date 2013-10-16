@@ -132,6 +132,19 @@ table.full-table {
 
 /* Navbar */
 
+.navbar-header {
+	/* Allow the status icons to aling with the page title by making the navbar relative */
+	position: relative;
+}
+
+/* Hack to ensure status icons remain beside title
+ * the blody thing changes from margin -15px to padding 15px ... inconsistant!!!! */
+@media screen and (max-width: 768px) {
+	#navbar-status {
+		left: 15px !important;
+	}
+}
+
 #navbar-status {
 	position: absolute;
 	font-size: 75%;
@@ -139,7 +152,7 @@ table.full-table {
 	top: 3em;
 	left: 0;
 }
-#navbar-status span {
+#navbar-status > span {
 	display: inline;
 }
 #navbar-status .extra {

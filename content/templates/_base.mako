@@ -68,8 +68,8 @@ ${self.init()}\
 					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
 					<!-- Status Identifyers -->
 					<div id="navbar-status">
-						<span id="status-offline" class="hidden">(Offline mode)</span>
-						<span id="status-extra"   class="extra_toggle">Extra</span>
+						<span id="status-offline" class="hidden">                           <span class="glyphicon glyphicon-open" data-toggle="tooltip" placement="bottom" title="Offline mode"></span>       </span>
+						<span id="status-extra"                 ><span class="extra_toggle"><span class="glyphicon glyphicon-star" data-toggle="tooltip" placement="bottom" title="Extra content"></span></span></span>
 					</div>
 				</div>
 				
