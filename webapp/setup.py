@@ -8,6 +8,7 @@ README = open(os.path.join(here, 'README.md')).read()
 
 install_requires = [
     'pyramid',
+    'pyramid_mako',
     'pyramid_tm',
     'pyramid_debugtoolbar',
     'waitress',
