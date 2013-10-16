@@ -69,7 +69,7 @@ ${self.init()}\
 					<!-- Status Identifyers -->
 					<div id="navbar-status">
 						<span id="status-offline" class="hidden">(Offline mode)</span>
-						<span id="status-extra"   class="extra">Extra</span>
+						<span id="status-extra"   class="extra_toggle">Extra</span>
 					</div>
 				</div>
 				

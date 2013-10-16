@@ -53,7 +53,7 @@ function refresh_scrollspy() {
 
 function toggle_extra_content() {
 	var content_extra = $('body').hasClass(CLASS_CONTENT_EXTRA);
-	//console.log("content_extra="+content_extra);
+	console.log("content_extra="+content_extra);
 	if (content_extra) {$('body').removeClass(CLASS_CONTENT_EXTRA);}
 	else               {$('body').addClass   (CLASS_CONTENT_EXTRA);}
 	refresh_scrollspy()

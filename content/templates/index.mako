@@ -29,8 +29,8 @@
         
         <P>More news soon.</P>
         
-        <div class="extra">
-            <p>This is extra stuff. Premium content. A little bit more then the average.</p>
+        <div class="extra_toggle extra_highlight">
+            This is extra stuff. Premium content. A little bit more than the average.
         </div>
         
         <div>

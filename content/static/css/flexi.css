@@ -130,12 +130,20 @@ table.full-table {
 
 #back-top-ancor {}
 
+/* Navbar */
+
 #navbar-status {
 	position: absolute;
 	font-size: 75%;
 	color: white;
 	top: 3em;
 	left: 0;
+}
+#navbar-status span {
+	display: inline;
+}
+#navbar-status .extra {
+	background-color: transparent;
 }
 
 .fl-nav-goto-top {
@@ -157,9 +165,14 @@ table.full-table {
 }
 
 /* Extra Content */
-               .extra {display: none; }
-.extra_visible .extra {display: block; background-color: #eeeedd;}
-#navbar-status .extra {                background-color: transparent;}
+               .extra_toggle {display: none !important; }
+.extra_visible .extra_toggle {display: inherit !important;}
+
+.extra_highlight {
+	background-color: #eeeedd;
+	border-radius: 0.5em;
+	padding: 1em;
+}
 
 
 /*
