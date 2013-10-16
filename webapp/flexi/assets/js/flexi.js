@@ -32,7 +32,7 @@ $(document).ready(function() {
         var
         href  = $(this).prop('href'),
         $hash = $(href.substr(href.indexOf('#')));
-        console.log($hash);
+        //console.log($hash);
         scrollTo($hash, -70);  // HACK: Hard coded offset from top. Solution could be to Use jQuery to aquire this directly from a css property
         return false;
     });
@@ -40,7 +40,9 @@ $(document).ready(function() {
 	set_extra_content(options['extra_content']);
 	
 	// Init events
-	$(window).on('resize', refresh_scrollspy);
+	var supportsOrientationChange = "onorientationchange" in window,
+	orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+	$(window).on(orientationEvent, refresh_scrollspy);
 	
 	$(document).on('keydown', function(e) {
 		switch (e.which) {
@@ -54,15 +56,21 @@ $(document).ready(function() {
 });
 
 function scrollTo ($el, offset) {
-    $('html, body').animate({
-        scrollTop: $el.offset().top + offset
-    }, 500);
+	$('html, body').animate({
+		scrollTop: $el.offset().top + offset
+	}, 500);
 };
 
 function refresh_scrollspy() {
-	$('[data-spy="scroll"]').each(function () {
-		var $spy = $(this).scrollspy('refresh')
-	});
+	//console.log('refresh scrollspy');
+	//$('body').scrollspy({ target: '.bs-sidebar', offset: 120});
+	// Broken! - refresh blows away the 'offset'
+	// So we can either have good offset that breaks on rotate
+	// or bad offset but consistent when rotated.
+	// I'll opt for 'ok until rotate'
+	//$('[data-spy="scroll"]').each(function () {
+	//	var $spy = $(this).scrollspy('refresh');
+	//});
 }
 
 // Extra Content
