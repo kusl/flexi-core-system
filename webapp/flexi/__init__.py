@@ -15,7 +15,7 @@ import pyramid.events
 import pyramid_beaker
 
 # Package Imports
-#from .traversal import GlobalRootFactory
+from .traversal import GlobalRootFactory
 from .lib.misc import convert_str_with_type
 from .templates import helpers as template_helpers
 from .lib.addon import Mount, Addon, regex_file_filter_static, regex_file_filter_template
@@ -33,7 +33,7 @@ def main(global_config, **settings):
     # Setup -------------------------------------------------------------------
     
     # Pyramid Global Settings
-    config = Configurator(settings=settings) #, root_factory=GlobalRootFactory
+    config = Configurator(settings=settings, root_factory=GlobalRootFactory)
     config.include('pyramid_mako')
     
     # Beaker Session Manager

@@ -36,12 +36,13 @@ Migrate away from developing directly on server
   * Bootstrap 3  (done)
     * Responsive design
     * Tidy markup
-  * Premium content markup and toggler
+  * Premium content markup and toggler (done)
 
 ### Milestone 3 - Tools upgrade
   * nginx
   * Cache (for volume traffic)
   * Git update propergation
+  * Traversal
 
 *SITE GOES LIVE*
 
@@ -56,6 +57,7 @@ Migrate away from developing directly on server
   * Dice resolver?
   * Character sheet?
   * GM Tools?
+  * Offline saver
 
   * Print styles
   * Scriptions
