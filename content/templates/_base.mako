@@ -65,7 +65,7 @@ ${self.init()}\
 						<span class="icon-bar"></span>
 					</button>
 					<!-- Brand Title -->
-					<a href="${a('/index')}" class="navbar-brand">Destruction Engine</a>
+					<a href="${a('/')}" class="navbar-brand">Destruction Engine</a>
 					<!-- Status Identifyers -->
 					<div id="navbar-status">
 						<span id="status-offline" class="hidden">                           <span class="glyphicon glyphicon-open" data-toggle="tooltip" placement="bottom" title="Offline mode"></span>       </span>

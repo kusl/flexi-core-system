@@ -85,12 +85,13 @@ def main(global_config, **settings):
     for addon in addons:
         settings['mako.directories'].append(addon.get_path('templates'))
     
-    # Template Routes
-    config.add_route('status', 'status') # To be replaced with traversal eventually
-    config.add_route('root', '/') # To be replaced with traversal eventually
+    # View Routes
     config.add_route('cache_manifest', 'cache.manifest')
     config.add_route('favicon', 'favicon.ico') # Surpress repeated requests
-    config.add_route('mako_renderer', '/{path:.*}') # To be replaced with traversal eventually
+    
+    # Views -------------------------------------------------------------------
+    
+    config.add_view('flexi.views.misc.traversal_template', context='flexi.traversal.FlexiResource')
     
     # Events ------------------------------------------------------------------
     config.add_subscriber(add_template_helpers_to_event, pyramid.events.BeforeRender)

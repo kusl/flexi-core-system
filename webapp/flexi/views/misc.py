@@ -11,33 +11,12 @@ log = logging.getLogger(__name__)
 # Misc
 #-------------------------------------------------------------------------------
 
-@view_config(route_name='root')
-def root(request):
-    request.matchdict['path'] = 'index'
-    return mako_renderer(request)
-
-
-@view_config(route_name='mako_renderer')
-def mako_renderer(request):
-    log.debug(request.matchdict.get('path'))
-    template_variables = dict(
-        asset_url='/assets/',  # Could be replaced with request.registery.settings.mounts?
-        static_url='/static/',
-    )
-    template_variables.update(request.matchdict)
-    return render_to_response(
-        '{0}.mako'.format(request.matchdict.get('path','index')),
-        template_variables,
-        request=request,
-    )
-
-
 @view_config(route_name='favicon')
 def favicon(request):
     return Response('')
 
 
-@view_config(route_name='status')
+#@view_config(route_name='status')
 def status(request):
     """
     Web frontend diagnostics of broken pages
@@ -50,3 +29,22 @@ def status(request):
         dict(status=status),
         request=request,
     )
+
+def template_response(request, template_path):
+    log.debug(template_path)
+    template_variables = dict(
+        asset_url='/assets/',  # Could be replaced with request.registery.settings.mounts?
+        static_url='/static/',
+    )
+    if request.matchdict:
+        template_variables.update(request.matchdict)
+    return render_to_response(
+        '{0}.mako'.format(template_path),
+        template_variables,
+        request=request,
+    )
+
+def traversal_template(request):
+    template_path = request.context.get_template()
+    return template_response(request, template_path)
+    

@@ -6,7 +6,7 @@ import os
 import json
 import zlib
 import hashlib
-from collections import namedtuple
+import collections
 
 from pyramid.settings import asbool
 
@@ -47,7 +47,7 @@ def read_json(filename):
         #except Exception as e:
         #    log.warn('Failed to process %s' % source)
 
-FileScan = namedtuple('FileScan',['folder', 'file', 'absolute','relative'])
+FileScan = collections.namedtuple('FileScan',['folder', 'file', 'absolute','relative'])
 def file_scan(path, file_regex, ignore_regex=r'\.git'):
     """
     return (folder, file, folder+file, folder-path+file)
@@ -306,7 +306,6 @@ def convert_str(value, return_type):
 
 
 #http://stackoverflow.com/questions/4126348/how-do-i-rewrite-this-function-to-implement-ordereddict/4127426#4127426
-import collections
 class OrderedDefaultdict(collections.OrderedDict):
     def __init__(self, *args, **kwargs):
         if not args:
@@ -330,3 +329,6 @@ class OrderedDefaultdict(collections.OrderedDict):
 
     def last(self):
         return reversed(self).__next__()
+
+def defaultdict_recursive():
+    return collections.defaultdict(defaultdict_recursive)

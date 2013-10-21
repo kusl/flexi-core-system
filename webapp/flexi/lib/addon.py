@@ -3,7 +3,7 @@ import re
 import operator
 from functools import lru_cache, reduce
 
-from ..lib.misc import file_scan, read_json, hash_files
+from ..lib.misc import file_scan, read_json, hash_files, defaultdict_recursive
 
 import logging
 log = logging.getLogger(__name__)
@@ -55,11 +55,23 @@ class Mount(object):
             map(lambda f: f.relative.replace('.mako',''), filter(lambda f: not f.file.startswith('_'), self.get_file_list(name)))
         )
     
+    @lru_cache(maxsize=32)
+    def _template_dict_tree(self):
+        """
+        From the template list, contruct a dictionary of dictionarys, like a folder structure to be querys
+        """
+        root_structure_dict = defaultdict_recursive()
+        for path in self._transform_template_list():
+            structure_dict = root_structure_dict
+            for path_component in path.split('/'):
+                structure_dict = structure_dict[path_component]
+        return root_structure_dict
+
 
 class Addon(Mount):
     """
-    Wrap and Addon Folder
-    Allows clean programatic access 
+    Wrap an Addon Folder
+    Allows clean programatic access
     """
 
     @staticmethod
@@ -69,16 +81,19 @@ class Addon(Mount):
             addon = Addon(f.folder, data=read_json(f.absolute))
             addons[addon.name] = addon
         return addons
-    
+
     def __init__(self, path, data):
         super().__init__(path, data)
-        log.info('Addon - {0}'.format(data['name']))
+        log.info('Addon - {0}'.format(self.name))
         self.add_path('static'   , file_filter=regex_file_filter_static  )
         self.add_path('templates', file_filter=regex_file_filter_template)
 
     @property
     @lru_cache(maxsize=32)
     def mounted(self):
+        """
+        Returns a list of all the mounted files 'static' and 'template' files
+        """
         return \
             self._transform_static_list  (name='static', path_join=['static', self.static_mount])+ \
             self._transform_template_list(name='templates')
