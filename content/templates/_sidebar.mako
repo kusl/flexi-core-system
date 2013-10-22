@@ -40,11 +40,11 @@
 
 <%def name="navbar_elements()">
 	% for resource in list(reversed(list(h.lineage(request.context))[:-1])):
-			% if loop.last:
-			<li class="active"><a href="#top-ancor"><span class="glyphicon glyphicon-chevron-right"></span> ${resource.name}</a></li>
-			% else:
-			<li><a href="${request.resource_path(resource)}"><span class="glyphicon glyphicon-chevron-right"></span> ${resource.name}</a></li>
-			% endif
+		% if loop.last:
+		<li class="active"><a href="#top-ancor"><span class="glyphicon glyphicon-chevron-right"></span> ${resource.name}</a></li>
+		% elif resource.leafs:
+		<li><a href="${request.resource_path(resource)}"><span class="glyphicon glyphicon-chevron-right"></span> ${resource.name}</a></li>
+		% endif
 	% endfor
 </%def>
 
