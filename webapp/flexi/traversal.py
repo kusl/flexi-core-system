@@ -82,6 +82,3 @@ class FlexiResource(object):
             return os.path.join(*(self.route+(leafs.pop(),)))
         if 'index' in leafs:
             return os.path.join(*(self.route+('index',)))
-    
-    def get_route(self):
-        return self.route
