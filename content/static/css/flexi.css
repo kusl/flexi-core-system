@@ -170,6 +170,7 @@ table.full-table {
 	line-height: inherit;
 	color: white;
 	font-size:20px;
+	z-index: 100; /* dom layer problems made this button inaccessible on xs devices. Bump the z-index */
 }
 .fl-nav-goto-top:hover,
 .fl-nav-goto-top:focus {

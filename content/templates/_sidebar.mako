@@ -41,7 +41,6 @@
 <%def name="navbar_elements()">
 	<% folder_path = h.folder_path(self) %>
 	% if folder_path:
-	##<ol class="breadcrumb">
 		% for folder in [f.capitalize() for f in folder_path]:
 			% if not loop.last:
 			<li><a href="/${"/".join(folder_path[:loop.index+1]+[folder_path[loop.index]])}"><span class="glyphicon glyphicon-chevron-right"></span> ${folder}</a></li>
@@ -49,7 +48,6 @@
 			<li class="active"><a href="#top-ancor"><span class="glyphicon glyphicon-chevron-right"></span> ${folder}</a></li>
 			% endif
 		% endfor
-	##</ol>
 	% endif
 </%def>
 
@@ -60,7 +58,10 @@
 
 <% body_capture = capture(next.body) %>
 
-##${breadcrumbs()}
+## Experiment for nav in xs mode. Needs more consideration
+##<ol class="breadcrumb visible-xs">
+##	${navbar_elements()}
+##</ol>
 
 ## or hasattr(next, 'sidebar'):  next is not behaving like an inheritance chain item. Custom sidebars are disabled for now
 % if self.sidebar_content:
