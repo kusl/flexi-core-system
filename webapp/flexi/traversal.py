@@ -29,18 +29,28 @@ def global_template_dict_tree_for_mounts(mount_ids):
 
 def GlobalRootFactory(request):
     mount_ids = (mount.id for mount in get_mounts() if hasattr(mount,'id'))
-    return FlexiResource(request, global_template_dict_tree_for_mounts(mount_ids))
+    return FlexiResource(global_template_dict_tree_for_mounts(mount_ids))
 
 
 class FlexiResource(object):
-    def __init__(self, request, template_tree):
+    def __init__(self, template_tree, route=()):
         self.tree = template_tree
-        self.route = ()
+        self.route = route
     
     def __getitem__(self, key):
-        self.route += (key,)
-        return self
+        return FlexiResource(self.tree, self.route+(key,))
     
+    @property
+    def __parent__(self):
+        if self.route:
+            return FlexiResource(self.tree, route[:-1])
+    
+    @property
+    def __name__(self):
+        if self.route:
+            return self.route[-1]
+    
+    @lru_cache(maxsize=32)
     def _get_trees(self, route=(), key=None):
         if not route:
             route = self.route
@@ -54,37 +64,24 @@ class FlexiResource(object):
             trees.append(tree)
         return trees
     
-    @staticmethod
-    def _get_single_key(tree):
-        """
-        """
-        single = None
-        for key, value in tree.items():
-            if not value:
-                if single:
-                    return None
-                single = key
-        return single
-    
-    def get_current_tree(self):
+    @property
+    def current_tree(self):
         return self._get_trees()[-1]
-    def get_parent_tree(self):
-        return self._get_trees()[-2]
     
-    def get_template(self, route=None):
-        if not route:
-            route = self.route
-        trees = self._get_trees(route)
-        current_tree = trees[-1]
+    @property
+    def leafs(self):
+        return [key for key, value in self.current_tree.items() if not value]
+    
+    def get_template(self):
+        current_tree = self.current_tree
         # Leaf node
         if not current_tree:
-            return os.path.join(*route)
-        # Single template
-        single_key = self._get_single_key(current_tree)
-        if single_key:
-            return os.path.join(*(route+(single_key,)))
-        if 'index' in current_tree:
-            return os.path.join(*(route+('index',)))
+            return os.path.join(*self.route)
+        leafs = self.leafs
+        if len(leafs)==1:
+            return os.path.join(*(self.route+(leafs.pop(),)))
+        if 'index' in leafs:
+            return os.path.join(*(self.route+('index',)))
     
     def get_route(self):
         return self.route
