@@ -10,7 +10,6 @@ install_requires = [
     'pyramid',
     'pyramid_mako',
     'pyramid_tm',
-    'pyramid_debugtoolbar',
     'waitress',
     'pyramid_beaker', # Session/Cache framework
     'decorator',
@@ -19,8 +18,10 @@ install_requires = [
     'dogpile.cache',
 ]
 test_requires = [
+    'pyramid_debugtoolbar',
     'pytest',
     'webtest',
+    'pudb',
 ]
 # http://stackoverflow.com/questions/4734292/specifying-where-to-install-tests-require-dependecies-of-a-distribute-setuptoo
 

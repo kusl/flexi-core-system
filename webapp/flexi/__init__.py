@@ -34,7 +34,6 @@ def main(global_config, **settings):
     
     # Pyramid Global Settings
     config = Configurator(settings=settings, root_factory=GlobalRootFactory)
-    config.include('pyramid_mako')
     
     # Beaker Session Manager
     session_factory = pyramid_beaker.session_factory_from_settings(settings)
@@ -95,6 +94,9 @@ def main(global_config, **settings):
     
     # Events ------------------------------------------------------------------
     config.add_subscriber(add_template_helpers_to_event, pyramid.events.BeforeRender)
+    
+    # Register Aditional Includes ---------------------------------------------
+    config.include('pyramid_mako')  # The mako.directories value is updated in the scan for addons. We trigger the import here to include the correct folders.
     
     # Return ------------------------------------------------------------------
     config.scan(ignore='.tests')

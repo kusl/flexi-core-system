@@ -37,7 +37,7 @@ def test_cache_manifest(app):
         response = app.get(item)
         assert response.status_code == 200
         visited_urls.add(item)
-        relative_path = re.sub(r'(.*)/.*', r'\1', item)
+        #relative_path = re.sub(r'(.*)/.*', r'\1', item)  # relative paths were not working the way I remeber in the browser last time I checked, so im removing them for now
         
         # Extract all links/images from pages visited in cache manifest
         if 'html' in response.content_type:
@@ -51,8 +51,8 @@ def test_cache_manifest(app):
                 for link in (t.get(attr) for t in soup.findAll(tag)):
                     if link and not link.startswith('#') and not link.startswith('http:'):
                         # Correct relative links to page links
-                        if not link.startswith('/'):
-                            link = "{0}/{1}".format(relative_path,link)
+                        #if not link.startswith('/'):
+                        #    link = "{0}/{1}".format(relative_path,link)  # relative paths were not working the way I remeber in the browser last time I checked, so im removing them for now
                         links_to_check.add(link)
     
     links_to_check = links_to_check - visited_urls
