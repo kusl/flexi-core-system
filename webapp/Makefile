@@ -69,4 +69,7 @@ clean:
 	rm -rf $(PATH_ASSETS)
 	rm -rf *.egg-info
 	rm -rf vagrant.ini
+	rm -rf test.ini
 	rm -rf dependencys_installed.json
+	find . -name '*.pyc' -delete
+
