@@ -10,6 +10,8 @@ import random
 
 from ..lib.misc import OrderedDefaultdict
 
+from pyramid.location import lineage
+
 def a(path):
     return path
 
@@ -19,15 +21,3 @@ def encode_id(*items):
     """
     # TODO urlencode
     return "-".join(re.sub(r'[^0-9a-zA-Z]','_', item.lower()) for item in items)
-
-def folder_path(template):
-    """
-    Reflect to find the template path hirerachy
-    """
-    folders = []
-    for path in template.module.__name__.split('_')[:-1]: # Strip off the mako
-        if path not in folders:
-            folders.append(path)  # Clumbsy way of de-duping the list
-    if 'index' in folders:
-        folders.remove('index')  # Hack case for root page. Could do this better
-    return folders

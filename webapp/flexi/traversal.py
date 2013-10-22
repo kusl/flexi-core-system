@@ -43,12 +43,16 @@ class FlexiResource(object):
     @property
     def __parent__(self):
         if self.route:
-            return FlexiResource(self.tree, route[:-1])
+            return FlexiResource(self.tree, self.route[:-1])
     
     @property
     def __name__(self):
         if self.route:
             return self.route[-1]
+    
+    @property
+    def name(self):
+        return self.__name__.capitalize().replace('_',' ')
     
     @lru_cache(maxsize=32)
     def _get_trees(self, route=(), key=None):

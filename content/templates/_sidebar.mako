@@ -39,16 +39,13 @@
 </%def>
 
 <%def name="navbar_elements()">
-	<% folder_path = h.folder_path(self) %>
-	% if folder_path:
-		% for folder in [f.capitalize() for f in folder_path]:
-			% if not loop.last:
-			<li><a href="/${"/".join(folder_path[:loop.index+1]+[folder_path[loop.index]])}"><span class="glyphicon glyphicon-chevron-right"></span> ${folder}</a></li>
+	% for resource in list(reversed(list(h.lineage(request.context))[:-1])):
+			% if loop.last:
+			<li class="active"><a href="#top-ancor"><span class="glyphicon glyphicon-chevron-right"></span> ${resource.name}</a></li>
 			% else:
-			<li class="active"><a href="#top-ancor"><span class="glyphicon glyphicon-chevron-right"></span> ${folder}</a></li>
+			<li><a href="${request.resource_path(resource)}"><span class="glyphicon glyphicon-chevron-right"></span> ${resource.name}</a></li>
 			% endif
-		% endfor
-	% endif
+	% endfor
 </%def>
 
 
