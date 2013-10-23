@@ -21,7 +21,7 @@ test_requires = [
     'pyramid_debugtoolbar',
     'pytest',
     'webtest',
-    'pudb',
+    #'pudb',
 ]
 # http://stackoverflow.com/questions/4734292/specifying-where-to-install-tests-require-dependecies-of-a-distribute-setuptoo
 
