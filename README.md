@@ -34,15 +34,16 @@ Migrate away from developing directly on server
 ### Milestone 2 - Mobile
   * Basic offline cache (done)
   * Bootstrap 3  (done)
-    * Responsive design
-    * Tidy markup
+    * Responsive design (done)
+    * Tidy markup (core done, setting need updating)
   * Premium content markup and toggler (done)
 
 ### Milestone 3 - Tools upgrade
+  * Traversal (done)
   * nginx
-  * Cache (for volume traffic)
+  * Cache
   * Git update propergation
-  * Traversal
+  * Status test page
 
 *SITE GOES LIVE*
 
