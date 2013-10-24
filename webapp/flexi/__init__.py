@@ -49,7 +49,7 @@ def main(global_config, **settings):
     mount_sys = Mount(path=abspath_from_asset_spec('flexi:.'))
     mount_sys.add_path('assets'   , file_filter=regex_file_filter_static)
     mount_sys.add_path('templates', file_filter=regex_file_filter_template)
-    mount_sys.mounted = mount_sys._transform_template_list() + mount_sys._transform_static_list(name='assets', path_join=['assets'])
+    mount_sys.mounted = tuple(chain(mount_sys._transform_template_list(), mount_sys._transform_static_list(name='assets', path_join=['assets'])))
 
     # Addon Content Scan & Trackers -------------------------------------------
     
@@ -90,7 +90,7 @@ def main(global_config, **settings):
     
     # Views -------------------------------------------------------------------
     
-    config.add_view('flexi.views.misc.traversal_template', context='flexi.traversal.FlexiResource')
+    config.add_view('flexi.views.misc.traversal_template', context='flexi.traversal.TemplateResource')
     
     # Events ------------------------------------------------------------------
     config.add_subscriber(add_template_helpers_to_event, pyramid.events.BeforeRender)

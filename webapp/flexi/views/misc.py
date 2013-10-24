@@ -45,6 +45,6 @@ def template_response(request, template_path):
     )
 
 def traversal_template(request):
-    template_path = request.context.get_template()
+    template_path = request.context.template
     return template_response(request, template_path)
     

@@ -46,14 +46,14 @@ class Mount(object):
         return hash_files(map(operator.attrgetter('absolute'), self.get_file_list()))
 
     def _transform_static_list(self, name='static', path_join=[]):
-        return list(
-            map(lambda f: os.path.join(*path_join+[f.relative]), self.get_file_list(name) )
-        ) 
+        #return tuple(
+            return map(lambda f: os.path.join(*path_join+[f.relative]), self.get_file_list(name) )
+        #)
     
     def _transform_template_list(self, name='templates'):
-        return list(
-            map(lambda f: f.relative.replace('.mako',''), filter(lambda f: not f.file.startswith('_'), self.get_file_list(name)))
-        )
+        #return list(
+            return map(lambda f: f.relative.replace('.mako',''), filter(lambda f: not f.file.startswith('_'), self.get_file_list(name)))
+        #)
     
     @lru_cache(maxsize=32)
     def _template_dict_tree(self):
@@ -94,6 +94,7 @@ class Addon(Mount):
         """
         Returns a list of all the mounted files 'static' and 'template' files
         """
-        return \
-            self._transform_static_list  (name='static', path_join=['static', self.static_mount])+ \
-            self._transform_template_list(name='templates')
+        return tuple(
+            self._transform_static_list  (name='static', path_join=['static', self.static_mount])#+ \
+            #self._transform_template_list(name='templates')
+        )
