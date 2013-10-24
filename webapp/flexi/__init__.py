@@ -3,6 +3,7 @@ import os
 import re
 import operator
 from functools import reduce
+from itertools import chain
 
 # Pyramid imports
 from pyramid.config import Configurator
