@@ -99,40 +99,37 @@ function update_options() {
 
 progressbar = {
 	init: function() {
-		window.applicationCache.onchecking = function(checking) {
-			// Check the cache.manifest
+		window.applicationCache.onchecking = function(checking) { // Check the cache.manifest
 			//console.log('checking',checking);
+			progressbar.set_offline_status(true);  // If there is checking of the cache.manifest, we are in offline mode
 			progressbar.set_status('warning', 0);
 		};
-		window.applicationCache.ondownloading = function(e,b) {
-			// Starting download
-			//console.log('downloading',e,b);
+		window.applicationCache.ondownloading = function(e) { // Starting download
+			//console.log('downloading',e);
 			$('#modalProgress').modal();
 		};
 		window.applicationCache.onprogress = function(e) {
-			//console.log('progress', e);
+			console.log('progress', e);
 			progressbar.set_status(null, (e.loaded/e.total)*100);
 		};
-		window.applicationCache.onupdateready = function(e) {
-			// Done
+		window.applicationCache.onupdateready = function(e) { // Done
 			//console.log('updateready',e);
 			progressbar.set_status('success', 100);
-			progressbar.set_offline_status(true);
 		};
-		window.applicationCache.onnoupdate = function(e) {
-			// Done, Nothing to update
+		window.applicationCache.onnoupdate = function(e) { // Done, Nothing to update
 			//console.log('noupdate', e);
 			progressbar.set_status('success', 100);
-			progressbar.set_offline_status(true);
 		};
 		window.applicationCache.oncached = function(e){
 			//console.log('oncached', e);
 		};
 		window.applicationCache.onerror = function(e) {
+			//console.log('error', e);
 			progressbar.set_status('danger',100);
 		};
 		window.applicationCache.onobsolete = function(e) {
 			//console.log('onobsolete', e);
+			progressbar.set_offline_status(false);
 		};
 	},
 	set_status: function(status, progress) {

@@ -8,7 +8,7 @@ from ..lib.misc import file_scan, read_json, hash_files, defaultdict_recursive
 import logging
 log = logging.getLogger(__name__)
 
-regex_file_filter_static   = re.compile(r'.*\.(js|css|jpg|png|ico|woff|ttf|svg)')
+regex_file_filter_static   = re.compile(r'.*\.(js|css|jpg|png|ico|woff|ttf|svg|map)')
 regex_file_filter_template = re.compile(r'.*\.mako')
 
 
