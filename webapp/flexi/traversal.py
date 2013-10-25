@@ -137,11 +137,12 @@ class TemplateResourceRoot(TemplateResource):
         """
         Return a list of shortest paths for each template
         """
-        return tuple(map(self._path_shortest, self.path_map.keys()))
+        return sorted(filter(None,map(self._path_shortest, self.path_map.keys())))
 
     def _path_shortest(self, template):
         """
         Used by sub resorces to return a true single path to the template
         """
-        return sorted(self.path_map[template], key=len)[0]
+        if template:
+            return sorted(self.path_map[template], key=len)[0]
 

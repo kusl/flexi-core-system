@@ -21,7 +21,7 @@ def cache_manifest(request):
     request.response.cache_expires(request.registry.settings.get('template.offline.cache_expires'))
     if request.registry.settings['template.offline.enabled']:
         mounts = request.registry.settings['mounts']
-        files = list(chain(request.root.paths,*map(operator.attrgetter('mounted'), mounts)))
+        files = sorted(chain(request.root.paths,*map(operator.attrgetter('mounted'), mounts)))
         #import pdb ; pdb.set_trace()
         files.remove('/offline')
         cache = dict(

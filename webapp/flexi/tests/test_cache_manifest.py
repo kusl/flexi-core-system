@@ -1,3 +1,6 @@
+#from unittest.mock import Mock
+import traceback
+
 import re
 from collections import defaultdict
 
@@ -26,7 +29,7 @@ def test_cache_manifest(app):
             continue
         files[current_header_section].append(item)
     
-    assert len(files['CACHE:']) > 20
+    assert len(files['CACHE:']) > 20, "The cache.manifest has too few files"
     
     # Load each file in cache manifest
     visited_urls = set()
@@ -34,8 +37,15 @@ def test_cache_manifest(app):
     for item in files['CACHE:']:
         if not item.startswith('/'):
             item = '/{0}'.format(item)
-        response = app.get(item)
-        assert response.status_code == 200
+        try:
+            response = app.get(item)
+        except Exception as e:
+            traceback.print_exc()
+            #response = Mock()
+            class response_mock(object):
+                status_code = 500
+            response = response_mock()
+        assert response.status_code == 200, "Problem loading '{0}'".format(item)
         visited_urls.add(item)
         #relative_path = re.sub(r'(.*)/.*', r'\1', item)  # relative paths were not working the way I remeber in the browser last time I checked, so im removing them for now
         
