@@ -55,52 +55,55 @@ ${h2('Conditions')}
     whether the damage of an attack gets through the armour you simply compare the damage rolled by a weapon to the armour resistance for
     that damage type.  The armour resistances are:-</P>
     
-    <h4>Kinetic Piercing</h4>
+    <dl class="dl-horizontal">
+    <dt>Kinetic Piercing</dt>
     
-    <p>Damage caused by piercing weapons such as rapiers, arrows and bullets.</p>
+    <dd>Caused by piercing weapons such as rapiers, arrows and bullets.</dd>
     
-    <h4>Kinetic Impact</h4>
+    <dt>Kinetic Impact</dt>
     
-    <p>Damage caused by weapons such as clubs or maces.</p>
+    <dd>Caused by weapons such as clubs or maces.</dd>
     
-    <h4>Kinetic Slicing</h4>
+    <dt>Kinetic Slicing</dt>
     
-    <p>Damge caused by weapons such as longswords or katanas.</p>
+    <dd>Caused by weapons such as longswords or katanas.</dd>
     
-    <h4>Heat</h4>
+    <dt>Heat</dt>
     
-    <p>Damage caused by intense heat sources such as fire and incendiary rounds.</p>
+    <dd>Caused by intense heat sources such as fire and incendiary rounds.</dd>
     
-    <h4>Cold</h4>
+    <dt>Cold</dt>
     
-    <p>Damage caused by intensely cold sources such as freeze rays, artic winters and cryogenic coolants.</p>
+    <dd>Caused by intensely cold sources such as freeze rays, artic winters and cryogenic coolants.</dd>
     
-    <h4>Explosive</h4>
+    <dt>Explosive</dt>
     
-    <p>Damage caused by explosions such as bombs, explosive rounds, grenades and exposure to vaccuum.</p>
+    <dd>Caused by explosions such as bombs, explosive rounds, grenades and exposure to vaccuum.</dd>
     
-    <h4>Implosive</h4>
+    <dt>Implosive</dt>
     
-    <p>Damage caused by implosions such as high pressure environments, gravitational anomalies and gravitational weapons.</p>
+    <dd>Caused by implosions such as high pressure environments, gravitational anomalies and gravitational weapons.</dd>
     
-    <h4>Electrical</h4>
+    <dt>Electrical</dt>
     
-    <p>Damage caused by dangerous electrical currents such as high current wires, tasers and lightning.</p>
+    <dd>Caused by dangerous electrical currents such as high current wires, tasers and lightning.</dd>
     
-    <h4>Radiation</h4>
+    <dt>Radiation</dt>
     
-    <p>Damage caused by radioactive sources such as ray guns, nuclear bombs and toxic waste.</p>
+    <dd>Caused by radioactive sources such as ray guns, nuclear bombs and toxic waste.</dd>
     
-    <h4>Chemical</h4>
+    <dt>Chemical</dt>
     
-    <p>Damage caused by reactive chemicals such as acids, alkalis and toxins.</p>
+    <dd>Caused by reactive chemicals such as acids, alkalis and toxins.</dd>
     
-    <h4>Mind</h4>
+    <dt>Mind</dt>
     
-    <p>Damage caused by mind attacks such as psychic powers, vampiric domination and horror.  Most armours will lack this resistance as
-    it is highly specialised.</p>
+    <dd>Caused by mind attacks such as psychic powers, vampiric domination and horror.  Most armours will lack this resistance as
+    it is highly specialised.</dd>
     
-    <h4>Soul</h4>
+    <dt>Soul</dt>
     
-    <p>Damage caused by spiritual attacks such as vampiric feeding, soul eating monsters and the incessant daily grind of life. Most
-    armours will lack this resistance as it is highly specialised.</p>
+    <dd>Caused by spiritual attacks such as vampiric feeding, soul eating monsters and the incessant daily grind of life. Most
+    armours will lack this resistance as it is highly specialised.</dd>
+    
+    </dl>

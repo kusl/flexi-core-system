@@ -8,7 +8,6 @@
     headings = [
         'introduction',
         'attributes',
-        'conditions',
         'combat_proficiencies',
         'conditions',
         'secondary_statistics',

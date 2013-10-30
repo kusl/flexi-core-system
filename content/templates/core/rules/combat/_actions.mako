@@ -34,7 +34,7 @@ ${h2('Combat Actions')}
     <P><B>Reload</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		 Action cost Weapon dependent<br>
     Allows player to reload their weapon.</P>
     
-    <h3>Melee Actions</h3>
+    ${h3('Melee Actions')}
     
     <P><B>Light Hit</B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		1 Actions<br>
     A light melee attack, with 1 handed weapons grants +2 MEL to Hit, with a 2 hander +1.</P>
