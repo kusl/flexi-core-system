@@ -88,6 +88,7 @@ def main(global_config, **settings):
     # View Routes
     config.add_route('cache_manifest', 'cache.manifest')
     config.add_route('favicon', 'favicon.ico') # Surpress repeated requests
+    config.add_route('status', 'status')
     
     # Views -------------------------------------------------------------------
     

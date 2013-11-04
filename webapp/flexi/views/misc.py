@@ -3,6 +3,7 @@ from pyramid.response import Response
 from pyramid.renderers import render_to_response
 
 from pyramid.httpexceptions import HTTPForbidden
+from flexi.lib.status import get_page_status
 
 import logging
 log = logging.getLogger(__name__)
@@ -16,17 +17,16 @@ def favicon(request):
     return Response('')
 
 
-#@view_config(route_name='status')
+@view_config(route_name='status')
 def status(request):
     """
     Web frontend diagnostics of broken pages
     """
-    if not request.registry.settings.get('debug'):
+    if not request.registry.settings.get('pyramid.debug_templates'):
         raise HTTPForbidden()
-    status = {}  # Unimplemented
     return render_to_response(
         '_status.mako',
-        dict(status=status),
+        dict(status=get_page_status(request)),
         request=request,
     )
 
