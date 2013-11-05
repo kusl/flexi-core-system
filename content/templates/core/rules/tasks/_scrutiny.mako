@@ -10,7 +10,7 @@ ${h2('Scrutiny')}
     noticing and identifying. Instead the PERC attribute covers all of those skills.</p>
     
     <p>To set a target number, for the spotting of sensory stimuli, we use a chart called
-    the Field of Scrutiny which can be found <a href="${a('/core/rules/apfield')}">here.</a>
+    the Field of Scrutiny which can be found <a href="/core/rules/tasks#apfield">here.</a>
     There are three categories of Field of Scrutiny labelled low, medium and high.</p>
     
     <p>Low is used for objects which are small, sounds which are muffled,

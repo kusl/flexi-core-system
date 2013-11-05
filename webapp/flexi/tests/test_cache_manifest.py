@@ -7,6 +7,9 @@ from collections import defaultdict, namedtuple
 
 from bs4 import BeautifulSoup
 
+import logging
+log = logging.getLogger(__name__)
+
 
 @pytest.fixture(scope="session")
 def func_request(request, app):
@@ -41,8 +44,9 @@ def test_cache_manifest(func_request):
     
     # Load each file in cache manifest
     files = set(files['CACHE:'])
-    links_untracked = {}  # Links that are not in the cache manifest
+    links_untracked = defaultdict(set)  # Links that are not in the cache manifest
     links_to_check = set()
+    link_anchors_to_check = defaultdict(set)
     for item in files:
         if not item.startswith('/'):
             item = '/{0}'.format(item)
@@ -70,14 +74,20 @@ def test_cache_manifest(func_request):
                 for link in (t.get(attr) for t in soup.findAll(tag)):
                     if not link:
                         continue
-                    link = link.split('#')[0]  # discard ancors when url matching
+                    link_split = link.split('#')
+                    try:
+                        link, anchor = link_split
+                    except ValueError:
+                        link, = link_split
                     if link:
                         # Correct relative links to page links
                         #if not link.startswith('/'):
                         #    link = "{0}/{1}".format(relative_path,link)  # relative paths were not working the way I remeber in the browser last time I checked, so im removing them for now
                         links.add(link)
+                        if anchor:
+                            link_anchors_to_check[link].add(anchor)
         
-        links_to_check |= set(map(lambda l: not l.startswith('http:'), links)) # Check all non-external links
+        links_to_check |= set(filter(lambda l: not l.startswith('http:'), links)) # Check all non-external links
         links_untracked[item] = links - files
 
     links_to_check -= files
@@ -90,7 +100,28 @@ def test_cache_manifest(func_request):
             response = func_request(link)
         except Exception:
             response = None
-        # Temp removed until the site is tidyed up
+        #if not response:
+        #    # Don't make null responses fatail (for now. Once the site it tidyed this should be enforced)
+        #    log.debug('path error: {0}'.format(link))
+        #    continue
         #assert response and response.status_code == 200, 'This project has a page linking to "{0}" but the page dose not exist.'.format(link)
+    
+    for link, anchors in link_anchors_to_check.items():
+        continue  # bypass this for now
+        if not anchors:
+            continue
+        try:
+            response = func_request(link)
+            soup = BeautifulSoup(response.text)
+        except Exception:
+            continue
+        for anchor in link_anchors_to_check.get(link, set()):
+            print(' #{0}'.format(anchor))
+            if anchor == 'apfield':
+                assert False
+            anchor_element = soup.find(id=anchor)
+            #assert anchor_element, 'Unable to locate #{0} in {1}'.format(anchor, link) # Not fatal for now
+            if not anchor_element:
+                links_untracked[link].add('{0}#{1}'.format(link, anchor))
 
     return links_untracked
