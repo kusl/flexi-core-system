@@ -68,7 +68,10 @@ def test_cache_manifest(func_request):
                 ('script','src' ),
             ):
                 for link in (t.get(attr) for t in soup.findAll(tag)):
-                    if link and not link.startswith('#'):
+                    if not link:
+                        continue
+                    link = link.split('#')[0]  # discard ancors when url matching
+                    if link:
                         # Correct relative links to page links
                         #if not link.startswith('/'):
                         #    link = "{0}/{1}".format(relative_path,link)  # relative paths were not working the way I remeber in the browser last time I checked, so im removing them for now
