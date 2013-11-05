@@ -5,8 +5,8 @@ ${h2('Research Tasks')}
       
     <p>Research tasks are a specific form of information gathering that involve reading,
     or searching, through data sources.  If the information gathering is being conducted
-    through people then refer to <a href="${a('/core/rules/trsoctasks')}">(Tasks: Socialising)</a>.
-    If it is the immediate searching of a scene then refer to <a href="${a('/core/rules/trscrtasks')}">
+    through people then refer to <a href="${a('/core/rules/tasks#social_tasks')}">(Tasks: Socialising)</a>.
+    If it is the immediate searching of a scene then refer to <a href="${a('/core/rules/tasks#scrutiny')}">
     (Tasks: Scrutiny)</a>.</p>
     
     ${h3('Obscurity')}

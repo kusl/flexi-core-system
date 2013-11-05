@@ -19,8 +19,8 @@ ${h2('Attributes')}
 	was to drop to zero than a character would be too feeble to even stand.</P>
 
 	<p>The STRG of a character determines the base melee damage of a character and can be determined from the table found here
-	<a href="${a('/core/rules/apmelee')}">(Appendix: Melee Damage Tables)</a>.  The Target Numbers for basic physical tasks that
-	rely on STRG can be found here <a href="${a('/core/rules/apstrg')}">(Appendix: STRG Tables)</a>.</p>
+	<a href="${a('/core/rules/appendicies#melee_damage_multipliers')}">(Appendix: Melee Damage Tables)</a>.  The Target Numbers for basic physical tasks that
+	rely on STRG can be found here <a href="${a('/core/rules/appendicies#strength_tables')}">(Appendix: STRG Tables)</a>.</p>
 		
 	<p><h4>Coordination (CORD)</h4>
 	Coordination describes a characters quality of balance, movement and manipulation. It contributes greatly towards the combat
@@ -147,7 +147,7 @@ ${h2('Attributes')}
     
     <p>Strength booster reduces target numbers, increases throwing distance and increases Damage Multipliers for melee attacks.</p>
     
-    <P>The table on this page <a href="${a('/core/rules/apstrg')}">(Appendix: STRG Tables)</a>, shows the target numbers for lifting specific weights for
+    <P>The table on this page <a href="${a('/core/rules/appendicies#strength_tables')}">(Appendix: STRG Tables)</a>, shows the target numbers for lifting specific weights for
     each size category, humans are medium. Normally the target numbers do not change, even if STRG changes, it is simply easier for
     stronger characters to attain the higher target numbers. Every rank in STRG Booster shifts the target numbers up a step.  This
     reduces the target numbers for heavier weights making them easier to lift.
@@ -159,7 +159,7 @@ ${h2('Attributes')}
     is a weed with a STRG of two.  Normally the bike would give him a hernia but with the exoskeleton he might just about lift it.  Lets
     hope he has an appropriate background.</i></p>
     
-    <P>Damage multipliers for melee combat are found here <a href="${a('/core/rules/apmelee')}">(Appendix: Melee Damage Tables)</a>. The Strength Booster is simply added
+    <P>Damage multipliers for melee combat are found here <a href="${a('/core/rules/appendicies#melee_damage_multipliers')}">(Appendix: Melee Damage Tables)</a>. The Strength Booster is simply added
     to the characters strength to find their new Melee Damage Multiplier for one handed and two handed combat.</P>
     
     <h4>CORD Booster</h4>
