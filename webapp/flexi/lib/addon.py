@@ -47,7 +47,8 @@ class Mount(object):
 
     def _transform_static_list(self, name='static', path_join=[]):
         #return tuple(
-            return map(lambda f: os.path.join(*path_join+[f.relative]), self.get_file_list(name) )
+            static_list = map(lambda f: os.path.join(*path_join+[f.relative]), self.get_file_list(name) )
+            return map(lambda path: path if path.startswith('/') else '/{0}'.format(path), static_list)  # append leading slash to path, this is to keep it inline with resorce path generation for templates
         #)
     
     def _transform_template_list(self, name='templates'):

@@ -24,9 +24,19 @@ def status(request):
     """
     if not request.registry.settings.get('pyramid.debug_templates'):
         raise HTTPForbidden()
+    
+    from flexi.tests.test_cache_manifest import test_cache_manifest
+    from pyramid.request import Request
+    #from unittest.mock import patch
+    #with patch.dict(request.registry.settings, {'template.offline.enabled':True}):
+    python_3_2_does_not_have_mock_builtin = request.registry.settings['template.offline.enabled']
+    request.registry.settings['template.offline.enabled'] = True
+    links_untracked = test_cache_manifest(lambda path: request.invoke_subrequest(Request.blank(path)))
+    request.registry.settings['template.offline.enabled'] = python_3_2_does_not_have_mock_builtin
+    
     return render_to_response(
         '_status.mako',
-        dict(status=get_page_status(request)),
+        dict(status=links_untracked),
         request=request,
     )
 

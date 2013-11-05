@@ -11,17 +11,18 @@ install_requires = [
     'pyramid_mako',
     'pyramid_tm',
     'waitress',
-    'pyramid_beaker', # Session/Cache framework
+    'pyramid_beaker', # Session/Cache framework - Deprecated by pyramid because it is unmaintained
     'decorator',
     'beautifulsoup4',
     'python-dateutil',
     'dogpile.cache',
+    'mock',
 ]
 test_requires = [
     'pyramid_debugtoolbar',
     'pytest',
     'webtest',
-    #'pudb',
+    #'pudb',  # Won't import, needs compiled stuff
 ]
 # http://stackoverflow.com/questions/4734292/specifying-where-to-install-tests-require-dependecies-of-a-distribute-setuptoo
 
