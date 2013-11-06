@@ -79,6 +79,7 @@ def test_cache_manifest(func_request):
                         link, anchor = link_split
                     except ValueError:
                         link, = link_split
+                        anchor = None
                     if link:
                         # Correct relative links to page links
                         #if not link.startswith('/'):
@@ -107,21 +108,21 @@ def test_cache_manifest(func_request):
         #assert response and response.status_code == 200, 'This project has a page linking to "{0}" but the page dose not exist.'.format(link)
     
     for link, anchors in link_anchors_to_check.items():
-        continue  # bypass this for now
-        if not anchors:
-            continue
         try:
             response = func_request(link)
             soup = BeautifulSoup(response.text)
         except Exception:
             continue
         for anchor in link_anchors_to_check.get(link, set()):
-            print(' #{0}'.format(anchor))
-            if anchor == 'apfield':
-                assert False
+            #print('{0}#{1}'.format(link, anchor))
+            #if anchor == 'apfield':
+            #    assert False
             anchor_element = soup.find(id=anchor)
             #assert anchor_element, 'Unable to locate #{0} in {1}'.format(anchor, link) # Not fatal for now
             if not anchor_element:
                 links_untracked[link].add('{0}#{1}'.format(link, anchor))
+
+    #from pprint import pprint
+    #pprint(links_untracked)
 
     return links_untracked
