@@ -43,7 +43,7 @@ Migrate away from developing directly on server
   * nginx
   * Cache
   * Git update propergation
-  * Status test page
+  * Status test page (done)
 
 *SITE GOES LIVE*
 

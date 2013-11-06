@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 import logging
 log = logging.getLogger(__name__)
 
+safe_paths = set(['/offline'])
 
 @pytest.fixture(scope="session")
 def func_request(request, app):
@@ -107,6 +108,8 @@ def test_cache_manifest(func_request):
         #    continue
         #assert response and response.status_code == 200, 'This project has a page linking to "{0}" but the page dose not exist.'.format(link)
     
+    # Check all identifyed anchors
+    #   this is reasonably inefficent as the pages are fetched a second time
     for link, anchors in link_anchors_to_check.items():
         try:
             response = func_request(link)
@@ -121,6 +124,10 @@ def test_cache_manifest(func_request):
             #assert anchor_element, 'Unable to locate #{0} in {1}'.format(anchor, link) # Not fatal for now
             if not anchor_element:
                 links_untracked[link].add('{0}#{1}'.format(link, anchor))
+
+    # Remove known safe paths from untracked lists
+    for path in links_untracked.keys():
+        links_untracked[path] -= safe_paths
 
     #from pprint import pprint
     #pprint(links_untracked)
