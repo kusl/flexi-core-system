@@ -12,76 +12,94 @@ ${h2('Attributes')}
 		attributes split equally between physical characteristics and mental
 		characteristics.
 	</p>
-	  
-	<p><h4>Strength (STRG)</h4>
+	
+<div class="row">
+	
+	<div class="col-md-6"><p><h4>Strength (STRG)</h4>
 	Strength is a representation of a characters muscular power. It's important for characters that rely on melee fighting as it has an
 	impact on melee damage. It also affects a characters carrying capacity. Characters with a low strength are physically weak and if it
-	was to drop to zero than a character would be too feeble to even stand.</P>
+	was to drop to zero than a character would be too feeble to even stand.</P></div>
 
-	<p>The STRG of a character determines the base melee damage of a character and can be determined from the table found here
-	<a href="${a('/core/rules/appendicies#melee_damage_multipliers')}">(Appendix: Melee Damage Tables)</a>.  The Target Numbers for basic physical tasks that
-	rely on STRG can be found here <a href="${a('/core/rules/appendicies#strength_tables')}">(Appendix: STRG Tables)</a>.</p>
-		
-	<p><h4>Coordination (CORD)</h4>
+	<div class="col-md-6"><p><h4>Coordination (CORD)</h4>
 	Coordination describes a characters quality of balance, movement and manipulation. It contributes greatly towards the combat
-	proficiencies and so is a must for characters who are geared for combat.</p>
-		
-	<p><h4>Reflex (REFX)</h4>
+	proficiencies and so is a must for characters who are geared for combat.</p></div>
+
+</div>
+<div class="row">
+
+	<div class="col-md-6"><p><h4>Reflex (REFX)</h4>
 	Reflex is a measure of a characters unthinking response time. It is primarily used to determine the number of combat actions a character
 	can have, but also contributes to other secondary stats.  Reflex is used in those situations where a character doesn't have a chance to
-	think.</p>
-		
-	<p><h4>Stamina (STAM)</h4>
+	think.</p></div>
+
+	<div class="col-md-6"><p><h4>Stamina (STAM)</h4>
 	Stamina is a representation of a characters power to endure fatigue. In the game mechanics it is primarily used to resist the effects of
 	wounds and tiredness.  It is an important attribute for any character who is meant to be physically fit and built with physical activity
-	in mind.</p>
-		
-	<p><h4>Constitution (CONS)</h4>
+	in mind.</p></div>
+
+</div>
+<div class="row">
+	
+	<div class="col-md-6"><p><h4>Constitution (CONS)</h4>
 	Constitution is a representation of a characters physical hardiness and health.
 	It is essential, not only, for resisting pathogens but
 	also in determining the effects of drugs and toxins. Importantly it also helps
 	determine the amount of damage a character can take and also
-	how long it takes for a character to recover from any damage taken.</p>
+	how long it takes for a character to recover from any damage taken.</p></div>
 		
-	<p><h4>Perception (PERC)</h4>
+	<div class="col-md-6"><p><h4>Perception (PERC)</h4>
 	Perception is the characters ability to consciously register a sensory stimulus and to intuitively recognize it. Basically it is the
 	characters ability to perceive and recognize something that is affecting one of their five senses, taste, touch, smell, sight and
-	hearing. It is a very important attribute for characters who rely on their senses, such as investigators, especially for recognition.</p>
-		
-	<p><h4>Presence (PRES)</h4>
+	hearing. It is a very important attribute for characters who rely on their senses, such as investigators, especially for recognition.</p></div>
+	
+</div>	
+<div class="row">
+
+	<div class="col-md-6"><p><h4>Presence (PRES)</h4>
 	Presence is a measure of a characters ability to captivate the attention of others through their appearance and mannerisms.
 	A character with high presence isn't necessarily charming but can make people notice them.  Most people perform this by
-	being attractive but a few can do so with just their personal charisma.</p>
+	being attractive but a few can do so with just their personal charisma.</p></div>
 		
-	<p><h4>Judgement (JUDG)</h4>
+	<div class="col-md-6"><p><h4>Judgement (JUDG)</h4>
 	Judgement is a representation of a characters ability to plan outcomes and assess them. It is primarily used in situations where a
-	character would use the information they have to make a decision.</p>
-		
-	<p><h4>Ingenuity (INGU)</h4>
+	character would use the information they have to make a decision.</p></div>
+
+</div>
+<div class="row">
+	
+	<div class="col-md-6"><p><h4>Ingenuity (INGU)</h4>
 	Ingenuity describes the characters aptitude for accessing their imagination. Any character who needs to be creative or imaginative such
-	as bards or illusionists will need a high Ingenuity.</p>
+	as bards or illusionists will need a high Ingenuity.</p></div>
 		
-	<p><h4>Comprehension (COMP)</h4>
+	<div class="col-md-6"><p><h4>Comprehension (COMP)</h4>
 	Comprehension is a measure of a characters ability to assimilate and memorize information. When a character needs to understand
-	the information being presented to them they would use comprehension, thus it is a very important stat for academic characters.</p>
-		
-	<p><h4>Intuition (INTU)</h4>
+	the information being presented to them they would use comprehension, thus it is a very important stat for academic characters.</p></div>
+
+</div>
+<div class="row">
+	
+	<div class="col-md-6"><p><h4>Intuition (INTU)</h4>
 	Intuition is a measure of a characters aptitude at recognizing intuitive impulses.  Spiritual characters such as psychics or magic
 	users are probably going to rely heavily on intuition.  Any ability which does not rely on logic or reasoning, such as fortune telling,
-	will probably rely on intuition instead.</p>
+	will probably rely on intuition instead.</p></div>
 		
-	<p><h4>Resolve (RESO)</h4>
+	<div class="col-md-6"><p><h4>Resolve (RESO)</h4>
 	Resolve is the characters capacity to control impulses and actions. It is essential for resisting the effects of fear and is called
-	upon when a task isn't difficult but will take a long, repetitive time to perform.</p>
+	upon when a task isn't difficult but will take a long, repetitive time to perform.</p></div>
+
+</div>	
+<div class="row">
 		
-	<p><h4>Empathy (EMPH)</h4>
+	<div class="col-md-6"><p><h4>Empathy (EMPH)</h4>
 		Empathy is a representation of a characters ability to understand the thoughts and feelings of others.  It is an essential
-		attribute for social characters who want to understand the motivations of NPCs and PCs.</p>
+		attribute for social characters who want to understand the motivations of NPCs and PCs.</p></div>
 		
-	<p><h4>Influence (INFU)</h4>
+	<div class="col-md-6"><p><h4>Influence (INFU)</h4>
 		Influence is a measure of the characters power to manipulate others. When the character wants to get an npc to do something for them,
 		influence is the attribute they would need to roll to do so. This makes it extremely important for any character that wishes to lead or
-		act as a negotiator for the group.</p>
+		act as a negotiator for the group.</p></div>
+	
+</div>
 	
 	${h3('Attribute values')}
 	
