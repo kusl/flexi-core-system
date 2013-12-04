@@ -59,7 +59,7 @@ ini_test:
 
 
 start_webapp_daemon: ini_vagrant
-	start-stop-daemon --start --pidfile webapp.pid --name flexi --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/$(INI_VAGRANT)"
+	start-stop-daemon --start --pidfile webapp.pid --name $(PROJECT) --make-pidfile --background --exec /bin/bash -- -c "$(CURDIR)/env/bin/pserve $(CURDIR)/$(INI_VAGRANT)"
 stop_webapp_daemon:
 	start-stop-daemon --stop  --pidfile webapp.pid && rm webapp.pid
 

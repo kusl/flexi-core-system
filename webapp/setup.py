@@ -17,6 +17,7 @@ install_requires = [
     'python-dateutil',
     'dogpile.cache',
     'mock',
+    'xlrd',
 ]
 test_requires = [
     'pyramid_debugtoolbar',
