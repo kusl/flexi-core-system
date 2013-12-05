@@ -66,6 +66,7 @@ stop_webapp_daemon:
 clean:
 	rm -rf webapp.pid
 	rm -rf env
+    #rm -rf data
 	rm -rf $(PATH_ASSETS)
 	rm -rf *.egg-info
 	rm -rf vagrant.ini
@@ -73,3 +74,5 @@ clean:
 	rm -rf dependencys_installed.json
 	find . -name '*.pyc' -delete
 
+extract_xls:
+	env/bin/python3 $(PROJECT)/scripts/extract_xls.py 
