@@ -1,6 +1,8 @@
 import xlrd
 import re
 import collections
+import operator
+import functools
 
 #-------------------------------------------------------------------------------
 # Constants
@@ -145,6 +147,20 @@ class WoundProcessor(SheetProcessor):
                 del wound['']
         return list(filter(bool, wounds))
 
+class TraitProcessor(SheetProcessor):
+    name='traits'
+    cols = (
+        ('trait', None),
+        ('catagory', None),
+        ('description', None),
+    )
+    def post_processor(self, traits_rows):
+        traits = {}
+        for trait in traits_rows:
+            category = trait.pop('catagory')
+            traits[category] = trait
+        return traits
+
 
 def merge_key_mappings(data, key_mapping):
     """
@@ -209,7 +225,7 @@ def process_sheet(sheet, sheet_processor):
 #}
 WeaponProcessor()
 WoundProcessor()
-
+TraitProcessor()
 
 def get_args():
     import argparse
@@ -229,13 +245,14 @@ def main():
     sheets = (
         ('1', 'weapons'),
         ('2', 'wounds'),
+        ('3', 'traits'),
     )
     
-    workbook = xlrd.open_workbook('data/2.xls')
+    workbook = xlrd.open_workbook('data/3.xls')
     sheet = workbook.sheet_by_index(0)
     #Or by name
     #sheet = workbook.sheet_by_name('Sheet1')
-    items = process_sheet(sheet, SheetProcessor._processors['wounds'])  #sheet_processors
+    items = process_sheet(sheet, SheetProcessor._processors['traits'])  #sheet_processors
     
     import pdb ; pdb.set_trace()
 
