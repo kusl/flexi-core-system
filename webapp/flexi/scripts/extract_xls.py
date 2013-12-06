@@ -41,10 +41,16 @@ def parse_rate_of_fire(value):
 
 #SheetProcessor = collections.namedtuple('SheetProcessor',['cols', 'post_processor_func'])
 class SheetProcessor(object):
-    def __init__(self):
-        pass
+    _processors = {}
+    #def __new__(mcls, name, bases, namespace):
+    #    cls = super().__new__(mcls, name, bases, namespace)
+    #    return cls
+    def __init__(self, *args, **kwargs):
+        #super().__init__(*args, **kwargs)
+        self._processors[self.name] = self
 
 class WeaponProcessor(SheetProcessor):
+    name='weapons'
     cols = (
         ('name', None),
         ('penetration_base', int),
@@ -112,10 +118,6 @@ class WeaponProcessor(SheetProcessor):
         return list(filter(bool, weapons))
 
 
-sheet_processors = {
-    'weapons': WeaponProcessor(),
-}
-
 def merge_key_mappings(data, key_mapping):
     """
     Sometimes rows contain multiple siquential colums that are one item of data.
@@ -174,6 +176,12 @@ def process_sheet(sheet, sheet_processor):
 # Command Line
 #-------------------------------------------------------------------------------
 
+#sheet_processors = {
+#    'weapons': WeaponProcessor(),
+#}
+WeaponProcessor()
+
+
 def get_args():
     import argparse
     # Command line argument handling
@@ -193,7 +201,7 @@ def main():
     sheet = workbook.sheet_by_index(0)
     #Or by name
     #sheet = workbook.sheet_by_name('Sheet1')
-    items = process_sheet(sheet, sheet_processors['weapons'])
+    items = process_sheet(sheet, SheetProcessor._processors['weapons'])  #sheet_processors
     
     import pdb ; pdb.set_trace()
 
