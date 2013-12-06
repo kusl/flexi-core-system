@@ -1,6 +1,7 @@
 import xlrd
 import re
 
+
 #-------------------------------------------------------------------------------
 # Constants
 #-------------------------------------------------------------------------------
@@ -12,44 +13,37 @@ RE_DAMAGE_RANK     = re.compile(r'[ABC]$', flags=re.IGNORECASE)
 RE_DAMAGE_TYPE     = re.compile(r'(K-P|HEAT|RADI)$', flags=re.IGNORECASE)
 RE_CRITICAL_RATING = re.compile(r'(?P<damage_rank>[ABC])/(?P<modifyer>-?\d)$', flags=re.IGNORECASE)
 RE_RADIUS          = re.compile(r'(?P<close>[-\d])/(?P<medium>[-\d])/(?P<long>[-\d])$', flags=re.IGNORECASE)
+RE_RATE_OF_FIRE    = re.compile(r'(?P<single>[-\d])/(?P<semi>[-\d])/(?P<auto>[-\d])$', flags=re.IGNORECASE)
+
+def _groupdict_int(value, regex):
+    return {key:(None if value is '-' else int(value)) for key,value in regex.match(value).groupdict().items()}
 
 def parse_dice(value):
-    try:
-        return {key:int(value) for key,value in RE_DICE.match(value).groupdict().items()}
-    except Exception:
-        return
+    return _groupdict_int(value, RE_DICE)
 
 def parse_damage_type(value):
-    try:
-        return RE_DAMAGE_TYPE.match(value).group(0).upper()
-    except Exception:
-        return
+    return RE_DAMAGE_TYPE.match(value).group(0).upper()
 
 def parse_damage_rank(value):
-    try:
-        return RE_DAMAGE_RANK.match(value).group(0).upper()
-    except Exception:
-        return
+    return RE_DAMAGE_RANK.match(value).group(0).upper()
 
 def parse_critical_rating(value):
-    try:
-        critical_rating = RE_CRITICAL_RATING.match.groupdict()
-        critical_rating['modifyer'] = int(critical_rating['modifyer'])
-        return critical_rating
-    except Exception:
-        return
+    critical_rating = RE_CRITICAL_RATING.match(value).groupdict()
+    critical_rating['modifyer'] = int(critical_rating['modifyer'])
+    return critical_rating
 
 def parse_radius(value):
-    try:
-        return RE_RADIUS.match(value).groupdict()
-    except Exception:
-        return
-    
+    return _groupdict_int(value, RE_RADIUS)
+
+def parse_rate_of_fire(value):
+    return _groupdict_int(value, RE_RATE_OF_FIRE)
+
+
 
 colum_identifyers = {
     'weapons': [
-        #'type',
         #'class',
+        #'type',
         ('name', None),
         ('base_penetration', int),
         ('penetration_bonus_ss', parse_dice),
@@ -69,12 +63,36 @@ colum_identifyers = {
         ('size', None),
         ('minimum_strength', int),
         ('reload', None),
-        ('rate_of_fire', None),
+        ('rate_of_fire', parse_rate_of_fire),
         ('cost', int),
         ('legality', None),
         ('avalability', None),
     ],
 }
+
+def post_processor(weapons):
+    _class = None
+    _type = None
+    #import pdb ; pdb.set_trace()
+    for weapon in weapons:
+        # Remeber 'Class'
+        if weapon.get('name') and weapon.get('avalability')=='Availability':
+            _type = weapon.get('name')
+            weapon.clear()
+            continue
+        # Remeber 'Type'
+        if weapon.get('name') and weapon.get('avalability')=='':
+            _class = weapon.get('name')
+            weapon.clear()
+            continue
+        # Overlay 'Class' and 'Type'
+        if weapon.get('avalability'):
+            weapon['class'] = _class
+            weapon['type'] = _type
+        else:
+            weapon.clear()
+    return weapons
+
 
 #-------------------------------------------------------------------------------
 # Command Line
@@ -89,7 +107,6 @@ def get_args():
     )
     parser.add_argument('--version', action='version', version=VERSION)
 
-    #import pdb ; pdb.set_trace()
 
     return parser.parse_args()
 
@@ -107,15 +124,22 @@ def main():
         for col in range(0, len(colum_identifyers['weapons'])):
             # Cell Types: 0=Empty, 1=Text, 2=Number, 3=Date, 4=Boolean, 5=Error, 6=Blank
             #cell_type = sheet.cell_type(row, col)
-            value = sheet.cell_value(row, col)
-            if value:
-                weapon[colum_identifyers['weapons'][col]] = value
+            try:
+                value = sheet.cell_value(row, col)
+            except IndexError:
+                break # we've run out of sheet
+            if value is not None:
+                col_name, parser = colum_identifyers['weapons'][col]
+                try:
+                    weapon[col_name] = parser(value) if parser else value
+                except Exception:
+                    pass
         if weapon:
             weapons.append(weapon)
             row += 1
         else:
             break
-        
+    post_processor(weapons)
     import pdb ; pdb.set_trace()
 
 if __name__ == "__main__":
