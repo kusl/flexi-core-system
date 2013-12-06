@@ -1,6 +1,6 @@
 import xlrd
 import re
-
+import collections
 
 #-------------------------------------------------------------------------------
 # Constants
@@ -39,13 +39,15 @@ def parse_rate_of_fire(value):
     return _groupdict_int(value, RE_RATE_OF_FIRE)
 
 
+#SheetProcessor = collections.namedtuple('SheetProcessor',['cols', 'post_processor_func'])
+class SheetProcessor(object):
+    def __init__(self):
+        pass
 
-colum_identifyers = {
-    'weapons': [
-        #'class',
-        #'type',
+class WeaponProcessor(SheetProcessor):
+    cols = (
         ('name', None),
-        ('base_penetration', int),
+        ('penetration_base', int),
         ('penetration_bonus_ss', parse_dice),
         ('penetration_bonus_bf', parse_dice),
         ('penetration_bonus_fa', parse_dice),
@@ -67,31 +69,105 @@ colum_identifyers = {
         ('cost', int),
         ('legality', None),
         ('avalability', None),
-    ],
+    )
+    def post_processor(self, weapons):
+        _class = None
+        _type = None
+        for weapon in weapons:
+            # Remeber 'Class'
+            if weapon.get('name') and weapon.get('avalability')=='Availability':
+                _type = weapon.get('name')
+                weapon.clear()
+                continue
+            # Remeber 'Type'
+            if weapon.get('name') and weapon.get('avalability')=='':
+                _class = weapon.get('name')
+                weapon.clear()
+                continue
+            # is a full weapon
+            if weapon.get('avalability'):
+                # Overlay 'Class' and 'Type'
+                weapon['class'] = _class
+                weapon['type'] = _type
+                # Combine related fields
+                weapon_mapping = (
+                    ('range_effecivness', (
+                        ('0','range_effectivness_full'),
+                        ('1','range_effectivness_1'),
+                        ('2','range_effectivness_2'),
+                        ('3','range_effectivness_3'),
+                        ('4','range_effectivness_4'),
+                        ('5','range_effectivness_5'),
+                    )),
+                    ('penetration', (
+                        ('base', 'penetration_base'),
+                        ('bf'  , 'penetration_bonus_bf'),
+                        ('fa'  , 'penetration_bonus_fa'),
+                        ('ss'  , 'penetration_bonus_ss'),
+                    ))
+                )
+                merge_key_mappings(weapon, weapon_mapping)
+            else:
+                weapon.clear()
+        return list(filter(bool, weapons))
+
+
+sheet_processors = {
+    'weapons': WeaponProcessor(),
 }
 
-def post_processor(weapons):
-    _class = None
-    _type = None
-    #import pdb ; pdb.set_trace()
-    for weapon in weapons:
-        # Remeber 'Class'
-        if weapon.get('name') and weapon.get('avalability')=='Availability':
-            _type = weapon.get('name')
-            weapon.clear()
-            continue
-        # Remeber 'Type'
-        if weapon.get('name') and weapon.get('avalability')=='':
-            _class = weapon.get('name')
-            weapon.clear()
-            continue
-        # Overlay 'Class' and 'Type'
-        if weapon.get('avalability'):
-            weapon['class'] = _class
-            weapon['type'] = _type
+def merge_key_mappings(data, key_mapping):
+    """
+    Sometimes rows contain multiple siquential colums that are one item of data.
+    e.g. multiple range values for weapons.
+    rather than having these as discreat items it is possible to merge/map these sub keys into a new sub dict
+    
+    >>> key_mapping = ('test', (('a','test_1'), ('b','test_2'))
+    >>> data = {'name':'bob', 'test_1':'data_a', 'test_2':'data_b',}
+    >>> merge_key_mappings(data, key_mappings)
+    {'name':'bob', 'test':{'a':'data_a', 'b':'data_b'}}
+    
+    """
+    for destination_key, mapped_keys in key_mapping:
+        data_sub = {}
+        for destination_key_sub, source_key in mapped_keys:
+            data_sub[destination_key_sub] = data.get(source_key)
+            if source_key in data:
+                del data[source_key]
+        data[destination_key] = data_sub
+
+def process_sheet(sheet, sheet_processor):
+    """
+    All rows will be attempted to be parsed with the same row parser.
+    It is expected that some rows will be blank or contain heading data.
+    It is expected that the 'post_processor' will identify these empty or heading rows and remove them.
+    These headings may contain additional information that needs to be overlayed over the other extracted rows
+    """
+    items = []
+    row = 0
+    # Step 1.) Extract all possible items with the colum parsers provided
+    while True:
+        item = {}
+        for col in range(0, len(sheet_processor.cols)):
+            # Cell Types: 0=Empty, 1=Text, 2=Number, 3=Date, 4=Boolean, 5=Error, 6=Blank
+            #cell_type = sheet.cell_type(row, col)
+            try:
+                value = sheet.cell_value(row, col)
+            except IndexError:
+                break # we've run out of sheet
+            if value is not None:
+                col_name, parser = sheet_processor.cols[col]
+                try:
+                    item[col_name] = parser(value) if parser else value
+                except Exception:
+                    pass
+        if item:
+            items.append(item)
+            row += 1
         else:
-            weapon.clear()
-    return weapons
+            break
+    # Step 2.) run post porocessor function to tidy up data input
+    return sheet_processor.post_processor(items)
 
 
 #-------------------------------------------------------------------------------
@@ -117,29 +193,8 @@ def main():
     sheet = workbook.sheet_by_index(0)
     #Or by name
     #sheet = workbook.sheet_by_name('Sheet1')
-    weapons = []
-    row = 0
-    while True:
-        weapon = {}
-        for col in range(0, len(colum_identifyers['weapons'])):
-            # Cell Types: 0=Empty, 1=Text, 2=Number, 3=Date, 4=Boolean, 5=Error, 6=Blank
-            #cell_type = sheet.cell_type(row, col)
-            try:
-                value = sheet.cell_value(row, col)
-            except IndexError:
-                break # we've run out of sheet
-            if value is not None:
-                col_name, parser = colum_identifyers['weapons'][col]
-                try:
-                    weapon[col_name] = parser(value) if parser else value
-                except Exception:
-                    pass
-        if weapon:
-            weapons.append(weapon)
-            row += 1
-        else:
-            break
-    post_processor(weapons)
+    items = process_sheet(sheet, sheet_processors['weapons'])
+    
     import pdb ; pdb.set_trace()
 
 if __name__ == "__main__":
