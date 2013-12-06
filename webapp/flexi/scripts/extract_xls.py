@@ -8,6 +8,8 @@ import collections
 
 VERSION = "0.0"
 
+WOUND_LEVELS = ['dead','mortal','deadly','serious','severe','light','superficial','unharmed']
+
 RE_DICE            = re.compile(r'(?P<quantity>\d{1,2})D(?P<type>\d{1,2})', flags=re.IGNORECASE)
 RE_DAMAGE_RANK     = re.compile(r'[ABC]$', flags=re.IGNORECASE)
 RE_DAMAGE_TYPE     = re.compile(r'(K-P|HEAT|RADI)$', flags=re.IGNORECASE)
@@ -38,6 +40,10 @@ def parse_radius(value):
 def parse_rate_of_fire(value):
     return _groupdict_int(value, RE_RATE_OF_FIRE)
 
+def parse_wound_level(value):
+    value = value.lower()
+    if value in WOUND_LEVELS:
+        return value
 
 #SheetProcessor = collections.namedtuple('SheetProcessor',['cols', 'post_processor_func'])
 class SheetProcessor(object):
@@ -117,6 +123,28 @@ class WeaponProcessor(SheetProcessor):
                 weapon.clear()
         return list(filter(bool, weapons))
 
+class WoundProcessor(SheetProcessor):
+    name='wounds'
+    cols = (
+        ('', None),
+        ('', None),
+        ('location', None),
+        ('12>10', parse_wound_level),
+        ('9>7', parse_wound_level),
+        ('6>5', parse_wound_level),
+        ('4>3', parse_wound_level),
+        ('2>1', parse_wound_level),
+        ('0>-2', parse_wound_level),
+        ('-3>-5', parse_wound_level),
+    )
+    def post_processor(self, wounds):
+        for wound in wounds:
+            if not wound.get('location'):
+                wound.clear()
+            if '' in wound:
+                del wound['']
+        return list(filter(bool, wounds))
+
 
 def merge_key_mappings(data, key_mapping):
     """
@@ -180,6 +208,7 @@ def process_sheet(sheet, sheet_processor):
 #    'weapons': WeaponProcessor(),
 #}
 WeaponProcessor()
+WoundProcessor()
 
 
 def get_args():
@@ -197,11 +226,16 @@ def get_args():
 def main():
     args = get_args()
     
-    workbook = xlrd.open_workbook('data/1.xls')
+    sheets = (
+        ('1', 'weapons'),
+        ('2', 'wounds'),
+    )
+    
+    workbook = xlrd.open_workbook('data/2.xls')
     sheet = workbook.sheet_by_index(0)
     #Or by name
     #sheet = workbook.sheet_by_name('Sheet1')
-    items = process_sheet(sheet, SheetProcessor._processors['weapons'])  #sheet_processors
+    items = process_sheet(sheet, SheetProcessor._processors['wounds'])  #sheet_processors
     
     import pdb ; pdb.set_trace()
 
