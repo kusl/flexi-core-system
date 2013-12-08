@@ -1,14 +1,20 @@
-import xlrd
+import os
 import re
-import collections
-import operator
-import functools
+import json
+import xlrd
+
+import logging
+log = logging.getLogger(__name__)
+
 
 #-------------------------------------------------------------------------------
 # Constants
 #-------------------------------------------------------------------------------
 
 VERSION = "0.0"
+
+DEFAULT_FOLDER_SOURCE = '../content/static/data/'
+DEFAULT_FOLDER_DESTINATION = DEFAULT_FOLDER_SOURCE
 
 WOUND_LEVELS = ['dead','mortal','deadly','serious','severe','light','superficial','unharmed']
 
@@ -234,6 +240,9 @@ def get_args():
         description="""extract xls sheet data into json""",
         epilog=""""""
     )
+    parser.add_argument('--folder_source',  help='source folder', default=DEFAULT_FOLDER_SOURCE)
+    parser.add_argument('--folder_destination',  help='destination folder', default=DEFAULT_FOLDER_DESTINATION)
+    parser.add_argument('--log_level', type=int,  help='log level', default=logging.INFO)
     parser.add_argument('--version', action='version', version=VERSION)
 
 
@@ -242,19 +251,24 @@ def get_args():
 def main():
     args = get_args()
     
+    logging.basicConfig(level=args.log_level)
+    
+    # Todo - get xls file list
     sheets = (
-        ('1', 'weapons'),
-        ('2', 'wounds'),
-        ('3', 'traits'),
+        'weapons',
+        'wounds',
+        'traits',
     )
-    
-    workbook = xlrd.open_workbook('data/3.xls')
-    sheet = workbook.sheet_by_index(0)
-    #Or by name
-    #sheet = workbook.sheet_by_name('Sheet1')
-    items = process_sheet(sheet, SheetProcessor._processors['traits'])  #sheet_processors
-    
-    import pdb ; pdb.set_trace()
+    for sheet_filename in sheets:
+        filename_source = os.path.join(args.folder_source, '{0}.xls'.format(sheet_filename))
+        filename_destination = os.path.join(args.folder_destination, '{0}.json'.format(sheet_filename))
+        log.info('Extracting {0} -> {1}'.format(filename_source, filename_destination))
+        workbook = xlrd.open_workbook(filename_source)
+        sheet = workbook.sheet_by_index(0)
+        items = process_sheet(sheet, SheetProcessor._processors[sheet_filename])
+        with open(filename_destination, 'w') as file:
+            json.dump(items, file)
+
 
 if __name__ == "__main__":
     main()
