@@ -54,9 +54,8 @@ $(document).ready(function() {
 	});
 
 	$('.data_target').each(function () {
-		$data_target = $(this);
-		var source = $data_target.attr('data-source');
-		console.log(source);
+		var $data_target = $(this);
+		generate_table($data_target, $data_target.attr('data-source'));
 	});
 	
 });
