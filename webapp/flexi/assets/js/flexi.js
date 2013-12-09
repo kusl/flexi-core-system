@@ -53,6 +53,12 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.data_target').each(function () {
+		$data_target = $(this);
+		var source = $data_target.attr('data-source');
+		console.log(source);
+	});
+	
 });
 
 function scrollTo ($el, offset) {

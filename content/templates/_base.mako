@@ -125,6 +125,7 @@ ${self.init()}\
 	<script src="${ asset_url }ext/js/jquery.cookie.js"></script>
 	<script src="${ asset_url }ext/js/bootstrap.min.js"></script>
 	<script src="${ asset_url }js/flexi.js"></script>
+	<script src="${ asset_url }js/data_manager.js"></script>
 </%def>
 
 <%def name="modals()">
