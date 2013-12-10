@@ -167,7 +167,10 @@ function get_nested_data_value(key_names, data) {
 	 * >>> get_nested_data_value("b", data);
 	 * {"c":3,"d":4}
 	 */
-	//console.log(1, key_names, data);
+	//console.log('get_nested_data_value', key_names, data);
+	if (data == null) {
+		return null;
+	}
 	if (typeof(data)!="object") {
 		return data;
 	}

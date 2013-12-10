@@ -18,7 +18,7 @@ DEFAULT_FOLDER_DESTINATION = DEFAULT_FOLDER_SOURCE
 
 WOUND_LEVELS = ['dead','mortal','deadly','serious','severe','light','superficial','unharmed']
 
-RE_DICE            = re.compile(r'(?P<quantity>\d{1,2})D(?P<type>\d{1,2})', flags=re.IGNORECASE)
+RE_DICE            = re.compile(r'(?P<quantity>\d{1,2})D(?P<dice_type>\d{1,2})', flags=re.IGNORECASE)
 RE_DAMAGE_RANK     = re.compile(r'[ABC]$', flags=re.IGNORECASE)
 RE_DAMAGE_TYPE     = re.compile(r'(K-P|HEAT|RADI)$', flags=re.IGNORECASE)
 RE_CRITICAL_RATING = re.compile(r'(?P<damage_rank>[ABC])/(?P<modifyer>-?\d)$', flags=re.IGNORECASE)
