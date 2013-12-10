@@ -54,8 +54,7 @@ $(document).ready(function() {
 	});
 
 	$('.data_target').each(function () {
-		var $data_target = $(this);
-		generate_table($data_target, $data_target.attr('data-source'));
+		generate_table($(this));
 	});
 	
 });
@@ -154,3 +153,29 @@ progressbar = {
 	}
 };
 progressbar.init();
+
+
+// Lib -------------------------------------------------------------------------
+
+function get_nested_data_value(key_names, data) {
+	/*
+	 * >>> data = {"a":1,"b":{"c":3,"d":4}};
+	 * >>> get_nested_data_value("a", data);
+	 * 1
+	 * >>> get_nested_data_value("b:d", data);
+	 * 4
+	 * >>> get_nested_data_value("b", data);
+	 * {"c":3,"d":4}
+	 */
+	//console.log(1, key_names, data);
+	if (typeof(data)!="object") {
+		return data;
+	}
+    if (typeof(key_names)=="string") {
+		key_names = key_names.split(":");
+	}
+	if (key_names[0] in data) {
+		return get_nested_data_value(key_names.slice(1), data[key_names[0]])
+	}
+	return data;
+};
