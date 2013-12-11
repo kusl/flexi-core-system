@@ -1,6 +1,8 @@
 
 ROW_TEMPLATES = {
     "weapons": [
+        'type',
+        'class',
         'name',
         'penetration:base',
         'penetration:ss',
@@ -8,7 +10,21 @@ ROW_TEMPLATES = {
         'penetration:fa',
         'damage_ranking',
         'damage_type',
-        'critital_rating'
+        'critital_rating',
+        'range_effecivness:0',
+        'range_effecivness:1',
+        'range_effecivness:2',
+        'range_effecivness:3',
+        'range_effecivness:4',
+        'capacity',
+        'radius',
+        'size',
+        'minimum_strength',
+        'reload',
+        'rate_of_fire',
+        'cost',
+        'legality',
+        'avalability'
     ]
 };
 
@@ -18,6 +34,8 @@ function data_object_string(data_object) {
     /*
      * Take a json data object and infer a type and print it
      */
+    function null_dash(value) {if (value==null) {return '-'} else {return value;}}
+    
     if (data_object == null) {return "";}
     if (typeof(data_object) != "object") {return data_object;}
     if ('dice_type' in data_object) {
@@ -25,6 +43,12 @@ function data_object_string(data_object) {
     }
     if ('damage_rank' in data_object) {
         return ""+data_object['damage_rank']+"/"+data_object['modifyer'];
+    }
+    if ('close' in data_object) {
+        return ""+null_dash(data_object['close'])+"/"+null_dash(data_object['medium'])+"/"+null_dash(data_object['long']);
+    }
+    if ('semi' in data_object) {
+        return ""+null_dash(data_object['single'])+"/"+null_dash(data_object['semi'])+"/"+null_dash(data_object['auto']);
     }
     return data_object;
 }
