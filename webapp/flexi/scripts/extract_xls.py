@@ -23,7 +23,7 @@ RE_DAMAGE_RANK     = re.compile(r'[ABC]$', flags=re.IGNORECASE)
 RE_DAMAGE_TYPE     = re.compile(r'(K-P|HEAT|RADI)$', flags=re.IGNORECASE)
 RE_CRITICAL_RATING = re.compile(r'(?P<damage_rank>[ABC])/(?P<modifyer>-?\d)$', flags=re.IGNORECASE)
 RE_RADIUS          = re.compile(r'(?P<close>[-\d])/(?P<medium>[-\d])/(?P<long>[-\d])$', flags=re.IGNORECASE)
-RE_RATE_OF_FIRE    = re.compile(r'(?P<single>[-\d])/(?P<semi>[-\d])/(?P<auto>[-\d])$', flags=re.IGNORECASE)
+RE_RATE_OF_FIRE    = re.compile(r'(?P<single>-|\d)/(?P<semi>-|\d{1,3})/(?P<auto>-|\d{1,3})$', flags=re.IGNORECASE)
 
 def _groupdict_int(value, regex):
     return {key:(None if value is '-' else int(value)) for key,value in regex.match(value).groupdict().items()}

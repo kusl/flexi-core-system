@@ -58,9 +58,15 @@ function generate_table($data_target, source) {
         source = $data_target.attr('data-source')
     }
     console.log("Building: "+source);
-    get_data(source, function(data){
+    get_data(source, function(data) {
         //console.log(data);
-        console.log(render_row("weapons", data[0]));
+        //console.log(render_row("weapons", data[0]));
+        var buffer = "<table>";
+        for (index in data) {
+            buffer += render_row("weapons", data[index]);
+        }
+        buffer += "</table>";
+        $data_target.html(buffer);
     });    
 };
 
@@ -79,12 +85,12 @@ function get_data(source, process_data_func) {
 }
 
 function render_row(row_template, data_row) {
-    console.log(row_template, data_row);
+    //console.log(row_template, data_row);
     var buffer = "";
     buffer += "<tr>";
     $.each(ROW_TEMPLATES[row_template], function(col, key_names) {
         buffer += "<td>"+data_object_string(get_nested_data_value(key_names, data_row))+"</td>";
     });
-    buffer += "</tr>";
+    buffer += "</tr>\n";
     return buffer
 };
