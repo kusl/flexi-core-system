@@ -29,5 +29,11 @@
             "fonts/glyphicons-halflings-regular.eot",
             "fonts/glyphicons-halflings-regular.svg"
         ]
+    },
+    
+    "enquire": {
+        "source": "https://raw.github.com/WickyNilliams/enquire.js/vVERSION/dist/enquire.min.js",
+        "version": "2.1.0",
+        "target": "js/enquire.min.js"
     }
 }
