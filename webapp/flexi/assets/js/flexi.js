@@ -53,9 +53,9 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.data_target').each(function () {
-		generate_table($(this));
-	});
+	//$('.data_target').each(function () {
+	//	generate_table($(this));
+	//});
 	
 });
 
