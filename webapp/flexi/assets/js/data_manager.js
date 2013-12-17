@@ -137,7 +137,9 @@ function field_filter(data, filter) {
 
 function render_data_item_to_template($data_template, data_item) {
     $data_render = $data_template.clone();
-    //$data_render.find(); // Find attributes based on data
+    $.each(data_item, function(key, value){
+        $data_render.find('[data-field="'+key+'"]').html(data_object_string(get_nested_data_value(key,value)));
+    });
     return $data_render;
 }
 

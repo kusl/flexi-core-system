@@ -188,16 +188,6 @@ table.full-table {
 	padding: 1em;
 }
 
-/*
- * Data Table Content layout
- *
- *
- */
-
-.data_target.weapons {
-	font-size: xx-small;	
-}
-.data_target.weapons tr:nth-child(even) {background-color: #eeeeee;}
 
 
 /*
